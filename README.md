@@ -54,6 +54,7 @@
 |card_year|integer|null: false|
 |card_month|integer|null: false|
 |security_code|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
