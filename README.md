@@ -56,7 +56,6 @@
 |card_month|integer|null: false|
 |security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -70,7 +69,7 @@
 |item_text|text|null: false|
 |address|string|null: false|
 |date|string|null: false|
-|bland|string||
+|brand|string||
 |status|string||
 |delivery_charge|integer|null: false|
 |size|string||
@@ -78,9 +77,9 @@
 
 ### Association
 - has_many :comments, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_many :big_categories
 - belongs_to :user
-- belongs_to :image, dependent: :destroy
 - belongs_to :category
 
 
@@ -89,9 +88,10 @@
 |------|----|-------|
 |image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :items
+- belongs_to :item
 
 
 ## commentsテーブル
@@ -110,7 +110,9 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
 |ancestry|string||
 
 ### Association
 - has_many :items
+- has_ancestry
