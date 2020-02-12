@@ -74,11 +74,11 @@
 |delivery_charge|integer|null: false|
 |size|string||
 |user_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :images, dependent: :destroy
-- has_many :big_categories
 - belongs_to :user
 - belongs_to :category
 
@@ -88,7 +88,6 @@
 |------|----|-------|
 |image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
