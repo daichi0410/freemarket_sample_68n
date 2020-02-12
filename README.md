@@ -11,12 +11,12 @@
 |birthday_year|integer|null: false|
 |birthday_month|integer|null: false|
 |birthday_day|integer|null: false|
-|user_review|integer|null: false|
 
 ### Association
 - has_many :items
 - has_many :comments
 - has_many :addresses
+- has_many :cards
 
 
 ## user_reviewsテーブル
@@ -42,9 +42,22 @@
 |number|string|null: false|
 |details|string||
 |phone_number|integer|unique: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :users
+
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card-number|integer|null: false|
+|card_year|integer|null: false|
+|card_month|integer|null: false|
+|security_code|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## itemsテーブル
