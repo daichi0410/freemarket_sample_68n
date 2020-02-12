@@ -16,7 +16,17 @@
 ### Association
 - has_many :items
 - has_many :comments
-- belongs_to :address
+- has_many :addresses
+
+
+## user_reviewsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_review|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
 
 
 ## addressesテーブル
@@ -34,7 +44,7 @@
 |phone_number|integer|unique: true|
 
 ### Association
-- belongs_to :user
+- has_many :users
 
 
 ## itemsテーブル
@@ -43,12 +53,6 @@
 |name|string|null: false|
 |price|integer|null: false|
 |item_text|text|null: false|
-|image1|string|null: false|
-|image2|string||
-|image3|string||
-|image4|string||
-|image5|string||
-|image6|string||
 |address|string|null: false|
 |date|string|null: false|
 |bland|string||
@@ -61,7 +65,19 @@
 - has_many :comments
 - has_many :big_categories
 - belongs_to :user
+- belongs_to :image
 - belongs_to :category
+
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_first|string|null: false|
+|image_another|string||
+|item_id|integer|null: false|
+
+### Association
+- has_many :items
 
 
 ## commentsテーブル
