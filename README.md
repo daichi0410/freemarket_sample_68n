@@ -45,7 +45,8 @@
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
+- belongs_to: user
+
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -55,6 +56,7 @@
 |card_month|integer|null: false|
 |security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -85,8 +87,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_first|string|null: false|
-|image_another|string||
+|image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -106,33 +107,10 @@
 - belongs_to :user
 
 
-## big_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|item_id|integer|null: false|
+|ancestry|string||
 
 ### Association
-- has_many :middle_category
-- belongs_to :items
-
-
-## middle_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|big_category_id|integer|null: false, foreign_key: true|
-
-### Association
-- has_many :small_categories
-- belongs_to :big_category
-
-
-## small_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|middle_category_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :middle_category
+- has_many :items
