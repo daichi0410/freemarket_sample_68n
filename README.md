@@ -13,10 +13,10 @@
 |birthday_day|integer|null: false|
 
 ### Association
-- has_many :items
-- has_many :comments
-- has_many :addresses
-- has_many :cards
+- has_many :items, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :addresses, dependent: :destroy
+- has_many :cards, dependent: :destroy
 
 
 ## user_reviewsテーブル
@@ -75,10 +75,10 @@
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :comments
+- has_many :comments, dependent: :destroy
 - has_many :big_categories
 - belongs_to :user
-- belongs_to :image
+- belongs_to :image, dependent: :destroy
 - belongs_to :category
 
 
