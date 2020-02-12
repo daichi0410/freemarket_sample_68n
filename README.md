@@ -50,11 +50,10 @@
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card-number|integer|null: false|
+|card_number|integer|null: false|
 |card_year|integer|null: false|
 |card_month|integer|null: false|
 |security_code|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -87,7 +86,7 @@
 |------|----|-------|
 |image_first|string|null: false|
 |image_another|string||
-|item_id|integer|null: false|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :items
