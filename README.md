@@ -2,7 +2,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false|
+|email|string|null: false, unique: true|
 |password|string|null: false|
 |family_name|string|null: false|
 |last-name|string|null: false|
@@ -29,9 +29,9 @@
 |postal_code|string|null: false|
 |prefectures|string|null: false|
 |municipality|string|null: false|
-|address|string|null: false|
+|number|string|null: false|
 |details|string||
-|phone_number|string||
+|phone_number|integer|unique: true|
 
 ### Association
 - belongs_to :user
@@ -42,7 +42,7 @@
 |------|----|-------|
 |name|string|null: false|
 |price|integer|null: false|
-|text|integer|null: false|
+|item_text|text|null: false|
 |image1|string|null: false|
 |image2|string||
 |image3|string||
@@ -67,8 +67,8 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|before_text|string||
-|after_text|string||
+|before_text|text||
+|after_text|text||
 |item_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
 
