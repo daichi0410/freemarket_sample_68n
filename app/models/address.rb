@@ -1,4 +1,7 @@
 class Address < ApplicationRecord
+
+  belongs_to :user
+  
   validates :nickname, presence: true
   validates :family_name, presence: true
   validates :last_name, presence: true
