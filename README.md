@@ -73,6 +73,7 @@
 |status|string||
 |delivery_charge|integer|null: false|
 |size|string||
+|sold_out|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 
