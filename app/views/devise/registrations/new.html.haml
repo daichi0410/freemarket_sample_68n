@@ -1,0 +1,64 @@
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :ニックネーム
+    %br/
+    = f.text_field :nickname, autofocus: true,autocomplete: "nickname"
+
+  .field
+    = f.label :漢字氏名（苗字） 
+    %br/
+    = f.text_field :family_name, autocomplete: "family_name"  
+
+  .field
+    = f.label :漢字氏名（名前）
+    %br/
+    = f.text_field :last_name, autocomplete: "last_name"  
+
+  .field
+    = f.label :ふりがな氏名（苗字）
+    %br/
+    = f.text_field :j_family_name, autocomplete: "j_family_name"  
+
+  .field
+    = f.label :ふりがな氏名（名前）
+    %br/
+    = f.text_field :j_last_name, autocomplete: "j_last_name"  
+
+  .field
+    = f.label :生年月日（年）
+    %br/
+    = f.text_field :birthday_year, autocomplete: ":birthday_year"  
+
+  .field
+    = f.label :生年月日（月）
+    %br/
+    = f.text_field :birthday_month, autocomplete: ":birthday_month"  
+
+  .field
+    = f.label :生年月日（日）
+    %br/
+    = f.text_field :birthday_day, autocomplete: ":birthday_day"  
+
+  .field
+    = f.label :email（＠とドメイン名は必須）
+    %br/
+    = f.email_field :email, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em (最低７文字以上)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  
+= form_for 
+
+
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"
