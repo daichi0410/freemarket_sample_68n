@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
 
   private
 
+  # user_id,category_idは機能未実装のため仮の値をセットしている。
   def item_params
     params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, images_attributes: [:image]).merge(user_id: 1, sold_out: 0,category_id: 1)
   end
