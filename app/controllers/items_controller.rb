@@ -13,11 +13,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to items_path
-    else
-      render :new
-    end
+    # item transact: :environment do
+      ActiveRecord::Base.transaction do
+        if @item.save!
+          redirect_to items_path
+        else
+          render :new
+        end
+      end
+    # end
   end
 
   private
