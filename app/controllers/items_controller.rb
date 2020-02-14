@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
     # end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   private
 
   # user_id,category_idは機能未実装のため仮の値をセットしている。
