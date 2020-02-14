@@ -6,4 +6,6 @@ class ItemsController < ApplicationController
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
   
+  def show
+  end
 end
