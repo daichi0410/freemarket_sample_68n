@@ -14,7 +14,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
+    binding.pry
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname,:family_name,:last_name,:j_family_name,:j_last_name,:birthday_year,:birthday_month,:birthday_day ,:addresses_attributes => [:family_name,:last_name,:j_family_name,:j_last_name,:postal_code,:prefectures,:municipality,:number,:details,:phone_number]])
+
     # devise_parameter_sanitizer.permit(:sign_up,:nickname,:family_name,:last_name,:j_family_name,:j_last_name,:birthday_year,:birthday_month,:birthday_day ,keys: [addresses_attributes: [:family_name,:last_name,:j_family_name,:j_last_name,:postal_code,:prefectures,:municipality,:number,:details,:phone_number]])
 
   end

@@ -57,7 +57,7 @@
     = f.password_field :password_confirmation, autocomplete: "new-password"
 
   
-    = f.fields_for :addresses do |i|
+    = f.fields_for :address do |i|
       .field
         = i.label :送付先氏名（苗字） 
         %br/
