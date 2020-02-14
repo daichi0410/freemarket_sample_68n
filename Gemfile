@@ -86,3 +86,4 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
 gem "font-awesome-rails"
+gem 'jquery-rails'
