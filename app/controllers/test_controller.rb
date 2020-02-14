@@ -1,6 +1,6 @@
 class TestController < ApplicationController
-  # def index    
-  # end
+  def index    
+  end
 
   # def new
   #   @address = Adresses.new
