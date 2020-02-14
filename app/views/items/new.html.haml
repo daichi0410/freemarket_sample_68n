@@ -6,7 +6,8 @@
 
   = form.text_field :price, placeholder: "price", class: 'price'
   = form.text_area :item_text, placeholder: "商品の説明", class: 'item_text'
-  = form.text_field :address, placeholder: "配送元", class: 'address'
+  -# = form.text_field :address, placeholder: "発送元", class: 'address'
+  = form.collection_select :address, Prefecture.all, :id, :name
   = form.text_field :date, placeholder: "date", class: 'date'
   = form.text_field :brand, placeholder: "ブランド", class: 'brand'
   = form.text_field :status, placeholder: "状態", class: 'status'
