@@ -89,3 +89,4 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
+gem "font-awesome-rails"

@@ -48,6 +48,23 @@ ActiveRecord::Schema.define(version: 2020_02_13_100706) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
+    
+ActiveRecord::Schema.define(version: 2020_02_13_053922) do
 
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.text "item_text", null: false
+    t.string "address", null: false
+    t.string "date", null: false
+    t.string "brand"
+    t.string "status"
+    t.integer "delivery_charge", null: false
+    t.string "size"
+    t.integer "sold_out", null: false
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
