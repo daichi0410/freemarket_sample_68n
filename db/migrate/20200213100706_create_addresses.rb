@@ -11,7 +11,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :number, null:false
       t.string :details
       t.integer :phone_number,null:false
-      t.integer :user_id,null:false
+      t.references :user
       t.timestamps
     end
 

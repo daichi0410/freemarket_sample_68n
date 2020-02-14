@@ -3,10 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_one :address
-  accepts_nested_attributes_for :address
-
+  # accepts_nested_attributes_for :address
   validates :nickname, presence: true
   validates :encrypted_password, presence: true
   validates :family_name, presence: true
@@ -17,4 +14,8 @@ class User < ApplicationRecord
   validates :birthday_month, presence: true
   validates :birthday_day, presence: true
   devise :validatable, password_length: 7..128
+
+
+  has_one :address
+
 end
