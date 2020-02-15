@@ -1,256 +1,242 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %link{:href => "style.css", :rel => "stylesheet"}/
-    %title FURIMA
-  %body
-    %header.header
-      .header__inner
-        .header__inner__main
-          .header__inner__main__icon
-            %a{:href => "/"}
-              %img{:src => "assets/logo/logo.png"}/
-          .header__inner__search
-            %form{"accept-charset" => "UTF-8", :action => "#", :method => "get"}
-              %input{:name => "utf8", :type => "hidden"}/
-              %input.header__inner__search__input{:name => "key", :placeholder => "キーワードから探す"}/
-            %form.header__inner__search__button{:action => "/", :method => "post", :type => "submit"}
-              %button{:type => "submit"}
-                .header__inner__search__button__icon
-                  %img{:src => "assets/icon/icon-search 1.png", class: "search" }/
-        .nav
-          %ul.nav__left
-            %li.nav__left__category
-              %a#catbtn{:href => "#"} カテゴリー
-              .nav__left__category__tree
-                %ul.categoryTree
-            %li.nav__left__brand
-              %a#brandbtn{:href => "#"} ブランド
-              %ul.nav__left__brand__list
-          %ul.nav__right
-            %li.nav__right__login
-              %a{:href => "#"} ログイン
-            %li.nav__right__login__new
-              %a{:href => "#"} 新規会員登録
-    ​
-    .main
-      %section.main__visual
-        .main__visual__content
-          %h2.main__visual__content__subtitle
-            %br/
-            人生を変えるフリマアプリ
-          %p.main__visual__content__text
-            FURIMAはだれでもかんたんに出品・購入できる
-            %br/
-            フリマアプリです
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore1", :style => "margin: 10px 10px;"}/
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google1" }/
-        .picture
-      %section.main__introduction
-        %h2.main__introduction__subtitle
-          FURIMAが選ばれる3つの理由
-        %ul.main__introduction__lists
-          %li.main__introduction__lists__list
-            .main__introduction__lists__list__pict
-              %span.number 1
-              %img{:src => "assets/pict/pict-reason-01.jpg"}/
-            %h3.main__introduction__lists__list__text
-              %span 3分
-              ですぐに出品
-            %p.main__introduction__lists__list__description
-              スマホで入力するだけで簡単に出品できる！
-          %li.main__introduction__lists__list
-            .main__introduction__lists__list__pict
-              %span.number 2
-              %img{:src => "assets/pict/pict-reason-02.jpg"}/
-            %h3.main__introduction__lists__list__text
-              %span シンプル
-              で使いやすい
-            %p.main__introduction__lists__list__description
-              めんどくさい入力は必要なく、検索も購入もスムーズ！
-          / <li class="list list--last">
-          %li.main__introduction__lists__list
-            .main__introduction__lists__list__pict
-              %span.number 3
-              %img{:src => "assets/pict/pict-reason-03.jpg"}/
-            %h3.main__introduction__lists__list__text
-              手数料
-              %span 業界最安
-            %p.main__introduction__lists__list__description
-              最大3%でお得に出品&amp;購入！
-      %section.main__middle
-        .main__middle__inner
-          %h2.main__middle__inner__subtitle 会員数日本一位
-          %p.main__middle__inner__text
-            FURIMAは、フリマアプリで最も人気。
-            %br/
-            出品・購入回数も業界最多です！
-            %br/
-            ほしかったあの商品に出会えるかもしれません。
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore2", :style => "margin: 10px 10px;"}/
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google2" }/
-      %section.main__features
-        %h2.main__feautures__head FURIMAの特徴
-        .main__feautures__head__items
-          %section.main__feautures__head__items__item
-            %figure.main__feautures__head__items__item__img
-            %img{:src => "assets/icon/icon-01.png"}/
-            %h3.main__feautures__head__items__item__topic 簡単に売り買いできる
-            %p.main__feautures__head__items__item__detail
-              スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-          %section.main__feautures__head__items__item
-            %figure.main__feautures__head__items__item__img
-            %img{:src => "assets/icon/icon-03.png"}/
-            %h3.main__feautures__head__items__item__topic 売上金は即日振込みに対応
-            %p.main__feautures__head__items__item__detail
-              午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-          %section.main__feautures__head__items__item
-            %figure.main__feautures__head__items__item__img
-            %img{:src => "assets/icon/icon-04.png"}/
-            %h3.main__feautures__head__items__item__topic 様々な支払いに対応
-            %p.main__feautures__head__items__item__detail
-              お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-      %section.pickup
-        %h2.pickup__head ピックアップカテゴリー
-        .pickup__box
-          .pickup__box__topic
-            %a{:href => "#"}
-              %h3.pickup__box__topic__title 新規投稿商品
-          .pickup__box__products
-            .pickup__box__products
-              %a{:href => "#"}
-                %figure.pickup__box__products__product__img
-                  %img{:alt => "新規投稿商品", :src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-                .pickup__box__products__product__body
-                  %h3.pickup__box__products__product__body__name product1
-                  .pickup__box__products__product__body__details
-                    %ul
-                      %li 30000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-            .pickup__box__products__product
-              %a{:href => "#"}
-                %figure.pickup__box__products__product__img
-                  %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-                .pickup__box__products__product__body
-                  %h3.pickup__box__products__product__body__name product2
-                  .pickup__box__products__product__body__details
-                    %ul
-                      %li 20000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-            .pickup__box__products__list
-              %a{:href => "#"}
-                %figure.pickup__box__products__list__img
-                  %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-                .pickup__box__products__product__body
-                  %h3.pickup__box__products__product__body__name product3
-                  .pickup__box__products__product__body__details
-                    %ul
-                      %li 10000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-      %section.container
-        %h2.container__head ピックアップブランド
-        .contaier__box
-          .contaier__box__topic
-            %a{:href => "#"}
-              %h3.container__box__topic__title アーカイバ
-          .container__box__products
-            .container__box__products__product
-              %a{:href => "#"}
-                %figure.container__box__products__product__img
-                  %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
-                .container__box__products__product__body
-                  %h3.container__box__products__product__body__name product1
-                  .container__box__products__product__body__details
-                    %ul
-                      %li 30000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-            .container__box__products__product
-              %a{:href => "#"}
-                %figure.container__box__products__product__img
-                  %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
-                .container__box__products__product__body
-                  %h3.container__box__products__product__body__name product2
-                  .container__box__products__product__body__details
-                    %ul
-                      %li 20000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-            .productList
-              %a{:href => "#"}
-                %figure.productList--img
-                  %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
-                .container__box__products__product__body
-                  %h3.container__box__products__product__body__name product3
-                  .container__box__products__product__body__details
-                    %ul
-                      %li 10000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                        0
-                    %p (税込)
-                    
-      %aside.app
-        .app__banner
-          %h2.app__banner__title だれでもかんたん、人生を変えるフリマアプリ
-          %p.app__banner__text 今すぐ無料ダウンロード！
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore3", :style => "margin: 10px 10px;"}/
-          %a{:href => "アプリのリンク"}
-            %img{:alt => "AppStoreからダウンロード", :height => "40", :src => "https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google3" }/
-  .footer
-    %ul.footer__contents
-      %li.footer__contents__content1
-        %h2.footer__contents__content__head FURIMAについて
-        %ul
-          %li
-            %a{:href => "#"} 会社概要（運営会社）
-          %li
-            %a{:href => "#"} プライバシーポリシー
-          %li
-            %a{:href => "#"} FURIMA利用規約
-          %li
-            %a{:href => "#"} ポイントに関する特約
-      %li.footer__contents__content2
-        %h2.footer__contents__content__head FURIMAを見る
-        %ul
-          %li
-            %a{:href => "#"} カテゴリー一覧
-          %li
-            %a{:href => "#"} ブランド一覧
-      %li.footer__contents__content3
-        %h2.footer__contents__content__head ヘルプ＆ガイド
-        %ul
-          %li
-            %a{:href => "#"} FURIMAガイド
-          %li
-            %a{:href => "#"} FURIMAロゴ利用ガイドライン
-          %li
-            %a{:href => "#"} お知らせ
-    .footer__logo
-      %a{:href => "/"}
-        %img{:src => "assets/logo/logo-white.png"}/
-    %p © FURIMA
-    
-  %a{:href => "#"}
-    .purchase
-      %span.purchase__text 出品する
-      %img.purchase__icon{:src => "assets/icon/icon_camera.png"}/
+
+%header.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        = link_to "/items" do
+          = image_tag("logo/logo.png", alt: "logo")
+      .header__inner__search
+        %form{"accept-charset" => "UTF-8", action: "#", method: "get"}
+          %input{name: "utf8", type: "hidden"}/
+          %input.header__inner__search__input{name: "key", placeholder: "キーワードから探す"}/
+        %form.header__inner__search__button{action: "/", method: "post", type: "submit"}
+          %button{type: "submit"}
+            .header__inner__search__button__icon
+              = image_tag("icon/icon-search 1.png", class: "search")
+    .nav
+      %ul.nav__left
+        %li.nav__left__category
+          %catbtn 
+            = link_to "カテゴリー", "#" 
+          .nav__left__category__tree
+            %ul.categoryTree
+        %li.nav__left__brand
+          %brandbtn
+            = link_to "ブランド", "#"
+          %ul.nav__left__brand__list
+          
+      %ul.nav__right
+        %li.nav__right__login
+          = link_to "ログイン", "#"
+        %li.nav__right__login__new
+          = link_to "新規会員登録", "#"
+​
+.main
+  %section.main__visual
+    .main__visual__content
+      %h2.main__visual__content__subtitle
+        %br/
+        人生を変えるフリマアプリ
+      %p.main__visual__content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br/
+        フリマアプリです
+        .app-icon
+          = image_tag("https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore1")
+          = image_tag("https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google1")
+    .picture
+  %section.main__introduction
+    %h2.main__introduction__subtitle
+      FURIMAが選ばれる3つの理由
+    %ul.main__introduction__lists
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pict
+          %span.number 1
+          = image_tag("pict/pict-reason-01.jpg")
+        %h3.main__introduction__lists__list__text
+          %span 3分
+          ですぐに出品
+        %p.main__introduction__lists__list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pict
+          %span.number 2
+          = image_tag("pict/pict-reason-02.jpg")
+        %h3.main__introduction__lists__list__text
+          %span シンプル
+          で使いやすい
+        %p.main__introduction__lists__list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      / <li class="list list--last">
+      %li.main__introduction__lists__list
+        .main__introduction__lists__list__pict
+          %span.number 3
+          = image_tag("pict/pict-reason-03.jpg")
+        %h3.main__introduction__lists__list__text
+          手数料
+          %span 業界最安
+        %p.main__introduction__lists__list__description
+          最大3%でお得に出品&amp;購入！
+  %section.main__middle
+    .main__middle__inner
+      %h2.main__middle__inner__subtitle 会員数日本一位
+      %p.main__middle__inner__text
+        FURIMAは、フリマアプリで最も人気。
+        %br/
+        出品・購入回数も業界最多です！
+        %br/
+        ほしかったあの商品に出会えるかもしれません。
+        .app-icon
+          = image_tag("https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore2")
+          = image_tag("https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google2")
+  %section.main__features
+    %h2.main__feautures__head FURIMAの特徴
+    .main__feautures__head__items
+      %section.main__feautures__head__items__item
+        %figure.main__feautures__head__items__item__img
+        = image_tag("icon/icon-01.png")
+        %h3.main__feautures__head__items__item__topic 簡単に売り買いできる
+        %p.main__feautures__head__items__item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.main__feautures__head__items__item
+        %figure.main__feautures__head__items__item__img
+        = image_tag("icon/icon-03.png")
+        %h3.main__feautures__head__items__item__topic 売上金は即日振込みに対応
+        %p.main__feautures__head__items__item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.main__feautures__head__items__item
+        %figure.main__feautures__head__items__item__img
+        = image_tag("icon/icon-04.png")
+        %h3.main__feautures__head__items__item__topic 様々な支払いに対応
+        %p.main__feautures__head__items__item__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickup
+    %h2.pickup__head ピックアップカテゴリー
+    .pickup__box
+      .pickup__box__topic
+        %h3.pickup__box__topic__title 
+          = link_to "新規投稿商品", "#"
+      .pickup__box__products
+        .pickup__box__products__product
+          %figure.pickup__box__products__product__img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", alt: "新規投稿商品")
+          .pickup__box__products__product__body
+            %h3.pickup__box__products__product__body__name product1
+            .pickup__box__products__product__body__details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+        .pickup__box__products__product
+          %figure.pickup__box__products__product__img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+          .pickup__box__products__product__body
+            %h3.pickup__box__products__product__body__name product2
+            .pickup__box__products__product__body__details
+              %ul
+                %li 20000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+        .pickup__box__products__list
+          %figure.pickup__box__products__list__img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+          .pickup__box__products__product__body
+            %h3.pickup__box__products__product__body__name product3
+            .pickup__box__products__product__body__details
+              %ul
+                %li 10000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+  %section.container
+    %h2.container__head ピックアップブランド
+    .contaier__box
+      .contaier__box__topic
+
+        %h3.container__box__topic__title アーカイバ
+      .container__box__products
+        .container__box__products__product
+          %figure.container__box__products__product__img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+          .container__box__products__product__body
+            %h3.container__box__products__product__body__name product1
+            .container__box__products__product__body__details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+        .container__box__products__product
+          %figure.container__box__products__product__img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+          .container__box__products__product__body
+            %h3.container__box__products__product__body__name product2
+            .container__box__products__product__body__details
+              %ul
+                %li 20000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+        .productList
+          %figure.productList--img
+            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+          .container__box__products__product__body
+            %h3.container__box__products__product__body__name product3
+            .container__box__products__product__body__details
+              %ul
+                %li 10000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+                
+  %aside.app
+    .app__banner
+      %h2.app__banner__title だれでもかんたん、人生を変えるフリマアプリ
+      %p.app__banner__text 今すぐ無料ダウンロード！
+      .app-icon
+        = image_tag("https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore3")
+        = image_tag("https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google3")
+.footer
+  %ul.footer__contents
+    %li.footer__contents__content1
+      %h2.footer__contents__content__head FURIMAについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社）", "#" 
+        %li
+          = link_to "プライバシーポリシー", "#" 
+        %li
+          = link_to "FURIMA利用規約", "#" 
+        %li
+          = link_to "ポイントに関する特約", "#" 
+    %li.footer__contents__content2
+      %h2.footer__contents__content__head FURIMAを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧", "#" 
+        %li
+          = link_to "ブランド一覧", "#" 
+    %li.footer__contents__content3
+      %h2.footer__contents__content__head ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to "FURIMAガイド", "#"
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン", "#" 
+        %li
+          = link_to "お知らせ", "#" 
+  .footer__logo
+    = link_to image_tag("logo/logo-white.png"), "#"
+  %p © FURIMA
+  
+.purchase
+  %span.purchase__text 出品する
+  %img.purchase__icon{src: "assets/icon/icon_camera.png"}/

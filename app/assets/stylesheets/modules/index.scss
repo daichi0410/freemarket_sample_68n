@@ -91,8 +91,7 @@ body {
     margin: 16px 0 0 15px;
   }
   img.appstore1 {
-    margin-top: 20px;
-    height: 80px;
+    height: 98px;
     width: 210px;
   }
   img.google1 {
@@ -181,7 +180,7 @@ body {
   }
   img.appstore2 {
     margin-top: 20px;
-    height: 80px;
+    height: 95px;
     width: 210px;
     padding-left: 825px;
   }
@@ -236,7 +235,7 @@ body {
     font-size: 38px;
     font-weight: bold;
   }
-  &__box__topic__title {
+  &__box__topic__title a {
     color: #3ccace;
     font-size: 30px;
     font-weight: bold;
@@ -324,9 +323,9 @@ body {
       margin: 16px 0 0 0;
     }
     img.appstore3 {
-      padding-left: 1200px;
+      padding-left: 1900px;
       margin-top: 20px;
-      height: 80px;
+      height: 98px;
       width: 210px;
     }
     img.google3 {
@@ -336,6 +335,7 @@ body {
   }
 }
 .footer {
+  margin-top: 220px;
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
