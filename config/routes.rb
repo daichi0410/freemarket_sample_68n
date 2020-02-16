@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # root to: "test#index" #高草木記載。ユーザー登録画面確認用ルーティング。
-  
+  root to: "mypage#index"
 end
