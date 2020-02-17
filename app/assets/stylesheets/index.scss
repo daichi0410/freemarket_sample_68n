@@ -1,14 +1,9 @@
-// Place all the styles related to the index controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 
 body{
   background-color: lightgrey;
   text-align: center;
   align-items: center;
   line-height: 30px;
-  
   
   header{
     display: flex;
@@ -23,8 +18,6 @@ body{
       height: 50px;
       width: 128px;
       margin-top: 20px;
-      // img{
-      // }
     }
   }
 
@@ -67,7 +60,6 @@ body{
           .buy__item-box{
             display: flex;
             font-size: 14px;
-            // margin-top: 40px;
 
             .buy__item-image{
               height: 80px;
