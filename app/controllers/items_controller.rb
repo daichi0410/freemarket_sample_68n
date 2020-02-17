@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
+
   def index
     @sales = Item.where(sold_out: 0)
     @sold_outs= Item.where(sold_out: 1)
@@ -7,12 +9,16 @@ class ItemsController < ApplicationController
   # @sold_outs売り切れのitemを配列に代入
   
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
-    redirect_to("/")
+    redirect_to root_path
   end
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
