@@ -1,0 +1,27 @@
+-# <!DOCTYPE html>
+-# <html>
+-#   <head>
+-#     <title>FreemarketSample68n</title>
+-#     <%= csrf_meta_tags %>
+-#     <%= csp_meta_tag %>
+    
+
+    
+-#     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+-#   </head>
+
+-#   <body>
+-#     <%= yield %>
+-#   </body>
+-# </html>
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreemarketSample68n
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag  'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield
