@@ -1,0 +1,114 @@
+%h2 ユーザー情報登録
+= form_for(@user, url: user_registration_path) do |f|
+  = render "devise/shared/error_messages", resource: @user
+  .field
+    = f.label :ニックネーム
+    %br/
+    = f.text_field :nickname, autofocus: true,autocomplete: "nickname"
+
+  .field
+    = f.label :漢字氏名（苗字） 
+    %br/
+    = f.text_field :family_name, autocomplete: "family_name"  
+
+  .field
+    = f.label :漢字氏名（名前）
+    %br/
+    = f.text_field :last_name, autocomplete: "last_name"  
+
+  .field
+    = f.label :ふりがな氏名（苗字）
+    %br/
+    = f.text_field :j_family_name, autocomplete: "j_family_name"  
+
+  .field
+    = f.label :ふりがな氏名（名前）
+    %br/
+    = f.text_field :j_last_name, autocomplete: "j_last_name"  
+
+  .field
+    = f.label :生年月日（年）
+    %br/
+    = f.text_field :birthday_year, autocomplete: ":birthday_year"  
+
+  .field
+    = f.label :生年月日（月）
+    %br/
+    = f.text_field :birthday_month, autocomplete: ":birthday_month"  
+
+  .field
+    = f.label :生年月日（日）
+    %br/
+    = f.text_field :birthday_day, autocomplete: ":birthday_day"  
+
+  .field
+    = f.label :email（＠とドメイン名は必須）
+    %br/
+    = f.email_field :email, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em (最低７文字以上)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+
+  
+    -# = f.fields_for :address do |i|
+    -#   .field
+    -#     = i.label :送付先氏名（苗字） 
+    -#     %br/
+    -#     = i.text_field :family_name, autocomplete: "family_name"  
+
+    -#   .field
+    -#     = i.label :送付先氏名（名前）
+    -#     %br/
+    -#     = i.text_field :last_name, autocomplete: "last_name"  
+
+    -#   .field
+    -#     = i.label :送付先ふりがな氏名（苗字）
+    -#     %br/
+    -#     = i.text_field :j_family_name, autocomplete: "j_family_name"  
+
+    -#   .field
+    -#     = i.label :送付先ふりがな氏名（名前）
+    -#     %br/
+    -#     = i.text_field :j_last_name, autocomplete: "j_last_name"  
+
+    -#   .field
+    -#     = i.label :郵便番号
+    -#     %br/
+    -#     = i.text_field :postal_code, autocomplete: "postal_code"  
+
+    -#   .field
+    -#     = i.label :都道府県
+    -#     %br/
+    -#     = i.text_field :prefectures, autocomplete: "prefectures" 
+
+    -#   .field
+    -#     = i.label :市町村
+    -#     %br/
+    -#     = i.text_field :municipality, autocomplete: "municipality" 
+
+    -#   .field
+    -#     = i.label :番地
+    -#     %br/
+    -#     = i.text_field :number, autocomplete: "number"
+
+    -#   .field
+    -#     = i.label :ビル・アパート名
+    -#     %br/
+    -#     = i.text_field :details, autocomplete: "details"
+
+    -#   .field
+    -#     = i.label :電話番号
+    -#     %br/
+    -#     = i.text_field :phone_number, autocomplete: "phone_number"
+
+  .actions
+    = f.submit "住所入力画面へ"
+
+= render "devise/shared/links"
