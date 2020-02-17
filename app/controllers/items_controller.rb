@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    # @sales = Item.where(sold_out: 0)
-    # @sold_outs= Item.where(sold_out: 1)
+    @sales = Item.where(sold_out: 0)
+    @sold_outs= Item.where(sold_out: 1)
   end
 
   def show
