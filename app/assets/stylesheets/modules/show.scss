@@ -13,11 +13,12 @@
     .container {
       margin-top: 16px;
       height: 420px;
+      background: #fff;
       &__left--contents {
         width: 300px;
         height: 420px;
-        background: #f6f6f4;
         float: left;
+        background: #f6f6f4;
       }
       &__right--contents {
         width: 300px;
@@ -205,6 +206,40 @@
       }
     }
   }
+
+  .edit {
+    width: 620px;
+    height: 150px;
+    margin: 8px auto;
+    padding: 40px;
+    background-color: white;
+    .edit__form {
+      margin-top: 8px;
+      &--submit {
+        width: 620px;
+        height: 50px;
+        margin-top: 8px;
+        border: none;
+        color: white;
+        background-color: #3ccace;
+        cursor: pointer;
+      }
+    }
+    .destroy__form {
+      margin-top: 20px;
+      &--submit {
+        width: 620px;
+        height: 50px;
+        margin-top: 8px;
+        border: none;
+        color: white;
+        background-color: rgb(170, 170, 170);
+        cursor: pointer;
+      }
+    }
+
+  }
+
   .comment {
     width: 620px;
     height: 260px;
