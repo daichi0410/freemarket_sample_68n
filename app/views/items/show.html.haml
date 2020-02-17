@@ -53,6 +53,7 @@
       %span.item-tax (税込)
       %span.shipping-fee
         item
+    -# - unless request.path.include?("user_signed_in? && @item.user_id == current_user.id")
     .container__purchace
       = link_to '購入画面へ進む', class: 'container__purchace-button'
     .container__description
@@ -67,6 +68,16 @@
       = link_to '#', class: 'contaqiner__buttons__right' do
         %span.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
+
+  - if user_signed_in? && current_user.id == @item.user_id
+    .edit
+      = form_tag '/', method: :get, class: 'edit__form' do
+        = submit_tag "商品の編集", class: 'edit__form--submit'
+      -# %p.comment__caution or
+      -# 上記は編集機能時に修正
+      = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
+        = submit_tag "この商品を削除する", class: 'destroy__form--submit'
+
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do
