@@ -1,33 +1,4 @@
 .detail
-  -# .detail-header
-  -#   .header
-  -# .header__top
-  -#   .header__top__logo
-  -#     = link_to items_path do
-  -#       = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
-  -#   = form_tag('/search', method: :get, class: "search-form") do
-  -#     %input{type: "search", placeholder: "何かお探しですか？", name: "search", class: "search-field"}
-  -#     %button{type: "submit", name: "name", class: "search-button"}
-  -#       %span.fas.fa-search
-  -# .header__nav-box
-  -#   %span.header__nav-box__left
-  -#     %span.header__nav-box__left__category
-  -#       = link_to 'カテゴリーから探す', '#'
-  -#     %span.header__nav-box__left__brand
-  -#       = link_to 'ブランドから探す', '#'
-  -#   %span.header__nav-box__right
-  -#     %span.header__nav-box__right__likes
-  -#       = link_to 'いいね!一覧', '#'
-  -#     %span.header__nav-box__right__notice
-  -#       = link_to 'お知らせ', '#'
-  -#     %span.header__nav-box__right__todo
-  -#       = link_to 'やることリスト', '#'
-  -#     %span.header__nav-box__right__mypage
-  -#       = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '30', width: '30', class: 'user-icon'
-  -#       = link_to 'マイページ'
-  -#       = link_to '新規会員登録', class: "header__nav-box__right__sign-up"
-  -#       = link_to 'ログイン', class: "header__nav-box__right__sign-in"
-
   .detail__container
     %h1.container--header
       item.name
@@ -121,7 +92,3 @@
     -# LINEのアイコンが上手く表示されなかったため、一時的にコメントアウト。一旦実装はしないで方法がわかったら後ほど実装予定
     = link_to '#', class: 'sns__link' do
       %span.fab.fa-pinterest-square.pinterest
-
-  .detail-footer
-    breadcrumb
-    breadcrumbs
