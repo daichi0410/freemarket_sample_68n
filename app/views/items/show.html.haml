@@ -1,43 +1,14 @@
 .detail
-  .detail-header
-    .header
-  .header__top
-    .header__top__logo
-      = link_to items_path do
-        = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
-    = form_tag('/search', method: :get, class: "search-form") do
-      %input{type: "search", placeholder: "何かお探しですか？", name: "search", class: "search-field"}
-      %button{type: "submit", name: "name", class: "search-button"}
-        %span.fas.fa-search
-  .header__nav-box
-    %span.header__nav-box__left
-      %span.header__nav-box__left__category
-        = link_to 'カテゴリーから探す', '#'
-      %span.header__nav-box__left__brand
-        = link_to 'ブランドから探す', '#'
-    %span.header__nav-box__right
-      %span.header__nav-box__right__likes
-        = link_to 'いいね!一覧', '#'
-      %span.header__nav-box__right__notice
-        = link_to 'お知らせ', '#'
-      %span.header__nav-box__right__todo
-        = link_to 'やることリスト', '#'
-      %span.header__nav-box__right__mypage
-        = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '30', width: '30', class: 'user-icon'
-        = link_to 'マイページ'
-        = link_to '新規会員登録', class: "header__nav-box__right__sign-up"
-        = link_to 'ログイン', class: "header__nav-box__right__sign-in"
-
-  .detail-container
-    %h1.container__header
+  .detail__container
+    %h1.container--header
       item.name
     .container
-      .container__left__contents
-        .container__left__contents__image-large
+      .container__left--contents
+        .container__left--contents-image-large
           image_tag
-        .container__left__contents__image-small
-      %table.container__right__contents
-        %tbody.container__right__contents__table
+        .container__left--contents__image-small
+      %table.container__right--contents
+        %tbody.container__right--contents-table
           %tr
             %th 出品者
             %td
@@ -61,12 +32,13 @@
             %td
               item.condition.name
           %tr
-            %th 配送料の負担(出品者負担)
+            %th 配送料の負担
             %td
-              らくらくメルカリ便
+              送料込み(出品者負担)
           %tr
             %th 配送の方法
-            %td 手渡し
+            %td 
+              らくらくメルカリ便
           %tr
             %th 配送元地域
             %td
@@ -83,11 +55,10 @@
         item
     .container__purchace
       = link_to '購入画面へ進む', class: 'container__purchace-button'
-      = link_to '購入画面へ進む', class: 'container__purchace-button'
     .container__description
       item
     .container__buttons
-      .container__buttons__left
+      .container__buttons--left
         = button_tag type: 'button', class: 'button-like' do
           %span.like-icon いいね!
           %span 0
@@ -96,14 +67,6 @@
       = link_to '#', class: 'contaqiner__buttons__right' do
         %span.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
-  .status-change-btn
-    .status-change-btn__edit
-      =link_to '商品の編集'
-    %p or
-    .status-change-btn__stop
-      = link_to '出品を一旦停止する', '#'
-    .status-change-btn__delete
-      = link_to 'この商品を削除する'
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do
@@ -119,15 +82,13 @@
       = link_to '#' do
         %span 次の商品
         %span.fas.fa-chevron-right
-
-
   .sns
     = link_to '#', class: 'sns__link' do
-      %span.fab.fa-facebook-square
+      %span.fa-facebook-square.fa-4x.fb-blue
     = link_to '#', class: 'sns__link' do
-      %span.fab.fa-twitter-square
+      %span.fab.fa-twitter-square.fa-4x.tw-blue
+    -# = link_to '#', class: 'sns__link' do
+    -#   %span.fab.fa-line.fa-4x.line-green
+    -# LINEのアイコンが上手く表示されなかったため、一時的にコメントアウト。一旦実装はしないで方法がわかったら後ほど実装予定
     = link_to '#', class: 'sns__link' do
-      %span.fab.fa-pinterest-square
-  .detail-footer
-    breadcrumb
-    breadcrumbs
+      %span.fab.fa-pinterest-square.pinterest
