@@ -73,7 +73,7 @@ body {
   background-size: cover;
   height: 700px;
   color: white;
-  padding: 0 560px;
+  // padding: 0 560px;黒田さんのをデプロイした時にこれが原因でずれたので調整。
   &__subtitle {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     font-size: 75px;
@@ -166,7 +166,7 @@ body {
     font-size: 36px;
     font-weight: bold;
     line-height: 1.2;
-    padding: 130px 0 0 825px;
+    padding: 130px 825px 0 100px;
     color: #fff;
   }
   &__text {
@@ -176,13 +176,13 @@ body {
     font-weight: bold;
     line-height: 1.77778;
     margin: 16px 0 0 0;
-    padding-left: 825px;
+    padding-right: 825px;
+    padding-left: 100px;
   }
   img.appstore2 {
     margin-top: 20px;
     height: 95px;
     width: 210px;
-    padding-left: 825px;
   }
   img.google2 {
     height: 103px;
@@ -296,7 +296,7 @@ body {
   }
 }
 .app {
-  height: 540px;
+  // height: 540px;　黒田さんのデプロイしたところエラーが出たためアウト
   width: 100%;
   &__banner {
     background-image: url("pict/bg-appBanner-pict.jpg");
@@ -306,7 +306,7 @@ body {
     color: white;
     &__title {
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
       text-align: center;
       line-height: 1.2;
@@ -315,27 +315,31 @@ body {
     }
     &__text {
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-      font-size: 50px;
+      font-size: 30px;
       font-family: bold;
       text-align: center;
       color: #fff;
       line-height: 1.77778;
       margin: 16px 0 0 0;
+
     }
     img.appstore3 {
-      padding-left: 1900px;
       margin-top: 20px;
       height: 98px;
       width: 210px;
+      padding-left: 470px;
+      padding-bottom: 30px;
+
     }
     img.google3 {
       height: 103px;
       width: 240px;
+      padding-bottom: 28px;
     }
   }
 }
 .footer {
-  margin-top: 220px;
+  // margin-top: 220px; 黒田さんのデプロイしたところエラー出たためコメントアウト
   padding: 60px 0;
   color: #fff;
   background-color: #272727;
