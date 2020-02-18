@@ -77,7 +77,7 @@
     電話番号の確認
     =fa_icon('chevron-right',class:"arrow")
    .contents__left__3__logout
-    ログアウト 
+    = link_to "ログアウト", mypage_path(id:1), method: :delete,class:"destroy" 
     =fa_icon('chevron-right',class:"arrow")
 
  .contents__right
