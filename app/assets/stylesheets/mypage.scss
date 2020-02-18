@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a{
+  text-decoration: none;
+  color: black;
+}
 .header{
   height: 148px;
   width: 100%;
@@ -126,6 +130,7 @@
     height: 1200px;
     text-align: center;
     &__1{
+      display: block;
       &__up{
         height: 160px;
         width: 660px;
@@ -150,10 +155,15 @@
         justify-content: space-evenly;
         font-weight: bold;
         &__left{
-          border-top: 1.5px solid red;
+
           width: 350px;
           height: 100%;  
           line-height: 74px;
+        }
+        &__left.active{
+          border-top: 1.5px solid rgb(0, 255, 234);
+          background-color: #ffffff;
+          color: black;
         }
         &__right{
           width: 350px;
@@ -162,6 +172,11 @@
         }
       }
     &__under{
+      display: none;
+      &__list{
+        padding-top: 20px;
+        background-color: #ffffff;
+      }
       &__box{
         height: 48px;
         width: 668px;
@@ -203,6 +218,10 @@
       }
       }
     }
+    &__under.show{
+      display: block;
+    }
+
     &__show{
       height: 56px;
       width: 668px;
@@ -236,26 +255,35 @@
         justify-content: space-evenly;
         font-weight: bold;
         &__left{
-          border-top: 1.5px solid red;
           width: 350px;
           height: 100%;  
           line-height: 74px;
+        }
+        &__left.move{
+          border-top: 1.5px solid rgb(0, 255, 234);
+          background-color: #ffffff;
+          color: black;
         }
         &__right{
           width: 350px;
           height: 100%;
           line-height: 74px;
         }
+        
       }
       &__under{
         width: 700px;
         height: 236px;
         background-color: #fff;
+        display: none;
         &__icon{
           padding-top: 40px;
           color: #ccc;
           font-weight: bold;
         }
+      }
+      &__under.see{
+        display: block;
       }
     }
   }

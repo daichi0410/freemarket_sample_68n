@@ -90,11 +90,11 @@
     .contents__right__1__up__box
      評価 14  出品数 15
    .contents__right__1__middle
-    .contents__right__1__middle__left
+    .contents__right__1__middle__left.active
      お知らせ
-    .contents__right__1__middle__right
+    .contents__right__1__middle__left
      やることリスト
-   .contents__right__1__under
+   .contents__right__1__under.show
     .contents__right__1__under__box
      .contents__right__1__under__box__inner
       .contents__right__1__under__box__inner__icon
@@ -147,6 +147,20 @@
      .contents__right__1__under__box__arrow
       =fa_icon('chevron-right',class:"arrow")
 
+   .contents__right__1__under
+    .contents__right__1__under__list
+     %br
+     %br
+     =link_to image_tag("logo.png",width:"80",height:"80") 
+     %br
+     %br
+     取引中の商品がありません
+     %br
+     %br
+
+
+
+
    .contents__right__1__show
     .contents__right__1__show__box
      一覧を見る
@@ -155,18 +169,24 @@
    .contents__right__2__up
     購入した商品
    .contents__right__2__middle
-    .contents__right__2__middle__left
+    .contents__right__2__middle__left.move
      取引中
-    .contents__right__2__middle__right
+    .contents__right__2__middle__left
      過去の取引
-   .contents__right__2__under
+   .contents__right__2__under.see
     .contents__right__2__under__icon
-     =link_to image_tag("member_photo_noimage_thumb.png",width:"80",height:"80") 
+     =link_to image_tag("logo.png",width:"80",height:"80") 
      %br
      %br
      %br
      取引中の商品がありません
-   
+   .contents__right__2__under
+    .contents__right__2__under__icon
+     =link_to image_tag("logo.png",width:"80",height:"80") 
+     %br
+     %br
+     %br
+     過去の取引はありません。
 
 .footer
 
