@@ -1,0 +1,104 @@
+.detail
+  .detail__container
+    %h1.container--header
+      item.name
+    .container
+      .container__left--contents
+        .container__left--contents-image-large
+          image_tag
+        .container__left--contents__image-small
+      %table.container__right--contents
+        %tbody.container__right--contents-table
+          %tr
+            %th 出品者
+            %td
+              user.nickname
+              .review
+                %span.good 10
+                %span.normal 10
+                %span.bad 10
+          %tr
+            %th カテゴリー
+            %td
+              item_category
+          %tr
+            %th ブランド
+            %td item.brand_id
+          %tr
+            %th 商品のサイズ
+            %td item.size
+          %tr
+            %th 商品の状態
+            %td
+              item.condition.name
+          %tr
+            %th 配送料の負担
+            %td
+              送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td 
+              らくらくメルカリ便
+          %tr
+            %th 配送元地域
+            %td
+              area.name
+          %tr
+            %th 発送日の目安
+            %td
+              date
+    .container__price
+      %span.price
+        item
+      %span.item-tax (税込)
+      %span.shipping-fee
+        item
+    .container__purchace
+      = link_to '購入画面へ進む', class: 'container__purchace-button'
+    .container__description
+      item
+    .container__buttons
+      .container__buttons--left
+        = button_tag type: 'button', class: 'button-like' do
+          %span.like-icon いいね!
+          %span 0
+        = button_tag type: 'button', class: 'report' do
+          %span 不適切な商品の報告
+      = link_to '#', class: 'contaqiner__buttons__right' do
+        %span.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
+
+  - if user_signed_in? && current_user.id == @item.user_id
+    .edit
+      = form_tag '/', method: :get, class: 'edit__form' do
+        = submit_tag "商品の編集", class: 'edit__form--submit'
+      -# %p.comment__caution or
+      -# 上記は編集機能時に修正
+      = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
+        = submit_tag "この商品を削除する", class: 'destroy__form--submit'
+
+  .comment
+    %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    = form_tag '/', method: :get, class: 'comment__form' do
+      = text_area_tag "comment__form__body"
+      = submit_tag "コメントする", class: 'comment__form__submit'
+    
+  .prev-next-page
+    .prev-page
+      = link_to '#' do
+        %span.fas.fa-chevron-left
+        %span 前の商品
+    .next-page
+      = link_to '#' do
+        %span 次の商品
+        %span.fas.fa-chevron-right
+  .sns
+    = link_to '#', class: 'sns__link' do
+      %span.fa-facebook-square.fa-4x.fb-blue
+    = link_to '#', class: 'sns__link' do
+      %span.fab.fa-twitter-square.fa-4x.tw-blue
+    -# = link_to '#', class: 'sns__link' do
+    -#   %span.fab.fa-line.fa-4x.line-green
+    -# LINEのアイコンが上手く表示されなかったため、一時的にコメントアウト。一旦実装はしないで方法がわかったら後ほど実装予定
+    = link_to '#', class: 'sns__link' do
+      %span.fab.fa-pinterest-square.pinterest
