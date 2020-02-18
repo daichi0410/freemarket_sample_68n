@@ -80,7 +80,9 @@
   - if user_signed_in? && current_user.id == @item.user_id
     .edit
       -# = form_tag '/', method: :get, class: 'edit__form' do
-        = submit_tag "商品の編集", class: 'edit__form--submit'
+        -# = submit_tag "商品の編集", class: 'edit__form--submit'
+      
+
       = link_to "商品の編集", edit_item_path(@item.id), class: 'edit__form'
 
 
