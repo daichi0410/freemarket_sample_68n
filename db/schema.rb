@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_02_18_060546) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.integer "item_id", null: false
