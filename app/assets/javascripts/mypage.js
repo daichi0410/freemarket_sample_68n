@@ -7,8 +7,6 @@ window.addEventListener("load", function() {
 
   // クラスの切り替えをtabswitch関数で定義
   function tabSwitch() {
-    console.log(tabsAry);
-    console.log(this);
     document.getElementsByClassName("active")[0].classList.remove("active");
     this.classList.add("active");
     document.getElementsByClassName("show")[0].classList.remove("show");
@@ -19,12 +17,9 @@ window.addEventListener("load", function() {
   tabsAry.forEach(function(value) {
     // ①`value.`の後に、イベントリスナーでクリックイベントが発生した時に、tabSwitch関数を呼び出す処理を書きましょう。
     value.addEventListener("click", tabSwitch);
-    console.log(tabSwitch);
   });
 
   function btnSwitch() {
-    console.log(btnsAry);
-    console.log(this);
     document.getElementsByClassName("move")[0].classList.remove("move");
     this.classList.add("move");
     document.getElementsByClassName("see")[0].classList.remove("see");
@@ -35,7 +30,6 @@ window.addEventListener("load", function() {
   btnsAry.forEach(function(value) {
     // ①`value.`の後に、イベントリスナーでクリックイベントが発生した時に、tabSwitch関数を呼び出す処理を書きましょう。
     value.addEventListener("click", btnSwitch);
-    console.log(btnSwitch);
   });
 
 });
