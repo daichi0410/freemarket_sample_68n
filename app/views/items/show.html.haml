@@ -1,7 +1,7 @@
 .detail
   .detail__container
     %h1.container--header
-      item.name
+      = @item.name
     .container
       .container__left--contents
         .container__left--contents-image-large
@@ -12,7 +12,7 @@
           %tr
             %th 出品者
             %td
-              user.nickname
+              = @item.user.nickname
               .review
                 %span.good 10
                 %span.normal 10
@@ -20,17 +20,19 @@
           %tr
             %th カテゴリー
             %td
-              item_category
+              item_category(仮)
           %tr
             %th ブランド
-            %td item.brand_id
+            %td 
+              = @item.brand
           %tr
             %th 商品のサイズ
-            %td item.size
+            %td 
+              = @item.size
           %tr
             %th 商品の状態
             %td
-              item.condition.name
+              = @item.status
           %tr
             %th 配送料の負担
             %td
@@ -42,21 +44,25 @@
           %tr
             %th 配送元地域
             %td
-              area.name
+              -# = @address.name
+              -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
             %th 発送日の目安
             %td
-              date
+              = @item.date
     .container__price
       %span.price
-        item
-      %span.item-tax (税込)
+        = @item.name
+      %span.item-tax 
+        = total_price = @item.price + @item.delivery_charge
+        (税込)
       %span.shipping-fee
-        item
+        = @item.delivery_charge
+        (配送料)
     .container__purchace
       = link_to '購入画面へ進む', class: 'container__purchace-button'
     .container__description
-      item
+      = @item.item_text
     .container__buttons
       .container__buttons--left
         = button_tag type: 'button', class: 'button-like' do

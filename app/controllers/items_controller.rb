@@ -7,6 +7,16 @@ class ItemsController < ApplicationController
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
+
+  def show
+    @address = Address.find(prefecture_id: [@item.address])
+  end
+
+  def new
+    @item = Item.new
+    @item.images.new
+  end
+
   def edit
   end
   
