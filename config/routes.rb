@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   root to: "items#index"
-  resources :items, only: [:index, :new, :create, :show, :destroy]
+  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   resources :images, only: [:new, :create]
 end
