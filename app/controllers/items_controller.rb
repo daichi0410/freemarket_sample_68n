@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
 
   def show
     @address = Address.find(prefecture_id: [@item.address])
-    @images = Image.where(item_id: 17)
+    @image = Image.find_by(item_id: 17)
   end
 
   def new

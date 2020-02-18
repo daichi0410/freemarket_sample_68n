@@ -5,8 +5,9 @@
     .container
       .container__left--contents
         .container__left--contents-image-large
-          - @images.each do |image|
-            = image_tag image.image.url
+          -# - @images.each do |image|
+          -#   = image_tag image.image.url
+          投稿機能未実装のため、画像表示はなし
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
