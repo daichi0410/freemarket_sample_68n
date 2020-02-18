@@ -1,0 +1,73 @@
+%body
+  %header
+    %h1 FURIMA
+    %h2 
+    =link_to image_tag("icon/icon_brand.png",width:"10",height:"10",class:"brand")
+  %main.single-main
+    %section.single-container
+      %h2.single-head 購入内容の確認
+      %section.buy__content
+        .buy__content-inner
+          .buy__item-box
+            %h3.buy__item-image
+              =image_tag("icon/icon_brand.png", alt:"",width:"80",height:"80")
+              
+            .buy__item-detail
+              %p.buy__item-name 【使用感少ない 美品】
+              LOUIS VUITTON
+              %p.buy__price
+                %span ¥99,800
+                %span.fee （税込）送料込み
+      %form.form{action:"#", method: "POST", novalidate: "novalidate"}
+        %ul.buy__price-table
+          %li.buy__price-row
+            .buy__price-cell-label 支払い金額
+            .buy__price-cell
+              %span{"data-buy-pay" => "99,800"} ¥99,800
+            %ul.buy__nothave-point
+              %li.accordion-parent
+                .buy__use-point
+                  %input{disabled:"disabled", type: "checkbox"}/
+                  %i.icon-check
+                  %label ポイントを使用 (所持ポイント: P0)
+                  
+            %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+              .buy__content-inner
+                %h3.left 支払い方法
+                %a.right__buy__info-fix{href: "#"}
+                  %span 変更する
+                %p.buy-user-info-text
+                  クレジットカード
+                  %br/
+                  ***************1
+                  %br/
+                  有効期限 00 / 11
+                  %figure.buy-card-logo
+                    =image_tag("", alt:"",width:"",height:"")
+            %section.buy__user-info-2
+              .buy__content-inner-2
+                %h3.left-2 配送先
+                %a.right.buy-user-info-fix-2{href: ""}
+                  %span 変更する
+              %address.buy-user-info-text-2
+                %p
+                  〒252-0802
+                  %br/
+                  〇〇県 〇〇市
+                  〇〇〇〇123-4
+                  %br/
+                  フリマ 太郎
+      
+%button.btn-default{type: "submit"} 購入する
+%footer.bottom
+  %nav.bottom__ubder
+    %ul.clearfix
+      %li
+        %a 
+        =link_to "プライバシーポリシー",""
+      %li
+        %a 
+        =link_to "FURIMA利用規約",""
+  %a{href: "#"}
+    %img{src:""}/
+    %small.campany FURIMA, Inc.
