@@ -172,6 +172,11 @@ a{
       &__list{
         padding-top: 20px;
         background-color: #ffffff;
+        &__text{
+          height: 10px;
+          width: 100%;
+          padding-bottom: 50px;
+        }
       }
       &__box{
         height: 48px;
@@ -187,6 +192,7 @@ a{
           position: absolute;
           left: 24px;
           top: 24px;
+          
         }
         &__title{
           font-size: 14px;
@@ -276,6 +282,11 @@ a{
           padding-top: 40px;
           color: #ccc;
           font-weight: bold;
+          &__text{
+            height: 10px;
+            width: 100%;
+            padding-bottom: 50px;
+          }
         }
       }
       &__under.see{
