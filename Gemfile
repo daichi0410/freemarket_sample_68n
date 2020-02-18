@@ -90,3 +90,4 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
 gem "font-awesome-rails"
+gem "font-awesome-sass"

@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "test#index"
-  resources :items, only: [:index, :show, :destroy]
-
+  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+  resources :images, only: [:new, :create]
 end
