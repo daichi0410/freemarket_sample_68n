@@ -1,18 +1,20 @@
 .detail
   .detail__container
     %h1.container--header
-      item.name
+      = @item.name
     .container
       .container__left--contents
         .container__left--contents-image-large
-          image_tag
+          -# - @images.each do |image|
+          -#   = image_tag image.image.url
+          投稿機能未実装のため、画像表示はなし
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
           %tr
             %th 出品者
             %td
-              user.nickname
+              = @item.user.nickname
               .review
                 %span.good 10
                 %span.normal 10
@@ -20,17 +22,19 @@
           %tr
             %th カテゴリー
             %td
-              item_category
+              item_category(仮)
           %tr
             %th ブランド
-            %td item.brand_id
+            %td 
+              = @item.brand
           %tr
             %th 商品のサイズ
-            %td item.size
+            %td 
+              = @item.size
           %tr
             %th 商品の状態
             %td
-              item.condition.name
+              = @item.status
           %tr
             %th 配送料の負担
             %td
@@ -42,36 +46,46 @@
           %tr
             %th 配送元地域
             %td
-              area.name
+              -# = @address.name
+              -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
             %th 発送日の目安
             %td
-              date
+              = @item.date
     .container__price
       %span.price
-        item
-      %span.item-tax (税込)
+        = @item.name
+      %span.item-tax 
+        = total_price = @item.price + @item.delivery_charge
+        (税込)
       %span.shipping-fee
-        item
-    .container__purchace
-      = link_to '購入画面へ進む', class: 'container__purchace-button'
-    .container__description
-      item
-    .container__buttons
-      .container__buttons--left
-        = button_tag type: 'button', class: 'button-like' do
-          %span.like-icon いいね!
-          %span 0
-        = button_tag type: 'button', class: 'report' do
-          %span 不適切な商品の報告
-      = link_to '#', class: 'contaqiner__buttons__right' do
-        %span.fas.fa-lock
-        %span あんしん・あんぜんへの取り組み
+        = @item.delivery_charge
+        (配送料)
+    - if current_user.id != @item.user_id
+      .container__purchace
+        = link_to '購入画面へ進む', class: 'container__purchace-button'
+      .container__description
+        = @item.item_text
+      .container__buttons
+        .container__buttons--left
+          = button_tag type: 'button', class: 'button-like' do
+            %span.like-icon いいね!
+            %span 0
+          = button_tag type: 'button', class: 'report' do
+            %span 不適切な商品の報告
+        = link_to '#', class: 'contaqiner__buttons__right' do
+          %span.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
 
   - if user_signed_in? && current_user.id == @item.user_id
     .edit
-      = form_tag '/', method: :get, class: 'edit__form' do
-        = submit_tag "商品の編集", class: 'edit__form--submit'
+      -# = form_tag '/', method: :get, class: 'edit__form' do
+        -# = submit_tag "商品の編集", class: 'edit__form--submit'
+      
+
+      = link_to "商品の編集", edit_item_path(@item.id), class: 'edit__form'
+
+
       -# %p.comment__caution or
       -# 上記は編集機能時に修正
       = form_tag(item_path, method: :delete, class: 'destroy__form' ) do
