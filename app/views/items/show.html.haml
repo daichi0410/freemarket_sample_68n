@@ -5,7 +5,8 @@
     .container
       .container__left--contents
         .container__left--contents-image-large
-          image_tag
+          - @images.each do |image|
+            = image_tag image.image.url
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
@@ -59,20 +60,21 @@
       %span.shipping-fee
         = @item.delivery_charge
         (配送料)
-    .container__purchace
-      = link_to '購入画面へ進む', class: 'container__purchace-button'
-    .container__description
-      = @item.item_text
-    .container__buttons
-      .container__buttons--left
-        = button_tag type: 'button', class: 'button-like' do
-          %span.like-icon いいね!
-          %span 0
-        = button_tag type: 'button', class: 'report' do
-          %span 不適切な商品の報告
-      = link_to '#', class: 'contaqiner__buttons__right' do
-        %span.fas.fa-lock
-        %span あんしん・あんぜんへの取り組み
+    - if current_user.id != @item.user_id
+      .container__purchace
+        = link_to '購入画面へ進む', class: 'container__purchace-button'
+      .container__description
+        = @item.item_text
+      .container__buttons
+        .container__buttons--left
+          = button_tag type: 'button', class: 'button-like' do
+            %span.like-icon いいね!
+            %span 0
+          = button_tag type: 'button', class: 'report' do
+            %span 不適切な商品の報告
+        = link_to '#', class: 'contaqiner__buttons__right' do
+          %span.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
 
   - if user_signed_in? && current_user.id == @item.user_id
     .edit

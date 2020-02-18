@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
+  before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
 
   def index
     @sales = Item.where(sold_out: 0)
@@ -10,6 +11,7 @@ class ItemsController < ApplicationController
 
   def show
     @address = Address.find(prefecture_id: [@item.address])
+    @images = Image.where(item_id: 17)
   end
 
   def new
@@ -31,6 +33,10 @@ class ItemsController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def back_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
