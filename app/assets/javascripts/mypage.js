@@ -1,6 +1,5 @@
-window.addEventListener("load", function() {
+window.addEventListener("turbolinks:load", function() {
   // タブのDOM要素を取得し、変数で定義する。
-  console.log("hjello");
   let tabs = document.getElementsByClassName("contents__right__1__middle__left");
   let btns = document.getElementsByClassName("contents__right__2__middle__left");
   tabsAry = Array.prototype.slice.call(tabs);
