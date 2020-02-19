@@ -37,14 +37,6 @@ ActiveRecord::Schema.define(version: 2020_02_18_105437) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
-  end
-
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"

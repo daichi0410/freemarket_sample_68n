@@ -15,3 +15,5 @@ root to: "items#index"
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
 end
+
+
