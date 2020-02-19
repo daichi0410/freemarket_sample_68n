@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
+  before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
 
   def index
     @sales = Item.where(sold_out: 0)
@@ -7,7 +8,25 @@ class ItemsController < ApplicationController
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
+
+  def show
+    @address = Address.find(prefecture_id: [@item.address])
+    @image = Image.find_by(item_id: 17)
+  end
+
+  def new
+    @item = Item.new
+    # @item.images.new
+    # ビュー表示のためコメントアウト
+  end
+
+  def create
+  end
+
   def edit
+  end
+
+  def update
   end
   
   def show
@@ -21,6 +40,10 @@ class ItemsController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def back_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
