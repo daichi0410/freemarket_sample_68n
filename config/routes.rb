@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
   registrations: 'users/registrations'
   }
@@ -7,7 +8,12 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "test#index"
+
+root to: "items#index"
+  resources :mypage, only: [:index, :destroy]
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   resources :images, only: [:new, :create]
+  resources :test, only: [:index, :create]
 end
+
+
