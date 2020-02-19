@@ -95,4 +95,4 @@ gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'active_hash'
 gem 'payjp'
-gem 'dotenv-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
