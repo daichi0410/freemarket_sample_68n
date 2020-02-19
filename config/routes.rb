@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: "mypage#index"
+  root to: "items#index"
   resources :mypage, only: [:index, :destroy]
   resources :items, only: [:index, :show, :destroy]
 

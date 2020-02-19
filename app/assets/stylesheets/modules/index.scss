@@ -8,13 +8,14 @@ body {
   padding: 0, 60px, 0, 60px;
   display: flex;
   justify-content: center;
+  background-color: white;
   &__inner {
     width: 1200px;
-    height: 97px;
+    // height: 10px;
     margin-top: 20px;
     padding: 0, 60px, 0, 60px;
     &__main {
-      height: 70px;
+      // height: 70px;
       display: flex;
       align-items: center;
       &__icon {
@@ -108,7 +109,7 @@ body {
     font-weight: bold;
     margin: 70px 0;
     color: #000;
-    border-bottom: 1px solid #3ccace;
+    border-bottom: 5px solid #3ccace;
   }
   &__lists {
     text-align: center;
@@ -166,8 +167,9 @@ body {
     font-size: 36px;
     font-weight: bold;
     line-height: 1.2;
-    padding: 130px 825px 0 100px;
+    padding: 130px 0 0 0;
     color: #fff;
+    text-align: center;
   }
   &__text {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -176,8 +178,8 @@ body {
     font-weight: bold;
     line-height: 1.77778;
     margin: 16px 0 0 0;
-    padding-right: 825px;
-    padding-left: 100px;
+    // padding-right: 825px;
+    // padding-left: 100px;
   }
   img.appstore2 {
     margin-top: 20px;
