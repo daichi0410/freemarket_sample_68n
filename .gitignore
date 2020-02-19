@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
@@ -27,3 +28,5 @@
 /config/master.key
 /config/secrets.yml
 
+
+public/uploads/*

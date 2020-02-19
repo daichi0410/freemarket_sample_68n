@@ -89,6 +89,8 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
+
+gem 'jquery-rails'
 gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'active_hash'
