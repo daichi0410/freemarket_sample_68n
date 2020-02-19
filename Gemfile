@@ -94,3 +94,5 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'active_hash'
+gem 'payjp'
+gem 'dotenv-rails'
