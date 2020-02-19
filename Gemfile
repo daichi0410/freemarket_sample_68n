@@ -78,6 +78,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
   gem 'factory_bot_rails'
 end
 
@@ -86,5 +89,8 @@ gem 'mini_magick'
 gem 'ancestry'
 gem 'haml-rails'
 gem 'devise'
-gem 'active_hash'
+
 gem 'jquery-rails'
+gem "font-awesome-rails"
+gem "font-awesome-sass"
+gem 'active_hash'
