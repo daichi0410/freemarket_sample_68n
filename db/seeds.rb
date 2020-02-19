@@ -48,28 +48,34 @@ lady_dress.children.create([
   {name: "ミニワンピース"}, {name: "ひざ丈ワンピース"}, {name: "ロングワンピース"}, {name: "その他"}
 ])
 lady_shoes.children.create([
-  {name: "ハイヒール/パンプス"}, {name: "ブーツ"}, {name: "サンダル"}, {name: "スニーカー"}, {name: "ミュール"}, {name: "モカシン"}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "ハイヒール/パンプス"}, {name: "ブーツ"}, {name: "サンダル"}, {name: "スニーカー"}, {name: "ミュール"}, {name: "モカシン"}, {name: "ローファー/革靴"}
+  , {name: "フラットシューズ/バレエシューズ"}, {name: "長靴/レインシューズ"}, {name: "その他"}
 ])
 lady_pajama.children.create([
-  {name: ""}, {name: ""}
+  {name: "パジャマ"}, {name: "ルームウェア"}
 ])
 lady_legwear.children.create([
-  {name: ""}, {name: ""}
+  {name: "ソックス"}, {name: "スパッツ/レギンス"}, {name: "ストッキング/タイツ"}, {name: "レッグウォーマー"}, {name: "その他"}
 ])
 lady_hat.children.create([
-  {name: ""}, {name: ""}
+  {name: "ニットキャップ/ビーニー"}, {name: "ハット"}, {name: "ハンチング/ベレー帽"}, {name: "キャップ"}, {name: "キャスケット"}, {name: "麦わら帽子"}, {name: "その他"}
 ])
 lady_bag.children.create([
-  {name: ""}, {name: ""}
+  {name: "ハンドバッグ"}, {name: "トートバッグ"}, {name: "エコバッグ"}, {name: "リュック/バックパック"}, {name: "ボストンバッグ"}, {name: "スポーツバッグ"}
+  , {name: "ショルダーバッグ"}, {name: "クラッチバッグ"}, {name: "ポーチ/バニティ"}, {name: "ボディバッグ/ウェストバッグ"}, {name: "マザーズバッグ"}
+  , {name: "メッセンジャーバッグ"}, {name: "ビジネスバッグ"}, {name: "旅行用バッグ/キャリーバッグ"}, {name: "ショップ袋"}, {name: "和装用バッグ"}
+  , {name: "かごバッグ"}, {name: "その他"}
 ])
 lady_accessory.children.create([
-  {name: ""}, {name: ""}
+  {name: "ネックレス"}, {name: "ブレスレット"}, {name: "バングル/リストバンド"}, {name: "リング"}, {name: "ピアス(片耳用)"}, {name: "ピアス(両耳用)"}
+  , {name: "イヤリング"}, {name: "アンクレット"}, {name: "ブローチ/コサージュ"}, {name: "チャーム"}, {name: "その他"}
 ])
 lady_hairaccessory.children.create([
-  {name: ""}, {name: ""}
+  {name: "ヘアゴム/シュシュ"}, {name: "ヘアバンド/カチューシャ"}, {name: "ヘアピン"}, {name: "その他"}
 ])
 lady_goods.children.create([
-  {name: ""}, {name: ""}
+  {name: "長財布"}, {name: "折り財布"}, {name: "コインケース/小銭入れ"}, {name: "名刺入れ/定期入れ"}, {name: "キーケース"}, {name: "キーホルダー"}
+  , {name: "手袋/アームカバー"}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
 ])lady_clock.children.create([
   {name: ""}, {name: ""}
 ])lady_wig.children.create([
