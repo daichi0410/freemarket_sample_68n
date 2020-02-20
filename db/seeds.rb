@@ -1,5 +1,31 @@
 # レディース親要素
 lady = Category.create(name: "レディース")
+# メンズ親要素
+men = Category.create(name: "メンズ")
+# キッズ・ベビーの親要素
+kids = Category.create(name: "キッズ・ベビー")
+# インテリア・住まい・小物の親要素
+interior = Category.create(name: "インテリア・住まい・小物")
+# 本・音楽・ゲームの親要素
+game = Category.create(name: "本・音楽・ゲーム")
+# おもちゃ・ホビー・グッズの親要素
+toy = Category.create(name: "おもちゃ・ホビー・グッズ")
+# コスメ・香水・美容の親要素
+cosme = Category.create(name: "コスメ・香水・美容")
+# 家電・スマホ・カメラの親要素
+home_appliances = Category.create(name: "家電・スマホ・カメラ")
+# スポーツ・レジャーの親要素
+sports = Category.create(name: "スポーツ・レジャー")
+# ハンドメイドの親要素
+hand_made = Category.create(name: "ハンドメイド")
+# チケットの親要素
+ticket = Category.create(name: "チケット")
+# 自動車・オートバイの親要素
+car = Category.create(name: "自動車・オートバイ")
+# その他の親要素
+other = Category.create(name: "その他")
+
+
 
 
 # レディース子要素
@@ -101,8 +127,6 @@ lady_other.children.create([
 
 
 
-# メンズ親要素
-men = Category.create(name: "メンズ")
 
 
 # メンズ子要素
@@ -173,8 +197,6 @@ men_underwear.children.create([
 
 
 
-# キッズ・ベビーの親要素
-kids = Category.create(name: "キッズ・ベビー")
 
 
 # キッズ・ベビーの子要素
@@ -248,8 +270,6 @@ kids_other.children.create([
   {name: "母子手帳用品"}, {name: "その他"}
 ])
 
-# インテリア・住まい・小物の親要素
-interior = Category.create(name: "インテリア・住まい・小物")
 
 
 # インテリア・住まい・小物の子要素
@@ -318,9 +338,6 @@ annual_event_goods.children.create([
    {name: "夏/夏休み"}, {name: "ハロウィン"}, {name: "敬老の日"}, {name: "七五三"}, {name: "お歳暮"}, {name: "クリスマス"}, {name: "冬一般"}, {name: "その他"}
 ])
 
-# 本・音楽・ゲームの親要素
-game = Category.create(name: "本・音楽・ゲーム")
-
 
 # 本・音楽・ゲームの子要素
 game_book = game.children.create(name: "本")
@@ -357,10 +374,6 @@ game_tvgame.children.create([
   {name: "家庭用ゲーム機本体"}, {name: "家庭用ゲームソフト"}, {name: "携帯用ゲーム機本体"}, {name: "携帯用ゲームソフト"}, {name: "PCゲーム"}, {name: "その他"}
 ])
 
-
-
-# おもちゃ・ホビー・グッズの親要素
-toy = Category.create(name: "おもちゃ・ホビー・グッズ")
 
 
 # おもちゃ・ホビー・グッズの子要素
@@ -419,11 +432,6 @@ toy_other.children.create([
 ])
 
 
-
-# コスメ・香水・美容の親要素
-cosme = Category.create(name: "コスメ・香水・美容")
-
-
 # コスメ・香水・美容の子要素
 base_make = cosme.children.create(name: "ベースメイク")
 make_up = cosme.children.create(name: "メイクアップ")
@@ -479,11 +487,6 @@ cosme_other.children.create([
 ])
 
 
-
-# 家電・スマホ・カメラの親要素
-home_appliances = Category.create(name: "家電・スマホ・カメラ")
-
-
 # 家電・スマホ・カメラの子要素
 home_appliances_smartphone = home_appliances.children.create(name: "スマートフォン/携帯電話")
 home_appliances_smartphone_accessory = home_appliances.children.create(name: "スマホアクセサリー")
@@ -531,11 +534,6 @@ home_appliances_other.children.create([
   {name: "その他"}
 ])
 
-
-
-
-# スポーツ・レジャーの親要素
-sports = Category.create(name: "スポーツ・レジャー")
 
 
 # スポーツ・レジャーの子要素
@@ -601,10 +599,6 @@ sports_other.children.create([
 
 
 
-# ハンドメイドの親要素
-hand_made = Category.create(name: "ハンドメイド")
-
-
 # ハンドメイドの子要素
 hand_made_accessory = hand_made.children.create(name: "アクセサリー(女性用)")
 hand_made_fashion = hand_made.children.create(name: "ファッション/小物")
@@ -646,8 +640,7 @@ hand_made_creation.children.create([
 
 
 
-# チケットの親要素
-ticket = Category.create(name: "チケット")
+
 
 
 # チケットの子要素
@@ -690,10 +683,6 @@ ticket_discount.children.create([
 
 
 
-# 自動車・オートバイの親要素
-car = Category.create(name: "自動車・オートバイ")
-
-
 # 自動車・オートバイの子要素
 car_body = car.children.create(name: "自動車本体")
 car_tire = car.children.create(name: "自動車タイヤ/ホイール")
@@ -732,10 +721,6 @@ bike_accessory.children.create([
    {name: "その他"}
 ])
 
-
-
-# その他の親要素
-other = Category.create(name: "その他")
 
 
 # その他の子要素
