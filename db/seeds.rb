@@ -570,27 +570,212 @@ spots_training.children.create([
   {name: "ランニング"}, {name: "ウォーキング"}, {name: "ヨガ"}, {name: "トレーニング用品"}, {name: "その他"}
 ])
 sports_baceball.children.create([
-  {name: "ウエア"}, {name: "シューズ"}, {name: "グローブ"}, {name: "バット"}, {name: "アクセサリー"}, {name: "防具"}, {name: "練習機器"}, {name: "記念グッズ"}, {name: "応援グッズ"}, {name: "その他"}
+  {name: "ウエア"}, {name: "シューズ"}, {name: "グローブ"}, {name: "バット"}, {name: "アクセサリー"}, {name: "防具"}, {name: "練習機器"}, {name: "記念グッズ"}
+  , {name: "応援グッズ"}, {name: "その他"}
 ])
 sports_soccer.children.create([
   {name: "ウエア"}, {name: "シューズ"}, {name: "ボール"}, {name: "アクセサリー"}, {name: "記念グッズ"}, {name: "応援グッズ"}, {name: "その他"}
 ])
 sports_tennis.children.create([
-  {name: "ラケット(硬式)"}, {name: "ラケット(軟式)"}, {name: "ウエア"}, {name: "シューズ"}, {name: "ボール"}, {name: "アクセサリー"}, {name: "記念グッズ"}, {name: "応援グッズ"}, {name: "その他"}
+  {name: "ラケット(硬式)"}, {name: "ラケット(軟式)"}, {name: "ウエア"}, {name: "シューズ"}, {name: "ボール"}, {name: "アクセサリー"}, {name: "記念グッズ"}
+  , {name: "応援グッズ"}, {name: "その他"}
 ])
 sports_snowbord.children.create([
-  {name: "ボード"}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "ボード"}, {name: "バインディング"}, {name: "ブーツ(男性用)"}, {name: "ブーツ(女性用)"}, {name: "ブーツ(子供用)"}, {name: "ウエア/装備(男性用)"}
+  , {name: "ウエア/装備(女性用)"}, {name: "ウエア/装備(子供用)"}, {name: "アクセサリー"}, {name: "バッグ"}, {name: "その他"}
 ])
 sports_ski.children.create([
-  {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "板"}, {name: "ブーツ(男性用)"}, {name: "ブーツ(女性用)"}, {name: "ブーツ(子供用)"}, {name: "ビンディング"}, {name: "ウエア(男性用)"}
+  , {name: "ウエア(女性用)"}, {name: "ウエア(子供用)"}, {name: "ストック"}, {name: "その他"}
 ])
 sports_othersports.children.create([
-  {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "ダンス/バレエ"}, {name: "サーフィン"}, {name: "バスケットボール"}, {name: "バドミントン"}, {name: "バレーボール"}, {name: "スケートボード"}
+  , {name: "陸上競技"}, {name: "ラグビー"}, {name: "アメリカンフットボール"}, {name: "ボクシング"}, {name: "ボウリング"}, {name: "その他"}
 ])
 sports_outdoor.children.create([
-  {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "テント/タープ"}, {name: "ライト/ランタン"}, {name: "寝袋/寝具"}, {name: "テーブル/チェア"}, {name: "ストーブ/コンロ"}, {name: "調理器具"}
+  , {name: "食器"}, {name: "登山用品"}, {name: "その他"}
 ])
 sports_other.children.create([
-  {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}, {name: ""}
+  {name: "旅行用品"}, {name: "その他"}
 ])
 
+
+
+# ハンドメイドの親要素
+hand_made = Category.create(name: "ハンドメイド")
+
+
+# ハンドメイドの子要素
+hand_made_accessory = hand_made.children.create(name: "アクセサリー(女性用)")
+hand_made_fashion = hand_made.children.create(name: "ファッション/小物")
+hand_made_clock = hand_made.children.create(name: "アクセサリー/時計")
+hand_made_interior = hand_made.children.create(name: "日用品/インテリア")
+hand_made_toy = hand_made.children.create(name: "趣味/おもちゃ")
+hand_made_kids = hand_made.children.create(name: "キッズ/ベビー")
+hand_made_material = hand_made.children.create(name: "素材/材料")
+hand_made_creation = hand_made.children.create(name: "二次創作物")
+hand_made_othier = hand_made.children.create(name: "その他")
+
+
+# ハンドメイドの孫要素
+hand_made_accessory.children.create([
+  {name: "ピアス"}, {name: "イヤリング"}, {name: "ネックレス"}, {name: "ブレスレット"}, {name: "リング"}, {name: "チャーム"}, {name: "ヘアゴム"}
+  , {name: "アンクレット"}, {name: "その他"}
+])
+hand_made_fashion.children.create([
+  {name: "バッグ(女性用)"}, {name: "バッグ(男性用)"}, {name: "財布(女性用)"}, {name: "財布(男性用)"}, {name: "ファッション雑貨"}, {name: "その他"}
+])
+hand_made_clock.children.create([
+  {name: "アクセサリー(男性用)"}, {name: "時計(女性用)"}, {name: "時計(男性用)"}, {name: "その他"}
+])
+hand_made_interior.children.create([
+  {name: "キッチン用品"}, {name: "家具"}, {name: "文房具"}, {name: "アート/写真"}, {name: "アロマ/キャンドル"}, {name: "フラワー/ガーデン"}, {name: "その他"}
+])
+hand_made_toy.children.create([
+  {name: "クラフト/布製品"}, {name: "おもちゃ/人形"}, {name: "その他"}
+])
+hand_made_kids.children.create([
+  {name: "ファッション雑貨"}, {name: "スタイ/よだれかけ"}, {name: "外出用品"}, {name: "ネームタグ"}, {name: "その他"}
+])
+hand_made_material.children.create([
+  {name: "各種パーツ"}, {name: "生地/糸"}, {name: "壁紙/パターン"}, {name: "その他"}
+])
+hand_made_creation.children.create([
+  {name: "ingress"}, {name: "クリエイターズ宇宙兄弟"}
+])
+
+
+
+# チケットの親要素
+ticket = Category.create(name: "チケット")
+
+
+# チケットの子要素
+ticket_music = ticket.children.create(name: "音楽")
+ticket_sports = ticket.children.create(name: "スポーツ")
+ticket_theater = ticket.children.create(name: "演劇/芸能")
+ticket_event = ticket.children.create(name: "イベント")
+ticket_movie = ticket.children.create(name: "映画")
+ticket_facility_use = ticket.children.create(name: "施設利用券")
+ticket_discount = ticket.children.create(name: "優待券/割引券")
+ticket_other = ticket.children.create(name: "その他")
+
+
+# チケットの孫要素
+ticket_music.children.create([
+  {name: "男性アイドル"}, {name: "女性アイドル"}, {name: "韓流"}, {name: "国内アーティスト"}, {name: "海外アーティスト"}
+  , {name: "音楽フェス"}, {name: "声優/アニメ"}, {name: "その他"}
+])
+ticket_sports.children.create([
+  {name: "サッカー"}, {name: "野球"}, {name: "テニス"}, {name: "格闘技/プロレス"}, {name: "相撲/武道"}, {name: "ゴルフ"}
+  , {name: "バレーボール"}, {name: "バスケットボール"}, {name: "モータースポーツ"}, {name: "ウィンタースポーツ"}, {name: "その他"}
+])
+ticket_theater.children.create([
+  {name: "ミュージカル"}, {name: "演劇"}, {name: "伝統芸能"}, {name: "落語"}, {name: "お笑い"}, {name: "オペラ"}, {name: "サーカス"}
+  , {name: "バレエ"}, {name: "その他"}
+])
+ticket_event.children.create([
+  {name: "声優/アニメ"}, {name: "キッズ/ファミリー"}, {name: "トークショー/講演会"}, {name: "その他"}
+])
+ticket_movie.children.create([
+  {name: "邦画"}, {name: "洋画"}, {name: "その他"}
+])
+ticket_facility_use.children.create([
+  {name: "遊園地/テーマパーク"}, {name: "美術館/博物館"}, {name: "スキー場"}, {name: "ゴルフ場"}, {name: "フィットネスクラブ"}
+  , {name: "プール"}, {name: "ボウリング場"}, {name: "水族館"}, {name: "動物園"}, {name: "その他"}
+])
+ticket_discount.children.create([
+  {name: "ショッピング"}, {name: "レストラン/食事券"}, {name: "フード/ドリンク券"}, {name: "宿泊券"}, {name: "その他"}
+])
+
+
+
+# 自動車・オートバイの親要素
+car = Category.create(name: "自動車・オートバイ")
+
+
+# 自動車・オートバイの子要素
+car_body = car.children.create(name: "自動車本体")
+car_tire = car.children.create(name: "自動車タイヤ/ホイール")
+car_parts = car.children.create(name: "自動車パーツ")
+car_accessory = car.children.create(name: "自動車アクセサリー")
+bike_body = car.children.create(name: "オートバイ車体")
+bike_parts = car.children.create(name: "オートバイパーツ")
+bike_accessory = car.children.create(name: "オートバイアクセサリー")
+
+
+# 自動車・オートバイの孫要素
+car_body.children.create([
+  {name: "国内自動車本体"}, {name: "外国自動車本体"}
+])
+car_tire.children.create([
+  {name: "タイヤ/ホイールセット"}, {name: "タイヤ"}, {name: "ホイール"}, {name: "その他"}
+])
+car_parts.children.create([
+  {name: "サスペンション"}, {name: "ブレーキ"}, {name: "外装/エアロパーツ"}, {name: "ライト"}, {name: "内装品、シート"}
+  , {name: "ステアリング"}, {name: "マフラー/排気系"}, {name: "エンジン/過給機/冷却装置"}, {name: "クラッチ/ミッション/駆動系"}
+  , {name: "電装品"}, {name: "補強パーツ"}, {name: "汎用パーツ"}, {name: "外国自動車用パーツ"}, {name: "その他"}
+])
+car_accessory.children.create([
+  {name: "車内アクセサリー"}, {name: "カーナビ"}, {name: "カーオーディオ"}, {name: "社外アクセサリー"}, {name: "メンテナンス用品"}
+  , {name: "チャイルドシート"}, {name: "ドライブレコーダー"}, {name: "レーダー探知機"}, {name: "カタログ/マニュアル"}
+  , {name: "セキュリティ"}, {name: "ETC"}, {name: "その他"}
+])
+bike_parts.children.create([
+  {name: "タイヤ"}, {name: "マフラー"}, {name: "エンジン/冷却装置"}, {name: "カウル/フェンダー/外装"}, {name: "サスペンション"}
+  , {name: "ホイール"}, {name: "シート"}, {name: "ブレーキ"}, {name: "タンク"}, {name: "ライト/ウィンカー"}
+  , {name: "チェーン/スプロケット/駆動系"}, {name: "メーター"}, {name: "電装品"}, {name: "ミラー"}
+  , {name: "外国オートバイ用パーツ"}, {name: "その他"}
+])
+bike_accessory.children.create([
+  {name: "ヘルメット/シールド"}, {name: "バイクウエア/装備"}, {name: "アクセサリー"}, {name: "メンテナンス"}, {name: "カタログ/マニュアル"}
+  , {name: "その他"}
+])
+
+
+
+# その他の親要素
+other = Category.create(name: "その他")
+
+
+# その他の子要素
+other_bulk_sale = other.children.create(name: "まとめ売り")
+other_pet = other.children.create(name: "ペット用品")
+other_meal = other.children.create(name: "食品")
+other_drink = other.children.create(name: "飲料/酒")
+other_travel = other.children.create(name: "日用品/生活雑貨/旅行")
+other_collection = other.children.create(name: "アンティーク/コレクション")
+other_stationery = other.children.create(name: "文房具/事務用品")
+other_store = other.children.create(name: "事務/店舗用品")
+other_other = other.children.create(name: "その他")
+
+
+
+# その他の孫要素
+other_pet.children.create([
+  {name: "ペットフード"}, {name: "犬用品"}, {name: "猫用品"}, {name: "魚用品/水草"}, {name: "小動物用品"}, {name: "爬虫類/両生類用品"}
+  , {name: "かご/おり"}, {name: "鳥用品"}, {name: "虫類用品"}, {name: "その他"}
+])
+other_meal.children.create([
+  {name: "菓子"}, {name: "米"}, {name: "野菜"}, {name: "果物"}, {name: "調味料"}, {name: "魚介類(加工食品)"}, {name: "肉類(加工食品)"}
+  , {name: "その他(加工食品)"}, {name: "その他"}
+])
+other_drink.children.create([
+  {name: "コーヒー"}, {name: "ソフトドリンク"}, {name: "ミネラルウォーター"}, {name: "茶"}, {name: "ウイスキー"}, {name: "ワイン"}
+  , {name: "ブランデー"}, {name: "焼酎"}, {name: "日本酒"}, {name: "ビール/発泡酒"}, {name: "その他"}
+])
+other_travel.children.create([
+  {name: "タオル/バス用品"}, {name: "日用品/生活雑貨"}, {name: "洗剤/柔軟剤"}, {name: "旅行用品"}, {name: "防災関連グッズ"}, {name: "その他"}
+])
+other_collection.children.create([
+  {name: "雑貨"}, {name: "工芸品"}, {name: "家具"}, {name: "印刷物"}, {name: "その他"}
+])
+other_stationery.children.create([
+  {name: "筆記具"}, {name: "ノート/メモ帳"}, {name: "テープ/マスキングテープ"}, {name: "カレンダー/スケジュール"}
+  , {name: "アルバム/スクラップ"}, {name: "ファイル/バインダー"}, {name: "はさみ/カッター"}, {name: "カードホルダー/名刺管理"}
+  , {name: "のり/ホッチキス"}, {name: "その他"}
+])
+other_store.children.create([
+  {name: "オフィス用品一般"}, {name: "オフィス家具"}, {name: "店舗用品"}, {name: "OA機器"}, {name: "ラッピング/包装"}, {name: "その他"}
+])
