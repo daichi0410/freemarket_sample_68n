@@ -12,8 +12,16 @@
         &__icon{
           display: flex;
           justify-content: center;
+          &__brand{
+            padding-right: 40px;
+          }
           &__text{
             margin-left: 40px;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 37px;
+          }
+          &__word{
             font-size: 28px;
             font-weight: bold;
             line-height: 37px;

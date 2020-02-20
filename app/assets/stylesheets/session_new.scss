@@ -58,6 +58,8 @@
 }
 .feild{
   margin-bottom: 10px;
+  font-weight: bold;
+  color: rgb(82, 159, 185);
 }
 
 .new_user{
@@ -87,10 +89,11 @@ input{
 }
 
 .actions{
+  padding-top: 10px;
   width: 300px;
   height: 35px;
   margin: 0 auto;
   border-radius: 15px;
-  background-color: rgb(88, 179, 209);
+  // background-color: rgb(88, 179, 209);
 }
 

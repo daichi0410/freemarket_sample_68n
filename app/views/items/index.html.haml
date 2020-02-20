@@ -175,37 +175,7 @@
         = image_tag("https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg", class: "appstore3")
         = image_tag("https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png", class: "google3")
 .footer
-  %ul.footer__contents
-    %li.footer__contents__content1
-      .footer__contents__content__head FURIMAについて
-      %ul
-        %li
-          = link_to "会社概要（運営会社）", "#" 
-        %li
-          = link_to "プライバシーポリシー", "#" 
-        %li
-          = link_to "FURIMA利用規約", "#" 
-        %li
-          = link_to "ポイントに関する特約", "#" 
-    %li.footer__contents__content2
-      .footer__contents__content__head FURIMAを見る
-      %ul
-        %li
-          = link_to "カテゴリー一覧", "#" 
-        %li
-          = link_to "ブランド一覧", "#" 
-    %li.footer__contents__content3
-      .footer__contents__content__head ヘルプ＆ガイド
-      %ul
-        %li
-          =link_to "FURIMAガイド", "#"
-        %li
-          = link_to "FURIMAロゴ利用ガイドライン", "#" 
-        %li
-          = link_to "お知らせ", "#" 
-  .footer__logo
-    = link_to image_tag("logo/logo-white.png"), "#"
-  %p © FURIMA
+  =render "shared/footer"  
 
 .purchase
   .purchase__text 
