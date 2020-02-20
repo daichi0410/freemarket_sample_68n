@@ -23,8 +23,12 @@
     %section.main-item
       .main-item__container
         .main-item__container-display
-          %h2.main-item__container-display--head 商品の情報を入力
-          .main-item__container-display--form
+          .main-item__container-display__icon 
+            =link_to image_tag("icon/icon_brand.png",width:"40",height:"40",class:"brand")
+            .main-item__container-display__icon__text
+              FURIMA
+          .main-item__container-display__head 商品の情報を入力
+          .main-item__container-display__form
             = form_with model: @item, local: true, class: 'form' do |form| 
               .sell-upload-box
                 %h3.sell-upload-box__head
@@ -84,6 +88,14 @@
                             %option{value: "10"} チケット
                             %option{value: "11"} 自動車・オートバイ
                             %option{value: "12"} その他
+                  .form-group
+                    = form.label "ブランド" do
+                      ブランド
+                      %span.form-require 任意
+                      .select-wrap
+                        -# %i.fa.fa-angle-down
+                        -# = form.select :brand, {}, {}, {class: "select-default parent-category"}
+                        = form.text_field :brand, class: "input-default", value: "", placeholder: "例) シャネル"
                   .form-group
                     = form.label "商品の状態" do
                       商品の状態
