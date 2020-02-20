@@ -314,8 +314,8 @@ interior_accessories.children.create([
      {name: "置物"}, {name: "風鈴"}, {name: "観葉植物"}, {name: "その他"}
 ])
 annual_event_goods.children.create([
-  {name: "正月"}, {name: "成人式"}, {name: "バレンタインデー"}, {name: "ひな祭り"}, {name: "こどもの日"}, {name: "母の日"}, {name: "父の日"}, {name: "サマーギフト/お中元"}
-  , {name: "夏/夏休み"}, {name: "ハロウィン"}, {name: "敬老の日"}, {name: "七五三"}, {name: "お歳暮"}, {name: "クリスマス"}, {name: "冬一般"}, {name: "その他"}
+  {name: "正月"}, {name: "成人式"}, {name: "バレンタインデー"}, {name: "ひな祭り"}, {name: "こどもの日"}, {name: "母の日"}, {name: "父の日"}, {name: "サマーギフト/お中元"},
+   {name: "夏/夏休み"}, {name: "ハロウィン"}, {name: "敬老の日"}, {name: "七五三"}, {name: "お歳暮"}, {name: "クリスマス"}, {name: "冬一般"}, {name: "その他"}
 ])
 
 # 本・音楽・ゲームの親要素
@@ -403,7 +403,7 @@ toy_musical_instrument.children.create([
 toy_collection.children.create([
   {name: "武具"}, {name: "使用済切手/官製はがき"}, {name: "旧貨幣/金貨/銀貨/記念硬貨"}, {name: "印刷物"}, {name: "ノベルティグッズ"}, {name: "その他"}
 ])
-toy_military.chitoy_collectionldren.create([
+toy_military.children.create([
   {name: "トイガン"}, {name: "個人装備"}, {name: "その他"}
 ])
 toy_art.children.create([
