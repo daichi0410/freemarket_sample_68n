@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   root to: "items#index"
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+    # collection do
+    #   get 'get_category_children', defaults: { format: 'json' }
+    #   get 'get_category_grandchildren', defaults: { format: 'json' }
+    # end
   resources :images, only: [:new, :create]
 end
