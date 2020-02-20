@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     # @item.images.new
-    @parents = Category.all.order("id ASC").limit(13)
+    # @parents = Category.all.order("id ASC").limit(13)
     
     #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category).merge(user_id: current_user.id, sold_out: 0)
   end
 
   # 以下全て、formatはjsonのみ
