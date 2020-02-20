@@ -54,6 +54,10 @@ class ItemsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
+  def item_params
+    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id).merge(user_id: current_user.id, sold_out: 0)
+  end
+
   # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children
