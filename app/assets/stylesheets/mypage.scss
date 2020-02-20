@@ -346,6 +346,40 @@ a{
       }
     }
   }
+  &__credit-card{
+    height: 230px;
+    width: 668px;
+    padding: 16px;
+    margin-top: 1.5px;
+    background-color: #ffffff;
+    &__text{
+      font-size: 25px;
+      font-weight: bold;
+      height: 30px;
+      width: 100%;  
+      border-bottom: 1px solid lightgrey;
+    }
+
+    &__bigbox{
+      font-size: 16px;
+      margin: 0 auto;
+      height: 170px;
+      width: 100%;
+
+      text-align: center;
+      color: black;
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom: 1px solid lightgrey;
+      &__leftbox{
+        padding-top: 40px;
+      }
+      &__rightbox{
+        padding-top: 60px;
+      }
+    }
+
+  }
 }
 
 .arrow{
