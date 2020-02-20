@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   # @sold_outs売り切れのitemを配列に代入
 
   def show
-    @address = Address.find(prefecture_id: [@item.address])
+    # @address = Address.find(prefecture_id: [@item.address])
     @image = Image.find_by(item_id: 17)
   end
 
