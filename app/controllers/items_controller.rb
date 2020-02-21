@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.id
+        @category_parent_array << parent.name
     end
   end
 
@@ -59,17 +59,14 @@ class ItemsController < ApplicationController
   def back_index
     redirect_to action: :index unless user_signed_in?
   end
+
+
+  def item_params
+    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id).merge(user_id: current_user.id, sold_out: 0)
+  end
+
+
   
-  # user_id,category_idは機能未実装のため仮の値をセットしている。
-  def item_params
-    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, images_attributes: [:image]).merge(user_id: current_user.id, sold_out: 0,category_id: 1)
-  end
-
-
-  def item_params
-    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size).merge(user_id: current_user.id, sold_out: 0, category_id: 1)
-  end
-
   # 以下全て、formatはjsonのみ
   # 親カテゴリーが選択された後に動くアクション
   def get_category_children

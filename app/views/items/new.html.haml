@@ -14,7 +14,8 @@
   = form.text_field :status, placeholder: "状態", class: 'status'
   = form.text_field :delivery_charge, placeholder: "配送料", class: 'charge'
   = form.text_field :size, placeholder: "サイズ", class: 'size'
-  -# = form.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+  = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name
+  
 
   = form.submit "出品", class: 'send'
   
