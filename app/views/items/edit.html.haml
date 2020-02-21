@@ -65,6 +65,13 @@
                             %option{value: "11"} 自動車・オートバイ
                             %option{value: "12"} その他
                   .form-group
+                    = form.label "ブランド" do
+                      ブランド
+                      %span.form-require 任意
+                      .select-wrap
+                        = form.text_field :brand, class: "input-default", value: "#{@item.brand}", placeholder: "例) シャネル"
+
+                  .form-group
                     = form.label "商品の状態" do
                       商品の状態
                       %span.form-require 必須

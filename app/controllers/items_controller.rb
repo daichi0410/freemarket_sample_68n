@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
 
   def index
@@ -20,17 +20,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # item = Item.find(params[:id])
-    # if item.update(item_params)
-    #   redirect_to action: 'edit'
-    #   flash[:success] = "変更しました。"
-    # else
-    #   render edit
-    #   flash[:danger] = "更新に失敗しました。"
-    # end
-    item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to items_path
+    if @item.update(item_params)
+      # redirect_to action: 'edit'
+      redirect_to items_path
+      flash[:success] = "変更しました。"
+    else
+      render edit
+      flash[:danger] = "更新に失敗しました。"
+    end
   end
   
   def new
