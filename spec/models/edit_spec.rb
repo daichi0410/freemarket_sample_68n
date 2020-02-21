@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Edit do
-  describe '#create' do
+describe Item do
+  describe '#edit' do
 
     it "is invalid without a name" do
       item = build(:item, name: "")

@@ -78,10 +78,6 @@
                       .select-wrap
                         %i.fa.fa-angle-down
                         = form.select :status, [["新品、未使用品", 0], ["未使用に近い", 1]], { prompt: "---" }, { class: "select-default" }
-                        -# = form.select :status, {}, {}, {class: "select-default parent-category"} do
-                        -#   %option{value: ""} ---
-                        -#   %option{value: "1"} 新品、未使用品
-                        -#   %option{value: "2"} 未使用に近い
               .sell-content.clearfix
                 %h3.sell-sub-head 配送について
                 = link_to "?", "/jp/help_center/article/68/", class: "form-question"
@@ -93,10 +89,6 @@
                     .select-wrap
                       %i.fa.fa-angle-down
                       = form.select :delivery_charge, [["送料込み(出品者負担)", 0], ["着払い(購入者負担)", 1]], { prompt: "---" }, { class: "select-default" }
-                      -# = form.select :delivery_charge, {}, {}, {class: "select-default"} do
-                      -#   %option{value: ""} ---
-                      -#   %option{value: "1"} 送料込み(出品者負担)
-                      -#   %option{value: "2"} 着払い(購入者負担)
                   .form-group
                     = form.label "配送の方法" do
                       配送の方法
@@ -104,11 +96,6 @@
                     .select-wrap
                       %i.fa.fa-angle-down
                       = form.select :size, [["らくらくメルカリ便", 0], ["ゆうメール", 1]], { prompt: "---" }, { class: "select-default" }
-                      -# = form.select :size, {}, {}, {class: "select-default"} do
-                      -#   %option{value: ""} ---
-                      -#   %option{value: "1"} らくらくメルカリ便
-                      -#   %option{value: "2"} ゆうメール
-
 
                   .form-group
                     = form.label "発送元の地域" do
@@ -125,11 +112,7 @@
                     .select-wrap
                       %i.fa.fa-angle-down
                       = form.select :date, [["1~2日で発送", 0], ["2~3日で発送", 1], ["4~7日で発送", 2]], { prompt: "---" }, { class: "select-default" }
-                      -# = form.select :date, {}, {}, {class: "select-default"} do
-                      -#   %option{value: ""} ---
-                      -#   %option{value: "1"} 1~2日で発送
-                      -#   %option{value: "2"} 3~4日で発送
-
+                      
               .sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
                 = link_to '?', '/jp/help_center/article/64/', class:'form-question'
