@@ -1,4 +1,4 @@
--# -# -# テスト用のビュー
+-# -# -# -# テスト用のビュー
 -# = form_with model: @item, local: true, class: 'form' do |form| 
 -#   = form.text_field :name, placeholder: "name", class: 'name'
 -#   .image-box
@@ -43,7 +43,7 @@
                   .sell-upload-dropbox.have-item-0.image-box
                     = form.fields_for :images do |i|
                       = i.label :image do
-                        = i.file_field :image, class: "js-file", style: "display: none;"      
+                        = i.file_field :image, class: "js-file"     
                         .sell-upload-drop-file
                         %pre.visible-pc
                           ドラッグアンドドロップ
