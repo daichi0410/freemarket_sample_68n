@@ -1,3 +1,26 @@
-%h2 購入が完了しました！
-%p Apple MacBook Pro 13インチ
-%p ¥135,000(送料込み)
+%main.deal-done-main
+  %section.deal-done-single-container.buy-item-container
+    .deal-done-attention
+      %h3
+        %i.far.fa-clock
+        %span
+          発送をお待ちください
+      %p
+        出品者からの発送通知をお待ちください
+    %h2.deal-done-head
+      購入が完了しました
+    %section.deal-content.deal-item
+      .deal-content__inner
+        %h3.deal-item-image
+          = image_tag(source="https://static.mercdn.net/thumb/photos/m56020512036_1.jpg?1582270646")
+        %p.deal-item-name
+          鬼滅の刃 ぱしゃこれ 善逸 我妻善逸
+    %section.deal-content.deal-user-info.deal-item
+      .deal-content__inner
+        %p.deal-user-name
+          SHO
+    %section.deal-content.deal-user-info
+      .deal-content__inner
+        %p.deal-user-address
+          住所
+    %section.deal-content.deal-done-flow
