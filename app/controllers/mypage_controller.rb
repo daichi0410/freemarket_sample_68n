@@ -6,4 +6,5 @@ class MypageController < ApplicationController
 
   def destroy
   end
+  
 end

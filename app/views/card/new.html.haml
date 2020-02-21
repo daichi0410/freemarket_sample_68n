@@ -1,3 +1,96 @@
-= form_with url: pay_card_index_path do 
-  :plain
-    <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_644a8aa181a75a93bd91254d"></script>
+
+-# %h1 Card#show
+-# %p Find me in app/views/card/show.html.haml
+.header
+ =render "shared/header"       
+​
+.hako
+ .hako__left
+  .hako__left__1
+   .hako__left__1__box
+    =link_to "マイページ",mypage_index_path,class:"hako__left__1__box__mypage"
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    お知らせ
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    やることリスト
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    いいね！一覧
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    出品する
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    出品した商品・出品中
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    出品した商品・取引中
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    出品した商品・売却済み
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    購入した商品・取引中
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    購入した商品・過去の取引
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    ニュース一覧
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    評価一覧
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__box
+    ガイド
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__1__contact
+    お問い合わせ
+    =fa_icon('chevron-right',class:"arrow")
+
+  .hako__left__2
+   .hako__left__2__pay
+    メルペイ
+   .hako__left__2__money
+    売上・振込申請
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__2__point
+    ポイント
+    =fa_icon('chevron-right',class:"arrow")
+  .hako__left__3
+   .hako__left__3__setting
+    設定
+   .hako__left__3__box
+    プロフィール
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__box
+    発送元・お届け先住所
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__box
+    = link_to "支払い方法", card_index_path,class:"hako__left__3__box__card-show"
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__box
+    メール/パスワード  
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__box
+    本人情報
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__box
+    電話番号の確認
+    =fa_icon('chevron-right',class:"arrow")
+   .hako__left__3__logout
+    = link_to "ログアウト", mypage_path(current_user.id), method: :delete,class:"hako__left__3__logout__destroy" 
+    =fa_icon('chevron-right',class:"arrow")
+
+ .hako__credit-card
+  .hako__credit-card__text  
+   支払い方法
+  .hako__credit-card__bigbox
+   .hako__credit-card__bigbox__leftbox
+    %br
+    = form_with url: pay_card_index_path do 
+     :plain
+      <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_cc99bb2d7fffea1a2f7c0f27"></script>
+

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-root to: "items#new"
+root to: "items#index"
   resources :mypage, only: [:index, :destroy]
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
   resources :images, only: [:new, :create]

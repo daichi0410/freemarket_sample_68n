@@ -1,184 +1,184 @@
 .header
  =render "shared/header"       
 ​
-.contents
- .contents__left
-  .contents__left__1
-   .contents__left__1__box
-    =link_to "マイページ", root_path,class:"mypage"
+.hako
+ .hako__left
+  .hako__left__1
+   .hako__left__1__box
+    =link_to "マイページ", "#",class:"hako__left__1__box__mypage"
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     お知らせ
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     やることリスト
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     いいね！一覧
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     出品する
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     出品した商品・出品中
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     出品した商品・取引中
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     出品した商品・売却済み
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     購入した商品・取引中
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     購入した商品・過去の取引
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     ニュース一覧
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     評価一覧
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__box
+   .hako__left__1__box
     ガイド
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__1__contact
+   .hako__left__1__contact
     お問い合わせ
     =fa_icon('chevron-right',class:"arrow")
 
-  .contents__left__2
-   .contents__left__2__pay
+  .hako__left__2
+   .hako__left__2__pay
     メルペイ
-   .contents__left__2__money
+   .hako__left__2__money
     売上・振込申請
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__2__point
+   .hako__left__2__point
     ポイント
     =fa_icon('chevron-right',class:"arrow")
-  .contents__left__3
-   .contents__left__3__setting
+  .hako__left__3
+   .hako__left__3__setting
     設定
-   .contents__left__3__box
+   .hako__left__3__box
     プロフィール
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__box
+   .hako__left__3__box
     発送元・お届け先住所
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__box
-    支払い方法
+   .hako__left__3__box
+    = link_to "支払い方法", new_card_path,class:"hako__left__3__box__card-show"
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__box
+   .hako__left__3__box
     メール/パスワード  
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__box
+   .hako__left__3__box
     本人情報
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__box
+   .hako__left__3__box
     電話番号の確認
     =fa_icon('chevron-right',class:"arrow")
-   .contents__left__3__logout
-    = link_to "ログアウト", mypage_path(id:1), method: :delete,class:"destroy" 
+   .hako__left__3__logout
+    = link_to "ログアウト", mypage_path(current_user.id), method: :delete,class:"hako__left__3__logout__destroy" 
     =fa_icon('chevron-right',class:"arrow")
 
- .contents__right
-  .contents__right__1
-   .contents__right__1__up
-    .contents__right__1__up__img 
+ .hako__right
+  .hako__right__1
+   .hako__right__1__up
+    .hako__right__1__up__img 
      =link_to image_tag("member_photo_noimage_thumb.png",width:"60",height:"60") 
-    .contents__right__1__up__box
+    .hako__right__1__up__box
      Team N
-    .contents__right__1__up__box
+    .hako__right__1__up__box
      評価 14  出品数 15
-   .contents__right__1__middle
-    .contents__right__1__middle__left.active
+   .hako__right__1__middle
+    .hako__right__1__middle__left.active
      お知らせ
-    .contents__right__1__middle__left
+    .hako__right__1__middle__left
      やることリスト
-   .contents__right__1__under.show
-    .contents__right__1__under__box
-     .contents__right__1__under__box__inner
-      .contents__right__1__under__box__inner__icon
+   .hako__right__1__under.show
+    .hako__right__1__under__box
+     .hako__right__1__under__box__inner
+      .hako__right__1__under__box__inner__icon
        =link_to image_tag("logo.png",width:"32",height:"32") 
-      .contents__right__1__under__box__inner__title
+      .hako__right__1__under__box__inner__title
        チームNの週間予報！皆さん頑張っています！
-      .contents__right__1__under__box__inner__time
+      .hako__right__1__under__box__inner__time
        =link_to image_tag("time.png",width:"18",height:"18")
-      .contents__right__1__under__box__inner__date
+      .hako__right__1__under__box__inner__date
        1日前      
-     .contents__right__1__under__box__arrow
+     .hako__right__1__under__box__arrow
       =fa_icon('chevron-right',class:"arrow")
 
-    .contents__right__1__under__box
-     .contents__right__1__under__box__inner
-      .contents__right__1__under__box__inner__icon
+    .hako__right__1__under__box
+     .hako__right__1__under__box__inner
+      .hako__right__1__under__box__inner__icon
        =link_to image_tag("logo.png",width:"32",height:"32") 
-      .contents__right__1__under__box__inner__title
+      .hako__right__1__under__box__inner__title
        チームNの週間速報！
-      .contents__right__1__under__box__inner__time
+      .hako__right__1__under__box__inner__time
        =link_to image_tag("time.png",width:"18",height:"18")
-      .contents__right__1__under__box__inner__date
+      .hako__right__1__under__box__inner__date
        2日前      
-     .contents__right__1__under__box__arrow
+     .hako__right__1__under__box__arrow
       =fa_icon('chevron-right',class:"arrow")
 
-    .contents__right__1__under__box
-     .contents__right__1__under__box__inner
-      .contents__right__1__under__box__inner__icon
+    .hako__right__1__under__box
+     .hako__right__1__under__box__inner
+      .hako__right__1__under__box__inner__icon
        =link_to image_tag("logo.png",width:"32",height:"32") 
-      .contents__right__1__under__box__inner__title
+      .hako__right__1__under__box__inner__title
        SCSSがわからないけど、それ以上にjavascriptやらなきゃいけない件について。
-      .contents__right__1__under__box__inner__time
+      .hako__right__1__under__box__inner__time
        =link_to image_tag("time.png",width:"18",height:"18")
-      .contents__right__1__under__box__inner__date
+      .hako__right__1__under__box__inner__date
        3日前      
-     .contents__right__1__under__box__arrow
+     .hako__right__1__under__box__arrow
       =fa_icon('chevron-right',class:"arrow")
 
-    .contents__right__1__under__box
-     .contents__right__1__under__box__inner
-      .contents__right__1__under__box__inner__icon
+    .hako__right__1__under__box
+     .hako__right__1__under__box__inner
+      .hako__right__1__under__box__inner__icon
        =link_to image_tag("logo.png",width:"32",height:"32") 
-      .contents__right__1__under__box__inner__title
+      .hako__right__1__under__box__inner__title
        せいちゃんと黒田さんの奮闘ぶりについて！笑
-      .contents__right__1__under__box__inner__time
+      .hako__right__1__under__box__inner__time
        =link_to image_tag("time.png",width:"18",height:"18")
-      .contents__right__1__under__box__inner__date
+      .hako__right__1__under__box__inner__date
        4日前      
-     .contents__right__1__under__box__arrow
+     .hako__right__1__under__box__arrow
       =fa_icon('chevron-right',class:"arrow")
-
-   .contents__right__1__under
-    .contents__right__1__under__list
+  
+   .hako__right__1__under
+    .hako__right__1__under__list
      =link_to image_tag("logo.png",width:"80",height:"80") 
-     .contents__right__1__under__list__text
+     .hako__right__1__under__list__text
       取引中の商品がありません
 
 
 
 
-   .contents__right__1__show
-    .contents__right__1__show__box
+   .hako__right__1__show
+    .hako__right__1__show__box
      一覧を見る
 
-  .contents__right__2
-   .contents__right__2__up
+  .hako__right__2
+   .hako__right__2__up
     購入した商品
-   .contents__right__2__middle
-    .contents__right__2__middle__left.move
+   .hako__right__2__middle
+    .hako__right__2__middle__left.move
      取引中
-    .contents__right__2__middle__left
+    .hako__right__2__middle__left
      過去の取引
-   .contents__right__2__under.see
-    .contents__right__2__under__icon
+   .hako__right__2__under.see
+    .hako__right__2__under__icon
      =link_to image_tag("logo.png",width:"80",height:"80")
-     .contents__right__2__under__icon__text
-      取引中の商品がありません
-   .contents__right__2__under
-    .contents__right__2__under__icon
+     .hako__right__2__under__icon__text
+      取中の商品がありません
+   .hako__right__2__under
+    .hako__right__2__under__icon
      =link_to image_tag("logo.png",width:"80",height:"80") 
-     .contents__right__2__under__icon__text
+     .hako__right__2__under__icon__text
       過去の取引はありません。
 
 .footer
-
+ =render "shared/footer"  
