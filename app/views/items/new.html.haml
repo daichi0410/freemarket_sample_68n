@@ -14,10 +14,13 @@
   = form.text_field :status, placeholder: "状態", class: 'status'
   = form.text_field :delivery_charge, placeholder: "配送料", class: 'charge'
   = form.text_field :size, placeholder: "サイズ", class: 'size'
-  = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name
-  
+  = form.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select" }
+  .product_select-children
 
+
+  -# = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, class: 'listing-select-wrapper__box--select', id: 'parent_category'
   = form.submit "出品", class: 'send'
+  
   
 -# ここから本番用のview(別メンバー作成)  
 -# .wrapper

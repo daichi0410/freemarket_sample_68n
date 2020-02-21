@@ -13,11 +13,13 @@ Rails.application.routes.draw do
 
 root to: "items#index"
   resources :mypage, only: [:index, :destroy]
-  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
-    # collection do
-    #   get 'get_category_children', defaults: { format: 'json' }
-    #   get 'get_category_grandchildren', defaults: { format: 'json' }
-    # end
+  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    collection do
+      get 'category_children' 
+      get 'category_grandchildren'
+    end
+  end
+
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
   resources :card, only: [:new, :show] do
