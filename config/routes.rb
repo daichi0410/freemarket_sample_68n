@@ -13,7 +13,12 @@ Rails.application.routes.draw do
 
 root to: "items#index"
   resources :mypage, only: [:index, :destroy]
-  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
   resources :card, only: [:new, :show] do
@@ -23,7 +28,4 @@ root to: "items#index"
       post 'delete', to: 'card#delete'
     end
   end
-  
 end
-
-

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @sales = Item.where(sold_out: 0)
@@ -40,6 +41,10 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to root_path
+  end
+
+  def search
+    @Items = Item.search(params[:keyword])
   end
 
   private
