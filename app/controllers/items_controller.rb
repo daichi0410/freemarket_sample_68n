@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
 
   def index
@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
   # @sold_outs売り切れのitemを配列に代入
 
   def show
-    @address = Address.find(prefecture_id: [@item.address])
+    # @address = Address.find(prefecture_id: [@item.address])
+    # 一時的にコメントアウト
     @image = Image.find_by(item_id: 17)
   end
 
@@ -19,6 +20,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to items_path
+      flash[:success] = "変更しました。"
+    else
+      render edit
+      flash[:danger] = "更新に失敗しました。"
+    end
   end
   
   def new
