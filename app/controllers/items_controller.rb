@@ -24,14 +24,14 @@ class ItemsController < ApplicationController
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
+        @category_parent_array << parent.id
     end
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save!
-      redirect_to items_path
+      redirect_to root_path
     else
       render :new
     end
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size).merge(user_id: current_user.id, sold_out: 0, category_id: 1)
   end
 
   # 以下全て、formatはjsonのみ

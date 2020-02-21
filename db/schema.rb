@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_105315) do
     t.string "size"
     t.integer "sold_out", null: false
     t.integer "user_id", null: false
-    t.string "category", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
