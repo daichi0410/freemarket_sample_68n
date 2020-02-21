@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'purchase/index'
+  get 'purchase/done'
   get 'card/new'
   get 'card/show'
   devise_for :users, controllers: {
@@ -9,11 +11,15 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 root to: "items#index"
   resources :mypage, only: [:index, :destroy]
-  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy]
+  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    collection do
+      get 'search'
+    end
+  end
+
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
   resources :card, only: [:new, :show] do
@@ -23,7 +29,12 @@ root to: "items#index"
       post 'delete', to: 'card#delete'
     end
   end
-  
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
 end
-
-
