@@ -41,9 +41,9 @@
                     .sell-upload-items.have-item-0
                       %ul
                   .sell-upload-dropbox.have-item-0.image-box
-                    = form.fields_for :images do |c|
-                      = c.label :image do
-                        = c.file_field :image, class: "js-file", style: "display: none;"
+                    = form.fields_for :images do |i|
+                      = i.label :image do
+                        = i.file_field :image, class: "js-file", style: "display: none;"
                         .sell-upload-drop-file
                         %pre.visible-pc
                           ドラッグアンドドロップ

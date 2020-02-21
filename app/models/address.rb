@@ -10,5 +10,6 @@ class Address < ApplicationRecord
   validates :prefectures, presence: true
   validates :municipality, presence: true
   validates :number, presence: true  
+  validates :phone_number,presence: true
 
 end
