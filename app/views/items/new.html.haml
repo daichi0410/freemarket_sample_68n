@@ -1,4 +1,4 @@
--# -# テスト用のビュー
+-# -# -# -# テスト用のビュー
 -# = form_with model: @item, local: true, class: 'form' do |form| 
 -#   = form.text_field :name, placeholder: "name", class: 'name'
 -#   .image-box
@@ -24,7 +24,7 @@
       .main-item__container
         .main-item__container-display
           .main-item__container-display__icon 
-            =link_to image_tag("icon/icon_brand.png",width:"40",height:"40",class:"brand")
+            =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand")
             .main-item__container-display__icon__text
               FURIMA
           .main-item__container-display__head 商品の情報を入力
@@ -43,7 +43,7 @@
                   .sell-upload-dropbox.have-item-0.image-box
                     = form.fields_for :images do |i|
                       = i.label :image do
-                        = i.file_field :image, class: "js-file", style: "display: none;"
+                        = i.file_field :image, class: "js-file"     
                         .sell-upload-drop-file
                         %pre.visible-pc
                           ドラッグアンドドロップ
@@ -51,6 +51,7 @@
                             またはクリックしてファイルをアップロード
                           %i.fas.fa-camera
                           %i.fas.fa-camera.fa-lg
+                    
               .sell-content
                 .form-group
                   %label
@@ -64,6 +65,12 @@
                     %span.form-require 必須
                   %div
                     = form.text_area :item_text, class: "textarea-default", rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+                .form-group
+                  %label
+                    サイズ
+                    %span.form-require 必須
+                  %div
+                    = form.text_field :size, placeholder: "サイズ", class: 'input-default'
               .sell-content.clearfix
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
