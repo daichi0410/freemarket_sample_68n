@@ -2,28 +2,32 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .header {
   width: 100%;
   height: 100px;
   padding: 0, 60px, 0, 60px;
   display: flex;
   justify-content: center;
+  background-color: white;
+  margin-top: 10px;
   &__inner {
     width: 1200px;
-    height: 97px;
+    height: 100px;
     margin-top: 20px;
     padding: 0, 60px, 0, 60px;
     &__main {
-      height: 70px;
+      // height: 70px;
       display: flex;
       align-items: center;
       &__icon {
-        height: 60px;
+
+
       }
     }
   }
   img {
-    height: 45px;
+    // height: 45px;
     width: 140px;
   }
 }
@@ -35,6 +39,7 @@ body {
     width: 950px;
     height: 35px;
     margin-left: 30px;
+    margin-right: 10px;
   }
   .search {
     height: 33px;
@@ -108,7 +113,7 @@ body {
     font-weight: bold;
     margin: 70px 0;
     color: #000;
-    border-bottom: 1px solid #3ccace;
+    border-bottom: 5px solid #3ccace;
   }
   &__lists {
     text-align: center;
@@ -166,8 +171,9 @@ body {
     font-size: 36px;
     font-weight: bold;
     line-height: 1.2;
-    padding: 130px 825px 0 100px;
+    padding: 130px 0 0 0;
     color: #fff;
+    text-align: center;
   }
   &__text {
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -176,8 +182,8 @@ body {
     font-weight: bold;
     line-height: 1.77778;
     margin: 16px 0 0 0;
-    padding-right: 825px;
-    padding-left: 100px;
+    // padding-right: 825px;
+    // padding-left: 100px;
   }
   img.appstore2 {
     margin-top: 20px;
@@ -234,6 +240,7 @@ body {
     padding-top: 100px;
     font-size: 38px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
   &__box__topic__title a {
     color: #3ccace;
@@ -269,6 +276,8 @@ body {
     padding-top: 100px;
     font-size: 38px;
     font-weight: bold;
+    margin-bottom: 20px;
+
   }
   &__box__topic__title {
     color: #3ccace;
@@ -327,7 +336,7 @@ body {
       margin-top: 20px;
       height: 98px;
       width: 210px;
-      padding-left: 470px;
+      // padding-left: 470px;
       padding-bottom: 30px;
 
     }
@@ -338,6 +347,12 @@ body {
     }
   }
 }
+
+.new-item{
+text-decoration: none;
+color: white;
+}
+
 .footer {
   // margin-top: 220px; 黒田さんのデプロイしたところエラー出たためコメントアウト
   padding: 60px 0;

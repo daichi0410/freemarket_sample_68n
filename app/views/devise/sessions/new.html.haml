@@ -1,4 +1,18 @@
-%h2 Log in
+%h2.log_in Let's "Log In!"
+=link_to "https://www.facebook.com/", class: "contents__btn contents__btn--facebook" do
+  = fa_icon('facebook-square',  class: "contents__btn--icon")
+  %span<>
+  Facebook
+=link_to "https://twitter.com/", class: "contents__btn contents__btn--twitter" do
+  = fa_icon('twitter', class: "contents__btn--icon")
+  %span<>
+  Twitter
+=link_to "https://www.instagram.com/", class: "contents__btn contents__btn--instagram" do
+  -#  = icon('fab', 'instagram', class: "contents__btn--icon")
+  = fa_icon('instagram', class: "contents__btn--icon")
+  %span<>
+  Instagram
+
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :email
@@ -11,7 +25,7 @@
   - if devise_mapping.rememberable?
     .field
       = f.check_box :remember_me
-      = f.label :remember_me
+      = f.label :remember_me?
   .actions
     = f.submit "Log in"
 = render "devise/shared/links"
