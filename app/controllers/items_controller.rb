@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   # @sold_outs売り切れのitemを配列に代入
 
   def show
+    # 今後show機能で住所を閲覧するために残しています
     # @address = Address.find(prefecture_id: [@item.address])
     @image = Image.find_by(item_id: 17)
   end
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    # @item.images.new
+    @item.images.new
     @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
   end
 
@@ -64,11 +65,8 @@ class ItemsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
-
   def item_params
     params.require(:item).permit(:name, :price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id).merge(user_id: current_user.id, sold_out: 0)
   end
-
-  # --------------------------------------------------------------------------------
   
 end
