@@ -38,7 +38,6 @@ $(function(){
  
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
     var productcategory = document.getElementById('category_select').value; 
-    console.log(productcategory)
   // ↑ productcategoryに選択した親のvalueを代入
     if (productcategory != ''){
  // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
