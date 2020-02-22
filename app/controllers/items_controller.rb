@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     # @item.images.new
     @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
-    end
   end
 
   def create
@@ -72,4 +71,4 @@ class ItemsController < ApplicationController
 
   # --------------------------------------------------------------------------------
   
-# end
+end

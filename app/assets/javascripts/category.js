@@ -1,6 +1,6 @@
 $(function(){
   function appendOption(category){ // optionの作成
-    var html = `&lt;option value="${category.id}"&gt;${category.name}&lt;/option&gt;`;
+    var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendChidrenBox(insertHTML){ // 子セレクトボックスのhtml作成
@@ -38,6 +38,7 @@ $(function(){
  
   $(document).on('change', '#category_select', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
     var productcategory = document.getElementById('category_select').value; 
+    console.log(productcategory)
   // ↑ productcategoryに選択した親のvalueを代入
     if (productcategory != ''){
  // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
@@ -48,7 +49,7 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){  // 送られてきたデータをchildrenに代入
-        console.log("hello")
+        console.log(children)
         var insertHTML = '';
         children.forEach(function(child){  
   // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
