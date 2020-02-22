@@ -30,7 +30,7 @@
       %li.main__introduction__lists__list
         .main__introduction__lists__list__pict
           %span.number 1
-          = image_tag("pict/pict-reason-01.jpg")
+          = image_tag("pict-reason-01.jpg")
         %h3.main__introduction__lists__list__text
           %span 3分
           ですぐに出品
@@ -39,7 +39,7 @@
       %li.main__introduction__lists__list
         .main__introduction__lists__list__pict
           %span.number 2
-          = image_tag("pict/pict-reason-02.jpg")
+          = image_tag("pict-reason-02.jpg")
         %h3.main__introduction__lists__list__text
           %span シンプル
           で使いやすい
@@ -49,7 +49,7 @@
       %li.main__introduction__lists__list
         .main__introduction__lists__list__pict
           %span.number 3
-          = image_tag("pict/pict-reason-03.jpg")
+          = image_tag("pict-reason-03.jpg")
         %h3.main__introduction__lists__list__text
           手数料
           %span 業界最安
@@ -72,19 +72,19 @@
     .main__feautures__head__items
       %section.main__feautures__head__items__item
         %figure.main__feautures__head__items__item__img
-        = image_tag("icon/icon-01.png")
+        = image_tag("icon-01.png")
         %h3.main__feautures__head__items__item__topic 簡単に売り買いできる
         %p.main__feautures__head__items__item__detail
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.main__feautures__head__items__item
         %figure.main__feautures__head__items__item__img
-        = image_tag("icon/icon-03.png")
+        = image_tag("icon-03.png")
         %h3.main__feautures__head__items__item__topic 売上金は即日振込みに対応
         %p.main__feautures__head__items__item__detail
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %section.main__feautures__head__items__item
         %figure.main__feautures__head__items__item__img
-        = image_tag("icon/icon-04.png")
+        = image_tag("icon-04.png")
         %h3.main__feautures__head__items__item__topic 様々な支払いに対応
         %p.main__feautures__head__items__item__detail
           お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
@@ -188,9 +188,6 @@
 .purchase
   .purchase__text 
     =link_to "出品する",new_item_path,class:"new-item" 
-    -# =link_to image_tag("icon_camera.png",width:"100", height:"100"),new_item_path
-    -#   -#  =link_to image_tag("heart.png", width:"100", height:"100"), feeling_path(id: 1) 
-    =link_to image_tag("icon/icon_camera.png",height:"100",width:"100"), new_item_path
-    -# %img.purchase__icon{src: "assets/icon/icon_camera.png"}/
+    =link_to image_tag("icon_camera.png",height:"100",width:"100"), new_item_path
 
 
