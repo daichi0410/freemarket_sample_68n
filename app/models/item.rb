@@ -15,4 +15,11 @@ class Item < ApplicationRecord
   validates :category_id, presence: true
 
 
+  belongs_to :user
+  
+  def self.search(search)
+    return Item.all unless search
+    Item.where('text LIKE(?)', "%#{search}%")
+  end
+
 end

@@ -20,4 +20,18 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :cards
+
+  validates :nickname, presence: true, length: { maximum: 6 }
+
+  FactoryBot.define do
+
+    factory :user do
+      nickname              {"abe"}
+      email                 {"kkk@gmail.com"}
+      password              {"00000000"}
+      password_confirmation {"00000000"}
+    end
+  
+  end
+
 end

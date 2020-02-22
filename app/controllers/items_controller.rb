@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
+  before_action :move_to_index, except: [:index, :new,:show, :search]
 
   def index
     @sales = Item.where(sold_out: 0)
@@ -13,6 +14,9 @@ class ItemsController < ApplicationController
   def show
     # 今後show機能で住所を閲覧するために残しています
     # @address = Address.find(prefecture_id: [@item.address])
+
+    # 一時的にコメントアウト
+
     @image = Image.find_by(item_id: 17)
   end
 
@@ -21,6 +25,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to items_path
+      flash[:success] = "変更しました。"
+    else
+      render edit
+      flash[:danger] = "更新に失敗しました。"
+    end
   end
   
   def new
@@ -55,6 +66,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:productcategory]).children
   end
   # Ajax通信で送られてきたデータをparamsで受け取り､childrenで孫を取得｡（実際には子カテゴリーの子になる｡childrenは子を取得するメソッド)
+
+  def search
+    @Items = Item.search(params[:keyword])
+  end
+
 
   private
   def set_item
