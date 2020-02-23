@@ -11,7 +11,6 @@ $(function(){
                         <option value="---">---</option>
                         ${insertHTML}
                         </select>
-
                         <div class= 'product_select-grandchildren'>
                         </div>
                         </div>`;
