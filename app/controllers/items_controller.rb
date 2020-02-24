@@ -16,8 +16,10 @@ class ItemsController < ApplicationController
     # @address = Address.find(prefecture_id: [@item.address])
 
     # 一時的にコメントアウト
-    # @images = Image.find(params[:id])
-  end
+    @item = Item.find(params[:id])
+    @image = Image.new
+
+    end
 
 
   def edit

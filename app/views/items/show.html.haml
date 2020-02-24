@@ -5,9 +5,8 @@
     .container
       .container__left--contents
         .container__left--contents-image-large
-          -# - @images.each do |image|
-          -#   = image_tag @item.image.image
-          画像表示準備中。
+          - @item.images.each do |image|
+            = image_tag image.image.to_s
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
