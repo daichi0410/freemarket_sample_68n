@@ -17,15 +17,12 @@
       %ul.nav__left
         %li.nav__left__category
           %catbtn 
-            = link_to "カテゴリー","#",class:"show"
-            .nav__left__category__inner
-              -# - @parents.each do |parent|
-              -#   .nav__left__category__inner__box.appear
-              -#     =parent.name
+            = link_to "カテゴリー",item_path(id:1),class:"show"
           .nav__left__category__tree
             %ul.categoryTree
         %li.nav__left__brand
-          = link_to "ブランド", "#",class:"nav__left__brand__btn"
+          %brandbtn
+            = link_to "ブランド", "#"
           %ul.nav__left__brand__list
           
       %ul.nav__right
