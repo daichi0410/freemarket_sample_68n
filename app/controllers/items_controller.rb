@@ -12,11 +12,33 @@ class ItemsController < ApplicationController
   # @sold_outs売り切れのitemを配列に代入
 
   def show
-    # 今後show機能で住所を閲覧するために残しています
-    # @address = Address.find(prefecture_id: [@item.address])
+    @address = Item.find_by(prefecture_id: [@item.prefecture_id])
 
-    # 一時的にコメントアウト
-    # @images = Image.find(params[:id])
+    @item = Item.find(params[:id])
+
+    # 全ての画像を取得
+    @imagesall = Image.where(item_id: [@item.id]).order("id ASC")
+    # １番IDが若い画像を取得
+    @images1 = Image.where(item_id: [@item.id]).order("id ASC").limit(1)
+    # それ以外の紐づいている画像を取得
+    @images2 = @imagesall.drop(1)
+
+    # 状態を判定 string型だったので文字列で判定
+    if @item.status == "1"
+      @item_status = "新品、未使用品"
+    elsif @item.status == "2"
+      @item_status = "未使用品に近い"
+    else
+      @item_status = "未入力"
+    end
+
+    # 発送日までの日数を判定
+    if @item.delivery_charge == 1
+      @delivery_charge = "1日〜2日で発送"
+    elsif @item.delivery_charge == 2
+      @delivery_charge = "3日〜4日で発送"
+    end
+
   end
 
 
@@ -82,7 +104,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name,:price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
   end
   
 end

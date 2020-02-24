@@ -147,7 +147,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.collection_select(:address, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-default"})
+                      = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-default"})
 
                   .form-group
                     = form.label '発送までの日数' do

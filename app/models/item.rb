@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :item_text, presence: true
-  validates :address, presence: true
+  validates :prefecture_id, presence: true
   validates :date, presence: true
   validates :delivery_charge, presence: true
   validates :sold_out, presence: true
@@ -21,5 +21,8 @@ class Item < ApplicationRecord
     return Item.all unless search
     Item.where('text LIKE(?)', "%#{search}%")
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 
 end

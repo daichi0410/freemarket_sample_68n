@@ -5,10 +5,11 @@
     .container
       .container__left--contents
         .container__left--contents-image-large
-          -# - @images.each do |image|
-          -#   = image_tag @item.image.image
-          画像表示準備中。
+          - @images1.each do |image1|
+            = image_tag image1.image.url
         .container__left--contents__image-small
+          - @images2.each do |image2|
+            = image_tag image2.image.url
       %table.container__right--contents
         %tbody.container__right--contents-table
           %tr
@@ -34,7 +35,7 @@
           %tr
             %th 商品の状態
             %td
-              = @item.status
+              = @item_status
           %tr
             %th 配送料の負担
             %td
@@ -46,12 +47,12 @@
           %tr
             %th 配送元地域
             %td
-              -# = @address.name
+              = @address.prefecture.name
               -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
             %th 発送日の目安
             %td
-              = @item.date
+              = @delivery_charge
     .container__price
       %span.price
         = @item.name
