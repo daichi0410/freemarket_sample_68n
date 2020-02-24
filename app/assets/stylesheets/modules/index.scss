@@ -273,9 +273,20 @@ body {
   &__box__products {
     display: flex;
     justify-content: center;
+    &__product{
+      &__img{
+          width: 300px;
+          height: 200px;
+          background: white;
+          margin-bottom: 20px;
+          margin-top: 20px;
+          margin-left: 40px;
+      }
+    }
     &__product__body {
       background: white;
       margin: 0 40px;
+      width: 300px;
     }
   }
   ul {
@@ -284,11 +295,7 @@ body {
   a {
     text-decoration: none;
   }
-  img {
-    width: 300px;
-    height: 300px;
-    background: white;
-  }
+
 }
 .container {
   height: 750px;

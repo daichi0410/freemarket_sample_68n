@@ -6,8 +6,8 @@
       .container__left--contents
         .container__left--contents-image-large
           -# - @images.each do |image|
-          -#   = image_tag image.image.url
-          投稿機能未実装のため、画像表示はなし
+          -#   = image_tag @item.image.image
+          画像表示準備中。
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
@@ -22,7 +22,7 @@
           %tr
             %th カテゴリー
             %td
-              item_category(仮)
+              = @item.category.name
           %tr
             %th ブランド
             %td 
@@ -63,7 +63,7 @@
         (配送料)
     - if current_user.id != @item.user_id
       .container__purchace
-        = link_to '購入画面へ進む', class: 'container__purchace-button'
+        = link_to '購入画面へ進む',"/purchase", class: 'container__purchace-button'
       .container__description
         = @item.item_text
       .container__buttons

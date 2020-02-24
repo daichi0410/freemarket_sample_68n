@@ -16,7 +16,7 @@ class PurchaseController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => 444,
+    :amount => 301,
     :customer => card.customer_id,
     :currency => 'jpy',
     )
