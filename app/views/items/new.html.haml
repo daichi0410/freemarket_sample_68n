@@ -1,9 +1,18 @@
+
 -# -# -# -# テスト用のビュー
 -# = form_with model: @item, local: true, class: 'form' do |form| 
 -#   = form.text_field :name, placeholder: "name", class: 'name'
 -#   .image-box
 -#     = form.fields_for :images do |i|
 -#       = i.file_field :image, class: 'js-file'
+
+
+-# テスト用のビュー
+-# = form_with model: @item, local: true, class: 'form' do |form| 
+  -# = form.text_field :name, placeholder: "name", class: 'name'
+  -# .image-box
+  -#   = form.fields_for :images do |i|
+  -#     = i.file_field :image, class: 'js-file'
 
 -#   = form.text_field :price, placeholder: "price", class: 'price'
 -#   = form.text_area :item_text, placeholder: "商品の説明", class: 'item_text'
@@ -13,10 +22,10 @@
 -#   = form.text_field :status, placeholder: "状態", class: 'status'
 -#   = form.text_field :delivery_charge, placeholder: "配送料", class: 'charge'
 -#   = form.text_field :size, placeholder: "サイズ", class: 'size'
+-#   = form.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select" }
+-#   .product_select-children
 -#   = form.submit "出品", class: 'send'
-  
-
--# ここから本番用のview(別メンバー作成)  
+-# 本番用のビュー
 
 .wrapper
   .main
@@ -81,20 +90,22 @@
                       %div#appending_form
                         .select-wrap
                           %i.fa.fa-angle-down
-                          = form.select :category_id, {}, {}, {class: "select-default parent-category"} do
-                            %option{value: ""} ---
-                            %option{value: "1"} レディース
-                            %option{value: "2"} メンズ
-                            %option{value: "3"} ベビー・キッズ
-                            %option{value: "4"} インテリア・住まい・小物
-                            %option{value: "5"} 本・音楽・ゲーム
-                            %option{value: "6"} コスメ・香水・美容
-                            %option{value: "7"} 家電・スマホ・カメラ
-                            %option{value: "8"} スポーツ・レジャー
-                            %option{value: "9"} ハンドメイド
-                            %option{value: "10"} チケット
-                            %option{value: "11"} 自動車・オートバイ
-                            %option{value: "12"} その他
+                          -# = form.select :category_id, {}, {}, {class: "select-default parent-category"} do
+                          -#   %option{value: ""} ---
+                          -#   %option{value: "1"} レディース
+                          -#   %option{value: "2"} メンズ
+                          -#   %option{value: "3"} ベビー・キッズ
+                          -#   %option{value: "4"} インテリア・住まい・小物
+                          -#   %option{value: "5"} 本・音楽・ゲーム
+                          -#   %option{value: "6"} コスメ・香水・美容
+                          -#   %option{value: "7"} 家電・スマホ・カメラ
+                          -#   %option{value: "8"} スポーツ・レジャー
+                          -#   %option{value: "9"} ハンドメイド
+                          -#   %option{value: "10"} チケット
+                          -#   %option{value: "11"} 自動車・オートバイ
+                          -#   %option{value: "12"} その他
+                          = form.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
+                          .product_select-children
                   .form-group
                     = form.label "ブランド" do
                       ブランド
@@ -195,3 +206,4 @@
                     に同意したことになります。
                 = form.submit '出品する', class: 'btn-default btn-red'
                 = link_to "もどる", root_path, class: 'btn-back'
+

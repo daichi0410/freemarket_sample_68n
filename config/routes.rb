@@ -16,6 +16,8 @@ root to: "items#index"
   resources :mypage, only: [:index, :destroy]
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
     collection do
+      get 'category_children' 
+      get 'category_grandchildren'
       get 'search'
     end
   end
