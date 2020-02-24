@@ -19,9 +19,9 @@
           %catbtn 
             = link_to "カテゴリー","#",class:"show"
             .nav__left__category__inner
-              - @parents.each do |parent|
-                .nav__left__category__inner__box
-                  =parent.name
+              -# - @parents.each do |parent|
+              -#   .nav__left__category__inner__box.appear
+              -#     =parent.name
           .nav__left__category__tree
             %ul.categoryTree
         %li.nav__left__brand
