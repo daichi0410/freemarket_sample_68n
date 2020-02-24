@@ -53,8 +53,6 @@
             %td
               = @item.date
     .container__price
-      %span.price
-        = @item.name
       %span.item-tax 
         = total_price = @item.price + @item.delivery_charge
         (税込)
