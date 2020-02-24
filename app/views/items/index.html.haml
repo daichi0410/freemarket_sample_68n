@@ -93,8 +93,9 @@
               - item.images.each do |image|
                 = image_tag image.image.to_s
             .pickup__box__products__product__body
-              %h3.pickup__box__products__product__body__name 
-                =item.name
+              %h3.pickup__box__products__product__body__name
+                = link_to item_path(item.id),class:"pickup__box__products__product__body__name__show" do
+                  =item.name
               .pickup__box__products__product__body__details
                 %ul
                   %li 

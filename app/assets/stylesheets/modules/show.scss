@@ -82,7 +82,7 @@
       background: #3ccace;
       line-height: 50px;
       .container__purchace-button {
-        display: block;
+        // display: block;
         cursor: pointer;
         text-align: center;
         line-height: 50px;
@@ -139,9 +139,6 @@
             margin-right: 8px;
           }
         }
-      }
-      a {
-        float: right;
       }
     }
   }
