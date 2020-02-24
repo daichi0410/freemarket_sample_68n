@@ -59,6 +59,29 @@ body {
     list-style: none;
     display: flex;
     font-size: 12px;
+    width: 200px;
+    &__category{
+      width: 50%;
+      &__inner{
+        display: block;
+        &__box{
+          display: none;
+        }
+        &__box.appear{
+          width: 160px;
+          text-align: left;
+          background-color: white;
+          padding-left: 5px;
+          color: grey;
+        }
+      }
+    }
+    &__brand{
+      width: 50%;
+      &__btn{
+        width:100% ;
+      }
+    }
   }
   &__right {
     list-style: none;
