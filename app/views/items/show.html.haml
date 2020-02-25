@@ -4,9 +4,9 @@
       = @item.name
     .container
       .container__left--contents
-        .container__left--contents-image-large
+        .container__left--contents__image-large
           - @item.images.each do |image|
-            = image_tag image.image.to_s
+            = image_tag image.image.to_s ,class:"container__left--contents__image-large__image"    
         .container__left--contents__image-small
       %table.container__right--contents
         %tbody.container__right--contents-table
