@@ -5,14 +5,13 @@
     .container
       .container__left--contents
 
-        .container__left--contents-image-large
+        .container__left--contents__image-large
           - @images1.each do |image1|
-            = image_tag image1.image.url
-  
-
+            .container__left--contents__image-large__image
+              = image_tag (image1.image.url) ,class:"container__left--contents__image-large__image"
         .container__left--contents__image-small
           - @images2.each do |image2|
-            = image_tag image2.image.url
+            = image_tag image2.image.url,class:"container__left--contents__image-small__image"
       %table.container__right--contents
         %tbody.container__right--contents-table
           %tr
