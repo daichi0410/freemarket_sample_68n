@@ -39,12 +39,11 @@ set :repo_url, "git@github.com:daichi0410/freemarket_sample_68n.git"
 # set :ssh_options, verify_host_key: :secure
 
 # バージョンが変わっても共通で参照するディレクトリを指定
-set :linked_files, %w{config/master.key}
+# set :linked_files, %w{config/master.key}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
-
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/mercary.pem'] 

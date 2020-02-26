@@ -47,20 +47,25 @@ class ItemsController < ApplicationController
     else
       @delivery_charge = "不明"
     end
-
   end
+
 
 
   def edit
+    # @item = Item.find(params[:id])
+    @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
   end
 
   def update
+    @item = Item.find(params[:id])
+    @image = Image.new
     if @item.update(item_params)
-      redirect_to items_path
+      redirect_to item_path
       flash[:success] = "変更しました。"
     else
-      render edit
       flash[:danger] = "更新に失敗しました。"
+      binding.pry
+      render :edit
     end
   end
   
@@ -72,7 +77,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save!
       redirect_to root_path
     else

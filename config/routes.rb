@@ -24,6 +24,7 @@ root to: "items#index"
 
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
+  
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'

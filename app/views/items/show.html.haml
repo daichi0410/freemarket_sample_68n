@@ -4,9 +4,12 @@
       = @item.name
     .container
       .container__left--contents
+
         .container__left--contents-image-large
           - @images1.each do |image1|
             = image_tag image1.image.url
+  
+
         .container__left--contents__image-small
           - @images2.each do |image2|
             = image_tag image2.image.url
@@ -54,8 +57,6 @@
             %td
               = @date
     .container__price
-      %span.price
-        = @item.name
       %span.item-tax 
         = total_price = @item.price + @delivery_charge
         円

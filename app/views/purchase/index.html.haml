@@ -1,57 +1,59 @@
 .single-container__main
-  %section.single-container__main__body.buy_item-container
-    %h2.single-container__main__body__header 購入内容の確認
-    %section.buy-content.item-info
-      .buy-content__inner
-        %h3.buy-content__inner__image
-          = image_tag("シャネル.jpg")
-        %p.buy-content__inner__name.bold
-          シャネル
-          .form_for_buy
-            %p.form_for_buy--price.bold
-              ¥301 （税込）
-              %span.postage_burden.bold
-                送料込み
-            %ul.form_for_buy--available-point
-              %li.form_for_buy--available-point--parent
-                .form_for_buy--available-point--parent--children
-                  ポイントはありません
-            %ul.form_for_buy--price_table
-              %li.form_for_buy--price_table__container
-                .form_for_buy--price_table__container--cell.bold
-                  支払い金額
-                .form_for_buy--price_table__container--cell
-                  %span.item-postage-burden.bold
-                    ¥301
-            %btn-default  購入する
-    %section.buy-content.buy-user-info
-      .buy-content__inner
-        %h3 配送先
-        %adress.buy-content__inner__user-info-text
-          〒郵便番号
-          %br
-            住所
-            %br
-              ユーザ名
-        %p.buy-content__inner__user-info-text
-        = link_to '#', class: "buy-content__inner__user-info-text--change" do
-          %span 変更する
-          %i.fas.fa-angle-right
-    %section.buy-content.buy-user-info
-      .buy-content__inner
-        %h3 支払い方法
-        %p.buy-content__inner__user-info-text
-          - if @card
-            = "************#{@card.last4}"
-            %br
-            = "#{@card.exp_month}/#{@card.exp_year}"
-          - else
-            支払い情報が入力されていません。
-        %figure
-        = link_to root_path, class: "buy-content__inner__user-info-text--change" do
-          %span 変更する
-          %i.fas.fa-angle-right
+  .single-container__main__body
+    .single-container__main__body__icon
+      =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
+    .single-container__main__body__text
+      FURIMA
+  .single-container__main__header 
+    購入内容の確認
+    .single-container__main__header__inner1
+      .single-container__main__header__inner1__image
+        = image_tag("シャネル.jpg",width:"150",height:"150")
+      .single-container__main__header__inner1__name
+        シャネル
+        .single-container__main__header__inner1__name__price 
+          ¥301 （税込）送料込み
+    .single-container__main__header__inner2
+      .single-container__main__header__inner2__payment
+        支払い金額
+      .single-container__main__header__inner2__result
+        ¥301
+    .single-container__main__header__inner3
+      .single-container__main__header__inner3__text
+        支払い方法
         %br
-        %h3 配送先
-        = form_tag(action: :pay, method: :post) do
-          %button 購入する
+        (カード情報)
+      .single-container__main__header__inner3__card
+        - if @card
+          = "**** **** **** " + @default_card_information.last4
+          -# = "************#{@card.last4}"
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+        - else
+          支払い情報が入力されていません。
+        .single-container__main__header__inner3__card__change
+          = link_to new_card_path, class: "buy-content__inner__user-info-text--change" do
+            .single-container__main__header__inner3__card__change__text
+              変更する
+              =fa_icon("angle-right")
+    .single-container__main__header__inner4
+      .single-container__main__header__inner4__left
+        .single-container__main__header__inner4__left__send
+          配送先
+        .single-container__main__header__inner4__left__post
+          〒郵便番号
+        .single-container__main__header__inner4__left__address
+          住所
+        .single-container__main__header__inner4__left__user
+          ユーザ名
+      .single-container__main__header__inner4__right
+        = link_to root_path, class: "buy-content__inner__user-info-text--change" do
+          .single-container__main__header__inner4__right__change
+            変更する
+            =fa_icon("angle-right")
+    .single-container__main__header__inner5
+      = form_tag(action: :pay, method: :post,class:"single-container__main__header__inner5__btn") do
+        %button.single-container__main__header__inner5__btn 購入する
+  .single-container__main__footer

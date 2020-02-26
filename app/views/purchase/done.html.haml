@@ -1,26 +1,32 @@
-%main.deal-done-main
-  %section.deal-done-single-container.buy-item-container
-    .deal-done-attention
-      %h3
-        %i.far.fa-clock
-        %span
-          発送をお待ちください
-      %p
-        出品者からの発送通知をお待ちください
-    %h2.deal-done-head
-      購入が完了しました
+.single-container__main
+  .single-container__main__body
+    .single-container__main__body__icon
+      =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
+    .single-container__main__body__text
+      FURIMA
+  .single-container__main__header 
+    発送をお待ちください
+    %br
+    出品者からの発送通知をお待ちください
+    %br
+    購入が完了しました
     %section.deal-content.deal-item
       .deal-content__inner
         %h3.deal-item-image
           = image_tag("シャネル.jpg")
-        %p.deal-item-name
-          シャネル
-    %section.deal-content.deal-user-info.deal-item
-      .deal-content__inner
-        %p.deal-user-name
-          SHO
-    %section.deal-content.deal-user-info
-      .deal-content__inner
-        %p.deal-user-address
-          住所
-    %section.deal-content.deal-done-flow
+      .single-container__main__header__inner4__right
+        = link_to root_path, class: "buy-content__inner__user-info-text--change" do
+          .single-container__main__header__inner4__right__change
+            Topへ戻る
+    -#     %p.deal-item-name
+    -#       シャネル
+    -# %section.deal-content.deal-user-info.deal-item
+    -#   .deal-content__inner
+    -#     %p.deal-user-name
+    -#       SHO
+    -# %section.deal-content.deal-user-info
+    -#   .deal-content__inner
+    -#     %p.deal-user-address
+    -#       住所
+    -# %section.deal-content.deal-done-flow
+  .single-container__main__footer

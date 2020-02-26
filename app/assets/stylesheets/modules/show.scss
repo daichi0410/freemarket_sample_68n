@@ -19,6 +19,12 @@
         height: 420px;
         float: left;
         background: #f6f6f4;
+        &__image-large{
+          &__image{
+            width: 140px;
+            height: 140px;
+          }
+        }
       }
       &__right--contents {
         width: 300px;
