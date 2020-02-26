@@ -12,7 +12,7 @@ class PurchaseController < ApplicationController
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = 'sk_test_e7a0f0e877bba6778a2247a8'
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
@@ -23,7 +23,7 @@ class PurchaseController < ApplicationController
     @images1 = Image.where(item_id: [@item.id]).order("id ASC").limit(1)
 
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = 'sk_test_e7a0f0e877bba6778a2247a8'
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     Payjp::Charge.create(
     :amount => (@item.price * 1.1 + @item.price * 0.1).ceil,
     :customer => card.customer_id,
