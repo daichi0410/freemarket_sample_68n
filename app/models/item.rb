@@ -16,10 +16,16 @@ class Item < ApplicationRecord
 
 
   belongs_to :user
+
+  has_many :favorites, dependent: :destroy
   
   def self.search(search)
     return Item.all unless search
     Item.where('text LIKE(?)', "%#{search}%")
+  end
+
+  def favorited_by?(user) #いいねしているかどうか
+    favorites.where(user_id: user.id).exists?
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
