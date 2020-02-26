@@ -20,6 +20,12 @@ root to: "items#index"
       get 'category_grandchildren'
       get 'search'
     end
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
   end
 
   resources :images, only: [:new, :create]
@@ -33,10 +39,4 @@ root to: "items#index"
     end
   end
 
-  resources :purchase, only: [:index] do
-    collection do
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
-    end
-  end
 end
