@@ -79,7 +79,7 @@
 
     - elsif user_signed_in?
       .container__purchace
-        = link_to '購入画面へ進む',"/purchase", class: 'container__purchace-button'
+        = link_to '購入画面へ進む',item_purchase_index_path(@item), class: 'container__purchace-button'
       .container__description
         = @item.item_text
       .container__buttons
