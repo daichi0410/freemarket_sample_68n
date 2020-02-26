@@ -64,7 +64,6 @@ class ItemsController < ApplicationController
       flash[:success] = "変更しました。"
     else
       flash[:danger] = "更新に失敗しました。"
-      binding.pry
       render :edit
     end
   end
@@ -102,6 +101,12 @@ class ItemsController < ApplicationController
   end
   # Ajax通信で送られてきたデータをparamsで受け取り､childrenで孫を取得｡（実際には子カテゴリーの子になる｡childrenは子を取得するメソッド)
 
+
+
+
+
+
+  
   def search
     @Items = Item.search(params[:keyword])
   end
