@@ -4,22 +4,51 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :new,:show, :search]
 
   def index
-    @sales = Item.where(sold_out: 0)
-    @sold_outs= Item.where(sold_out: 1)
+    @sales = Item.where(sold_out: 0).limit(3)
+    @sold_outs= Item.where(sold_out: 1).limit(3)
     @parents = Category.all.order("id ASC").limit(13)
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
 
   def show
-    # 今後show機能で住所を閲覧するために残しています
-    # @address = Address.find(prefecture_id: [@item.address])
+    @address = Item.find_by(prefecture_id: [@item.prefecture_id])
 
-    # 一時的にコメントアウト
     @item = Item.find(params[:id])
-    @image = Image.new
 
+    # 全ての画像を取得
+    @imagesall = Image.where(item_id: [@item.id]).order("id ASC")
+    # １番IDが若い画像を取得
+    @images1 = Image.where(item_id: [@item.id]).order("id ASC").limit(1)
+    # それ以外の紐づいている画像を取得
+    @images2 = @imagesall.drop(1)
+
+    # 状態を判定 string型だったので文字列で判定
+    if @item.status == "1"
+      @item_status = "新品、未使用品"
+    elsif @item.status == "2"
+      @item_status = "未使用品に近い"
+    else
+      @item_status = "未入力"
     end
+
+    # 発送日までの日数を判定
+    if @item.date == "0"
+      @date = "1日〜2日で発送"
+    elsif @item.date == "1"
+      @date = "3日〜4日で発送"
+    end
+
+    # 配送料を判定(配送料を10%ととして計算)
+    if @item.delivery_charge == 1
+      @delivery_charge = (@item.price * 0.1).ceil
+    elsif @item.delivery_charge == 2
+      @delivery_charge = (@item.price * 0.1).ceil
+    else
+      @delivery_charge = "不明"
+    end
+  end
+
 
 
   def edit
@@ -88,7 +117,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name,:price, :item_text, :address, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
   end
   
 end

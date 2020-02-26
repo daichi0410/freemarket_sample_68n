@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_02_19_064900) do
   end
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_064900) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "item_text", null: false
-    t.string "address", null: false
+    t.integer "prefecture_id", null: false
     t.string "date", null: false
     t.string "brand"
     t.string "status"
