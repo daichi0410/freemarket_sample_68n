@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
   # before_action :move_to_index, except: [:index, :new,:show, :search]
 
@@ -113,15 +113,14 @@ class ItemsController < ApplicationController
   end
 
   def fav
-    item = Item.find(params[:id])
-    if item.favorited_by?(current_user)
-      fav = current_user.favorites.find_by(item_id: item.id)
+    if @item.favorited_by?(current_user)
+      fav = current_user.favorites.find_by(item_id: @item.id)
       fav.destroy
-      render json: item.id
+      render json: @item.id
     else
-      fav = current_user.favorites.new(item_id: item.id)
+      fav = current_user.favorites.new(item_id: @item.id)
       fav.save
-      render json: item.id
+      render json: @item.id
     end
   end
 
