@@ -87,11 +87,14 @@
         %h3.pickup__box__topic__title 
           = link_to "新規投稿商品", "#"
       .pickup__box__products
+
+
+
         - @sales.each do |item|
           .pickup__box__products__product
             .pickup__box__products__product__img
-              - item.images.each do |image|
-                = image_tag image.image.to_s
+              - image = item.images.first
+              = image_tag image.image.url
             .pickup__box__products__product__body
               %h3.pickup__box__products__product__body__name
                 = link_to item_path(item.id),class:"pickup__box__products__product__body__name__show" do
@@ -103,6 +106,8 @@
                   %p (税込)
                   %i.fa.fa-star.likeIcon
                   0
+
+
   %section.container
     .container__head ピックアップブランド
     .contaier__box

@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index, :new,:show, :search]
 
   def index
-    @sales = Item.where(sold_out: 0)
-    @sold_outs= Item.where(sold_out: 1)
+    @sales = Item.where(sold_out: 0).limit(3)
+    @sold_outs= Item.where(sold_out: 1).limit(3)
     @parents = Category.all.order("id ASC").limit(13)
   end
   # @sales発売中のitemを配列に代入
@@ -33,10 +33,19 @@ class ItemsController < ApplicationController
     end
 
     # 発送日までの日数を判定
+    if @item.date == "0"
+      @date = "1日〜2日で発送"
+    elsif @item.date == "1"
+      @date = "3日〜4日で発送"
+    end
+
+    # 配送料を判定(配送料を10%ととして計算)
     if @item.delivery_charge == 1
-      @delivery_charge = "1日〜2日で発送"
+      @delivery_charge = (@item.price * 0.1).ceil
     elsif @item.delivery_charge == 2
-      @delivery_charge = "3日〜4日で発送"
+      @delivery_charge = (@item.price * 0.1).ceil
+    else
+      @delivery_charge = "不明"
     end
 
   end
