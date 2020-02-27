@@ -28,6 +28,7 @@ root to: "items#index"
         get 'done', to: 'purchase#done'
       end
     end
+    resources :category, only: [:index, :show]
   end
 
   resources :images, only: [:new, :create]
