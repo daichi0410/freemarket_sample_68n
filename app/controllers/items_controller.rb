@@ -47,6 +47,9 @@ class ItemsController < ApplicationController
     else
       @delivery_charge = "不明"
     end
+
+      @comment = Comment.new
+      @comments = @item.comments.includes(:user)
   end
 
 
