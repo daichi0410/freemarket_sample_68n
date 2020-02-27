@@ -27,15 +27,17 @@
             =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
             .main-item__container-display__icon__text
               FURIMA
-          .main-item__container-display__head 商品の情報を入力
+          .main-item__container-display__head 
+            商品の情報を入力
           .main-item__container-display__form
             = form_with model: @item, local: true, class: 'form' do |form| 
               .sell-upload-box
-                %h3.sell-upload-box__head
+                .sell-upload-box__head
                   出品画像
                   %span.form-require
                     必須
-                %p 最大10枚までアップロードできます。
+                  .sell-upload-box__head__text
+                    最大10枚までアップロードできます。
                 .sell-dropbox-container
                   .sell-upload-items-container
                     .sell-upload-items.have-item-0

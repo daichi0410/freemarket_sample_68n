@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', ()=> {
     // 末尾の数に1足した数を追加する
     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
   });
-
+  
   $('.image-box').on('click', '.js-remove', function() {
     $(this).parent().remove();
     // 画像入力欄が0個にならないようにしておく
