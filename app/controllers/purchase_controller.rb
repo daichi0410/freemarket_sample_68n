@@ -30,6 +30,8 @@ class PurchaseController < ApplicationController
     :currency => 'jpy',
     )
     redirect_to action: 'done'
+    @item.sold_out = "1"
+    @item.save
   end
 
   def done
