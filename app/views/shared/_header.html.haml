@@ -14,10 +14,98 @@
             .header__inner__search__button__icon
               = image_tag("icon-search 1.png", class: "search")
     .nav
-      %ul.nav__left
-        %li.nav__left__category
-          %catbtn 
-            = link_to "カテゴリー",item_path(id:1),class:"show"
+      .nav__left
+        .nav__left__category
+          =link_to "カテゴリー", "#",class:"nav__left__category"          
+          .nav__left__category__inner
+            .nav__left__category__inner__ladies
+              =link_to "レディース", "#",class:"nav__left__category__inner__ladies" 
+              .nav__left__category__inner__ladies__tops
+                =link_to "トップス", "#" 
+                .nav__left__category__inner__ladies__tops__box
+                  Tシャツ/カットソー(半袖/袖なし)
+                  Tシャツ/カットソー(七分/長袖)
+                  シャツ/ブラウス(半袖/袖なし)
+                  シャツ/ブラウス(七分/長袖)
+                  ポロシャツ
+                  キャミソール
+                  タンクトップ
+                  ホルターネック
+                  ニット/セーター
+                  チュニック
+                  カーディガン/ボレロ
+                  アンサンブル
+                  ベスト/ジレ
+                  パーカー
+                  トレーナー/スウェット
+                  ペアトップ/チューブトップ
+                  ジャージ
+                  その他
+              .nav__left__category__inner__ladies__jacket
+                =link_to "ジャケット", "#",class:"nav__left__category__inner__ladies__jacket" 
+                .nav__left__category__inner__ladies__jacket__box
+                  テーラードジャケット
+                  ノーカラージャケット
+                  Gジャン/デニムジャケット
+                  レザージャケット
+                  ダウンジャケット
+                  ライダースジャケット
+                  ミリタリージャケット
+                  ダウンベスト
+                  ジャンパー/ブルゾン
+                  ポンチョ
+                  ロングコート
+                  トレンチコート
+                  ダッフルコート
+                  ピーコート
+                  チェスターコート
+                  モッズコート
+                  スタジャン
+                  毛皮/ファーコート
+                  スプリングコート
+                  スカジャン
+                  その他
+              .nav__left__category__inner__ladies__pants
+                =link_to "パンツ", "#",class:"nav__left__category__inner__ladies__pants" 
+                .nav__left__category__inner__ladies__pants__box
+                  デニム/ジーンズ
+                  ショートパンツ
+                  カジュアルパンツ
+                  ハーフパンツ
+                  チノパン
+                  ワークパンツ/カーゴパンツ
+                  クロップドパンツ
+                  サロペット/オーバーオール
+                  オールインワン
+                  サルエルパンツ
+                  ガウチョパンツ
+                  その他
+              .nav__left__category__inner__ladies__skirt
+                =link_to "スカート", "#",class:"nav__left__category__inner__ladies__skirt" 
+                .nav__left__category__inner__ladies__skirt__box
+                  ミニスカート
+                  ひざ丈スカート
+                  ロングスカート
+                  キュロット
+                  その他
+              .nav__left__category__inner__ladies__one
+                .nav__left__category__inner__ladies__one__box
+                  
+
+
+
+            メンズ
+            ベビー・キッズ
+            インテリア・住まい・小物
+            本・音楽・ゲーム
+            おもちゃ・ホビー・グッズ
+            コスメ・香水・美容
+            家電・スマホ・カメラ
+            スポーツ・レジャー
+            ハンドメイド
+            チケット
+            自動車・オートバイ
+            その他
           .nav__left__category__tree
             %ul.categoryTree
         %li.nav__left__brand

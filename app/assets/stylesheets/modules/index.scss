@@ -58,19 +58,40 @@ body {
     width: 200px;
     &__category{
       width: 50%;
+      height: 30px;
+      color: grey;
+      font-weight: bold;
       &__inner{
-        display: block;
-        &__box{
-          display: none;
+        width: 200px;
+        visibility: hidden;
+        background-color: #ffffff;
+        &__ladies{
+          position: relative;
+          &__tops{
+            position: absolute;
+            position: relative;
+            top: 0;
+            left: 160px;
+            width: 200px;
+            background-color: white;
+          &__box{
+            visibility: hidden;
+            position: absolute;
+            left: 160px;
+            top: 0;
+          }
+          }
+          &__tops:hover > .nav__left__category__inner__ladies__tops__box{
+            visibility: visible;
+          }
         }
-        &__box.appear{
-          width: 160px;
-          text-align: left;
-          background-color: white;
-          padding-left: 5px;
-          color: grey;
+        &__ladies:hover > .nav__left__category__inner__ladies__tops{
+          visibility: visible;
         }
       }
+    }
+    &__category:hover > .nav__left__category__inner{
+        visibility: visible;
     }
     &__brand{
       width: 50%;
