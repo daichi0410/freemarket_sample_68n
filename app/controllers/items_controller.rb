@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
   # before_action :move_to_index, except: [:index, :new,:show, :search]
 
@@ -76,6 +76,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user_id = current_user.id
     if @item.save!
       redirect_to root_path
     else
@@ -109,6 +110,18 @@ class ItemsController < ApplicationController
   
   def search
     @Items = Item.search(params[:keyword])
+  end
+
+  def fav
+    if @item.favorited_by?(current_user)
+      fav = current_user.favorites.find_by(item_id: @item.id)
+      fav.destroy
+      render json: @item.id
+    else
+      fav = current_user.favorites.new(item_id: @item.id)
+      fav.save
+      render json: @item.id
+    end
   end
 
 

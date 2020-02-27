@@ -95,6 +95,7 @@
             .pickup__box__products__product__img
               - image = item.images.first
               = image_tag image.image.url
+              -# 一時コメントアウト
             .pickup__box__products__product__body
               %h3.pickup__box__products__product__body__name
                 = link_to item_path(item.id),class:"pickup__box__products__product__body__name__show" do

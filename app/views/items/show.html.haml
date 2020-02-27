@@ -26,6 +26,7 @@
             %th カテゴリー
             %td
               = @item.category.name
+              -# 一時コメントアウト
           %tr
             %th ブランド
             %td 
@@ -49,6 +50,7 @@
           %tr
             %th 配送元地域
             %td
+              -# 一時コメントアウト
               = @address.prefecture.name
               -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
@@ -84,17 +86,30 @@
         = @item.item_text
       .container__buttons
         .container__buttons--left
-          = button_tag type: 'button', class: 'button-like' do
-            %span.like-icon いいね!
-            %span 0
+          .like
+            - if @item.favorited_by?(current_user)
+              %td
+                = link_to fav_items_items_path(@item), class: "fav", remote: true do
+                  %i.fa.fa-heart{:id => "#{@item.id}"}
+                  %span.like-icon
+                    いいね!
+                  -# %span.count
+                  -#   = @item.favorites.count.to_s
+            - else
+              %td
+                = link_to fav_items_items_path(@item), class: "fav", remote: true do
+                  %i.fa.fa-heart-o{:id => "#{@item.id}"}
+                  %span.like-icon
+                    いいね!
+                  -# %span.count
+                  -#   = @item.favorites.count.to_s
+
           = button_tag type: 'button', class: 'report' do
             %span 不適切な商品の報告
-        = link_to '#', class: 'contaqiner__buttons__right' do
-          %span.fas.fa-lock
-          %span あんしん・あんぜんへの取り組み
+          = link_to '#', class: 'contaqiner__buttons__right' do
+            %span.fas.fa-lock
+            %span あんしん・あんぜんへの取り組み
     - else 
-      
-
 
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
