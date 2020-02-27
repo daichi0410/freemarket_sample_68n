@@ -4,11 +4,10 @@ class CommentsController < ApplicationController
     item = Item.find(params[:item_id])
     if comment.save
       flash[:success] = "コメントしました"
-      redirect_to item_path(item.id)
     else
       flash[:success] = "コメントできませんでした"
-      redirect_to item_path(item.id)
     end
+    redirect_to item_path(item.id)
   end
 
   private
