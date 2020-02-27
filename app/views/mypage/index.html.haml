@@ -14,7 +14,7 @@
     やることリスト
     =fa_icon('chevron-right',class:"arrow")
    .hako__left__1__box
-    いいね！一覧
+    = link_to "いいね！一覧!", mypage_path(current_user.id), method: :get, class:"hako__left__1__box__mypage"
     =fa_icon('chevron-right',class:"arrow")
    .hako__left__1__box
     出品する

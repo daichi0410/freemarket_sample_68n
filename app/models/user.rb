@@ -18,8 +18,10 @@ class User < ApplicationRecord
 
   has_one :address
 
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :cards
+  has_many :favorites, dependent: :destroy
+  has_many :comments
 
   validates :nickname, presence: true, length: { maximum: 6 }
 end
