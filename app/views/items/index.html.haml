@@ -113,44 +113,61 @@
     .contaier__box
       .contaier__box__topic
 
-        %h3.container__box__topic__title アーカイバ
-      .container__box__products
-        .container__box__products__product
-          %figure.container__box__products__product__img
-            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .container__box__products__product__body
-            %h3.container__box__products__product__body__name product1
-            .container__box__products__product__body__details
-              %ul
-                %li 30000円
-                %li
+        - @sold_outs.each do |item|
+          .pickup__box__products__product
+            .pickup__box__products__product__img
+              - image = item.images.first
+              = image_tag image.image.url
+            .pickup__box__products__product__body
+              %h3.pickup__box__products__product__body__name
+                = link_to item_path(item.id),class:"pickup__box__products__product__body__name__show" do
+                  =item.name
+              .pickup__box__products__product__body__details
+                %ul
+                  %li 
+                  =item.price
+                  %p (税込)
                   %i.fa.fa-star.likeIcon
                   0
-              %p (税込)
-        .container__box__products__product
-          %figure.container__box__products__product__img
-            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
-          .container__box__products__product__body
-            %h3.container__box__products__product__body__name product2
-            .container__box__products__product__body__details
-              %ul
-                %li 20000円
-                %li
-                  %i.fa.fa-star.likeIcon
-                  0
-              %p (税込)
-        .productList
-          %figure.productList--img
-            = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
-          .container__box__products__product__body
-            %h3.container__box__products__product__body__name product3
-            .container__box__products__product__body__details
-              %ul
-                %li 10000円
-                %li
-                  %i.fa.fa-star.likeIcon
-                  0
-              %p (税込)
+
+      -#   %h3.container__box__topic__title アーカイバ
+      -# .container__box__products
+      -#   .container__box__products__product
+      -#     %figure.container__box__products__product__img
+      -#       = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+      -#     .container__box__products__product__body
+      -#       %h3.container__box__products__product__body__name product1
+      -#       .container__box__products__product__body__details
+      -#         %ul
+      -#           %li 30000円
+      -#           %li
+      -#             %i.fa.fa-star.likeIcon
+      -#             0
+      -#         %p (税込)
+      -#   .container__box__products__product
+      -#     %figure.container__box__products__product__img
+      -#       = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png")
+      -#     .container__box__products__product__body
+      -#       %h3.container__box__products__product__body__name product2
+      -#       .container__box__products__product__body__details
+      -#         %ul
+      -#           %li 20000円
+      -#           %li
+      -#             %i.fa.fa-star.likeIcon
+      -#             0
+      -#         %p (税込)
+      -#   .productList
+      -#     %figure.productList--img
+      -#       = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+      -#     .container__box__products__product__body
+      -#       %h3.container__box__products__product__body__name product3
+      -#       .container__box__products__product__body__details
+      -#         %ul
+      -#           %li 10000円
+      -#           %li
+      -#             %i.fa.fa-star.likeIcon
+      -#             0
+      -#         %p (税込)
                 
   %aside.app
     .app__banner
