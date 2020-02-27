@@ -1,7 +1,14 @@
 class CommentsController < ApplicationController
   def create
     comment = Comment.create(comment_params)
-    redirect_to "/items/#{comment.item.id}" # コメントと結びつくitemの詳細画面に遷移する
+    item = Item.find(params[:item_id])
+    if comment.save
+      flash[:success] = "コメントしました"
+      redirect_to item_path(item.id)
+    else
+      flash[:success] = "コメントできませんでした"
+      redirect_to item_path(item.id)
+    end
   end
 
   private
