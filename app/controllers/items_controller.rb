@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
-  before_action :set_parents, only: [:index, :show, :edit, :new, :create]
+  before_action :set_parents, only: [:index, :edit, :new, :create]
 
   def index
     @item = Item.all
@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
     @address = Item.find_by(prefecture_id: [@item.prefecture_id])
 
     @item = Item.find(params[:id])
+
+    @category = Category.find_by()
 
     # 全ての画像を取得
     @imagesall = Image.where(item_id: [@item.id]).order("id ASC")
