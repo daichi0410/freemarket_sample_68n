@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
-  # before_action :move_to_index, except: [:index, :new,:show, :search]
+  before_action :set_parents, only: [:index]
 
   def index
     @sales = Item.where(sold_out: 0).limit(3)
     @sold_outs= Item.where(sold_out: 1).limit(3)
-    @parents = Category.all.order("id ASC").limit(13)
+    # @parents = Category.all.order("id ASC").limit(13)
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入

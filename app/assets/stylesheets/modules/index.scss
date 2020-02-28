@@ -58,6 +58,9 @@ body {
     width: 200px;
     &__category{
       width: 50%;
+      .category_list {
+        display: none;
+      }
       &__inner{
         display: block;
         &__box{
@@ -84,6 +87,7 @@ body {
     display: flex;
     font-size: 12px;
   }
+
 }
 .nav a {
   padding-right: 30px;
