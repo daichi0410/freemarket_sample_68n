@@ -1,4 +1,5 @@
 class MypageController < ApplicationController
+  before_action :set_parents
 
   #マイページ作成用indexアクション
   def index    

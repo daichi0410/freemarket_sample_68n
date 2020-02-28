@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
-  before_action :set_parents, only: [:index]
+  before_action :set_parents, only: [:index, :show, :edit, :new, :create]
 
   def index
     @sales = Item.where(sold_out: 0).limit(3)
@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
+    # @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
   end
 
   def create
@@ -135,7 +135,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id, images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
   end
   
 end

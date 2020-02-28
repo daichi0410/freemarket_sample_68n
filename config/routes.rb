@@ -29,8 +29,8 @@ root to: "items#index"
       end
     end
   end
-
   resources :categories, only: [:index, :show, :new]
+
 
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
