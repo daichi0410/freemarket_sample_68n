@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_parents, only: [:index, :show, :edit, :new, :create]
 
   def index
+    @item = Item.all
     @sales = Item.where(sold_out: 0).limit(3)
     @sold_outs= Item.where(sold_out: 1).limit(3)
     # @parents = Category.all.order("id ASC").limit(13)

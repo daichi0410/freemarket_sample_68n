@@ -28,8 +28,8 @@ root to: "items#index"
         get 'done', to: 'purchase#done'
       end
     end
+    resources :categories, only: [:index, :show, :new]
   end
-  resources :categories, only: [:index, :show, :new]
 
 
   resources :images, only: [:new, :create]
