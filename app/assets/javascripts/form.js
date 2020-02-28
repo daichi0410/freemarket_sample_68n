@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][image]"
                     id="item_images_attributes_${index}_image"><br>
-                    <div class="js-remove">削除</div>
+                    <div class="js-file_group__js-remove">削除</div>
                   </div>`;
     return html;
   }

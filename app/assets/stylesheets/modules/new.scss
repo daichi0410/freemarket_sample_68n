@@ -76,11 +76,13 @@
           }
           .sell-upload-dropbox {
             position: relative;
-            min-height: 200px;
+            min-height: 260px;
             background: #f5f5f5;
             border: 1px dashed #ccc;
-            font-size: 0;
             text-align: center;
+            &__box{
+              height: 22px;
+            }
             cursor: pointer;
             .fas.fa-camera {
               display: none;
@@ -96,8 +98,8 @@
             margin-left: 0;
           }
           .sell-upload-drop-file:not(:root) {
-            width: 100%;
-            height: 162px;
+            // width: 100%;
+            // height: 162px;
             cursor: pointer;
           }
           pre {
@@ -289,4 +291,35 @@
       }
     }
   }
+}
+
+.js-file{
+  width: 100px;
+  height: 22px;
+  margin-left: 15px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.js-file_group{
+  margin-left: 15px;
+  height: 22px;
+  margin: 0 auto;
+  position: relative;
+  position: relative;
+  &__js-remove{
+  background: #3ccace;
+  border-radius: 30px;
+  // height: 0px;
+  width: 50px;
+  margin: 0 auto;
+  font-size: 10px;
+  color: black;
+  border: 1px solid #888;
+  height: 15px;
+  line-height: 15px;
+  position: absolute; 
+  top: 7px;
+  left: 370px;
+}
 }

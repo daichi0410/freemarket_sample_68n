@@ -45,14 +45,15 @@
                   .sell-upload-dropbox.have-item-0.image-box
                     = form.fields_for :images do |i|
                       = i.label :image do
-                        = i.file_field :image, class: "js-file"     
-                        .sell-upload-drop-file
-                        %pre.visible-pc
-                          ドラッグアンドドロップ
-                          %br
-                            またはクリックしてファイルをアップロード
-                          %i.fas.fa-camera
-                          %i.fas.fa-camera.fa-lg
+                        .sell-upload-dropbox__box
+                          = i.file_field :image, class: "js-file"     
+                          .sell-upload-drop-file
+                          %pre.visible-pc
+                            ドラッグアンドドロップ
+                            %br
+                              またはクリックしてファイルをアップロード
+                            %i.fas.fa-camera
+                            %i.fas.fa-camera.fa-lg
                     
               .sell-content
                 .form-group
