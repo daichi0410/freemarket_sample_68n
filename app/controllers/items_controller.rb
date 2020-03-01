@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
     @item = Item.find(params[:id])
 
-    @category = Category.find_by()
+    @category = Category.find_by(id: 1)
 
     # 全ての画像を取得
     @imagesall = Image.where(item_id: [@item.id]).order("id ASC")
@@ -80,7 +80,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
       render :new

@@ -95,7 +95,7 @@
                           -#   %option{value: "10"} チケット
                           -#   %option{value: "11"} 自動車・オートバイ
                           -#   %option{value: "12"} その他
-                          = form.collection_select :category, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
+                          = form.collection_select :category_id, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
                           .product_select-children
                   .form-group
                     = form.label "ブランド" do
