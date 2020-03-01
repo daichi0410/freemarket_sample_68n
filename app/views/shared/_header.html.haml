@@ -20,8 +20,8 @@
             = link_to "カテゴリー",item_path(id:1),class:"show"
             .category_list
               .parents_list
-                -# - @parents.each do |parent|
-                -#   = link_to "#{parent.name}", item_category_path(parent), class: "parent_category",id: "#{parent.id}, #{@item.id}"
+                - @parents.each do |parent|
+                  = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
               .children_list
               .grand_children_list
           .nav__left__category__tree

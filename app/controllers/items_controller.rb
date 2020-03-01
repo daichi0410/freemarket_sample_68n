@@ -5,9 +5,8 @@ class ItemsController < ApplicationController
 
   def index
     @item = Item.all
-    @sales = Item.where(sold_out: 0).limit(3)
+    @sales = Item.where(sold_out: 0).order("updated_at DESC").limit(3)
     @sold_outs= Item.where(sold_out: 1).limit(3)
-    # @parents = Category.all.order("id ASC").limit(13)
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
@@ -74,12 +73,13 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    # @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
+    # 親カテゴリーの取得はapplication_controllerに移動
   end
 
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
+    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -138,7 +138,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id, images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :category_id, :size, images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
   end
   
 end

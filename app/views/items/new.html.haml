@@ -95,7 +95,7 @@
                           -#   %option{value: "10"} チケット
                           -#   %option{value: "11"} 自動車・オートバイ
                           -#   %option{value: "12"} その他
-                          = form.collection_select :category_id, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
+                          = form.collection_select :id, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
                           .product_select-children
                   .form-group
                     = form.label "ブランド" do
@@ -135,7 +135,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :category_id, {}, {}, {class: "select-default"} do
+                      = form.select :delivery_id, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} らくらくメルカリ便
                         %option{value: "2"} ゆうメール
