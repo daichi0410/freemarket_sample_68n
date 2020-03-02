@@ -115,7 +115,7 @@ $(function(){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper'>
                               <div class='product_category-select'>
-                              <select class="select-default parent-category" id="grandchild_category" name="item[category_id]">
+                              <select class="select-default parent-category" id="grandchild_category2" name="item[category_id]">
                               <option value="---">---</option>
                               ${insertHTML} 
                               </select>

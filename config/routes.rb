@@ -30,6 +30,8 @@ root to: "items#index"
     end
     resources :comments, only: [:create]
   end
+  resources :categories, only: [:index, :show, :new]
+
 
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
