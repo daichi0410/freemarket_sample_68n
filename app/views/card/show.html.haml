@@ -1,8 +1,50 @@
 -# %h1 Card#show
 -# %p Find me in app/views/card/show.html.haml
-.header
- =render "shared/header"       
 
+.header
+ .header__inner
+  .header__inner__main
+   .header__inner__main__icon
+    = link_to root_path do
+     = image_tag("logo-1.png", alt: "logo")
+  .header__inner__search
+   %form{"accept-charset" => "UTF-8", action: "#", method: "get",url: "search_items_path",local: "true"}
+    %input{name: "utf8", type: "hidden"}/
+    %input.header__inner__search__input{name: "keyword", placeholder: "キーワードから探す"}/
+   %form.header__inner__search__button{action: "/", method: "post", type: "submit"}
+    %button{type: "submit"}
+     .header__inner__search__button__icon
+      = image_tag("icon-search 1.png", class: "search")
+  .nav
+   %ul.nav__left
+    %li.nav__left__category
+     %catbtn 
+      = link_to "カテゴリー",item_path(id:1),class:"show"
+      .category_container
+       .category_list
+        .parents_list
+         -# - @parents.each do |parent|
+         -#   = link_to "#{parent.name}", category_path(parent), class: "parent_category",id: "#{parent.id}"
+        .children_list
+        .grand_children_list
+
+      .nav__left__category__tree
+       %ul.categoryTree
+     %li.nav__left__brand
+      %brandbtn
+       = link_to "ブランド", "#"
+      %ul.nav__left__brand__list
+      
+   %ul.nav__right
+    -if user_signed_in?
+     %li.nav__right__login__new
+      = link_to "マイページ", mypage_index_path,class:"users"
+    -else
+     %li.nav__right__login
+      = link_to "ログイン", new_user_session_path,class:"users"
+      %li.nav__right__login__new
+      = link_to "新規会員登録", new_user_registration_path,class:"users"
+       
 .hako
  .hako__left
   .hako__left__1
