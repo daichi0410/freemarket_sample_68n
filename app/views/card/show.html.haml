@@ -7,14 +7,14 @@
    .header__inner__main__icon
     = link_to root_path do
      = image_tag("logo-1.png", alt: "logo")
-  .header__inner__search
-   %form{"accept-charset" => "UTF-8", action: "#", method: "get",url: "search_items_path",local: "true"}
-    %input{name: "utf8", type: "hidden"}/
-    %input.header__inner__search__input{name: "keyword", placeholder: "キーワードから探す"}/
-   %form.header__inner__search__button{action: "/", method: "post", type: "submit"}
-    %button{type: "submit"}
-     .header__inner__search__button__icon
-      = image_tag("icon-search 1.png", class: "search")
+   .header__inner__search
+    %form{"accept-charset" => "UTF-8", action: "#", method: "get",url: "search_items_path",local: "true"}
+     %input{name: "utf8", type: "hidden"}/
+     %input.header__inner__search__input{name: "keyword", placeholder: "キーワードから探す"}/
+    %form.header__inner__search__button{action: "/", method: "post", type: "submit"}
+     %button{type: "submit"}
+      .header__inner__search__button__icon
+       = image_tag("icon-search 1.png", class: "search")
   .nav
    %ul.nav__left
     %li.nav__left__category
