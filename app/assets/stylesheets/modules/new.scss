@@ -47,6 +47,23 @@
         font-size: 12px;
         vertical-align: top;
       }
+      &__inner2{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 40px;
+        &__head2 {
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 37px;
+          // text-align: center;
+          background: #fff;
+        }
+        &__icon2{
+          margin-right:10px;
+        }
+      }
     }
       .sell-upload-box {
         width: 620px;
