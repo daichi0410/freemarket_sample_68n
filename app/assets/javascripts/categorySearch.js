@@ -35,7 +35,7 @@ $(function() {
     // 孫カテゴリを追加する処理です 基本的に子要素と同じです！
     function buildGrandChildHTML(child){
       var html =`<a class="grand_child_category" id="${child.id}"
-                 href="/category/${child.id}">${child.name}</a>`;
+                 href="/categories/${child.id}">${child.name}</a>`;
       return html;
     }
   
