@@ -6,6 +6,7 @@
       .container__left--contents
 
         .container__left--contents__image-large
+          -# 一時コメントアウト
           - @images1.each do |image1|
             .container__left--contents__image-large__image
               = image_tag (image1.image.url) ,class:"container__left--contents__image-large__image"
@@ -58,7 +59,8 @@
               = @date
     .container__price
       %span.item-tax 
-        = total_price = @item.price + @delivery_charge
+        -# = total_price = @item.price + @delivery_charge
+        -# 一時コメントアウト
         円
         (税込)
       %span.shipping-fee
@@ -111,11 +113,26 @@
     - else 
 
   .comment
-    %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    = form_tag '/', method: :get, class: 'comment__form' do
-      = text_area_tag "comment__form__body"
-      = submit_tag "コメントする", class: 'comment__form__submit'
-    
+    - if current_user
+      %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .comment__form
+        = form_with(model: [@item, @comment], local: true) do |form|
+          = form.text_area :text, placeholder: "コメントする", rows: "2", class: 'comment__form__body'
+          = form.submit "コメントする", class: 'comment__form__submit'
+    - else
+      %strong
+        %p.comment__not ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+    .comments
+      %h4 ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              ：
+            = comment.text
+
   .prev-next-page
     .prev-page
       = link_to '#' do

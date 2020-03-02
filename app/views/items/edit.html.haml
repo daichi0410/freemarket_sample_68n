@@ -3,7 +3,10 @@
     %section.main-item
       .main-item__container
         .main-item__container-display
-          %h2.main-item__container-display--head 商品の情報を入力
+          .main-item__container-display__inner2
+            .main-item__container-display__inner2__icon2 
+              =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
+            .main-item__container-display__inner2__head2 商品の情報を入力
           .main-item__container-display--form
             = form_with model: @item, local: true, class: 'form' do |form| 
               .sell-upload-box

@@ -28,6 +28,7 @@ root to: "items#index"
         get 'done', to: 'purchase#done'
       end
     end
+    resources :comments, only: [:create]
   end
   resources :categories, only: [:index, :show, :new]
 
