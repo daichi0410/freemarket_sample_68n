@@ -6,9 +6,13 @@
     padding: 24px 40px 40px;
     background-color: white;
     font-family: 'FontAwesome';
-    .container--header {
+    &__icon{
+      margin-bottom: 50px;
+    }
+    &__header {
       font-size: 24px;
       text-align: center;
+      font-weight: bold;
     }
     .container {
       margin-top: 16px;

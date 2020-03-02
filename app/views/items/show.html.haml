@@ -1,6 +1,9 @@
 .detail
   .detail__container
-    %h1.container--header
+    .detail__container__icon
+      = link_to root_path do
+        = image_tag("logo-1.png", alt: "logo", width:"250", height:"70")
+    .detail__container__header
       = @item.name
     .container
       .container__left--contents
