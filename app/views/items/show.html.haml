@@ -7,12 +7,12 @@
 
         .container__left--contents__image-large
           -# 一時コメントアウト
-          -# -# - @images1.each do |image1|
-          -#   .container__left--contents__image-large__image
-          -#     = image_tag (image1.image.url) ,class:"container__left--contents__image-large__image"
+          - @images1.each do |image1|
+            .container__left--contents__image-large__image
+              = image_tag (image1.image.url) ,class:"container__left--contents__image-large__image"
         .container__left--contents__image-small
-          -# - @images2.each do |image2|
-          -#   = image_tag image2.image.url,class:"container__left--contents__image-small__image"
+          - @images2.each do |image2|
+            = image_tag image2.image.url,class:"container__left--contents__image-small__image"
       %table.container__right--contents
         %tbody.container__right--contents-table
           %tr
@@ -26,7 +26,7 @@
           %tr
             %th カテゴリー
             %td
-              -# = @item.category.name
+              = @item.category.name
               -# 一時コメントアウト
           %tr
             %th ブランド
@@ -52,7 +52,7 @@
             %th 配送元地域
             %td
               -# 一時コメントアウト
-              -# = @address.prefecture.name
+              = @address.prefecture.name
               -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
             %th 発送日の目安
