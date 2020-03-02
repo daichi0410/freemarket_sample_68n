@@ -1,7 +1,7 @@
 $(function() {
 
     $(".show").on("mouseover", function() {
-      $('.category_list').css('display','block');
+      $('.category_container').css('display','block');
     });
   // 子カテゴリーを追加するための処理です。
     function buildChildHTML(child){
