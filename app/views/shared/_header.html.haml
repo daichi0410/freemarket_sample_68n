@@ -22,9 +22,8 @@
             %ul.categoryTree
         %li.nav__left__brand
           %brandbtn
-            = link_to "ブランド", "#"
           %ul.nav__left__brand__list
-          
+            = link_to "ブランド", mypage_index_path
       %ul.nav__right
         -if user_signed_in?
           %li.nav__right__login__new
@@ -34,4 +33,20 @@
             = link_to "ログイン", new_user_session_path,class:"users"
           %li.nav__right__login__new
             = link_to "新規会員登録", new_user_registration_path,class:"users"
-  
+            
+            = render partial: "breadcrumbs"
+
+            //パンクズ機能
+  %ol.breadcrumb{:itemscope => "", :itemtype => "https://schema.org/BreadcrumbList"}
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "/", :itemprop => "item"}
+        %span{:itemprop => "name"} ホーム
+      %meta{:content => "1", :itemprop => "position"}/
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "mypage", :itemprop => "item"}
+        %span{:itemprop => "name"} mypage
+      %meta{:content => "2", :itemprop => "position"}/
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "#", :itemprop => "item"}
+        %span{:itemprop => "name"}ログアウト
+      %meta{:content => "3", :itemprop => "position"}/

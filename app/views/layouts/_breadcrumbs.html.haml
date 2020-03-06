@@ -1,0 +1,30 @@
+-# .breadcrumbs
+-# = breadcrumbs pretext: "555555555555",separator: " &rsaquo; ", class: "breadcrumbs-list"
+%ol.breadcrumb{:itemscope => "", :itemtype => "https://schema.org/BreadcrumbList"}
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "/", :itemprop => "item"}
+        %span{:itemprop => "name"} HOME
+      %meta{:content => "1", :itemprop => "position"}/
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "mypage", :itemprop => "item"}
+        %span{:itemprop => "name"} mypage
+      %meta{:content => "2", :itemprop => "position"}/
+    %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+      %a{:href => "#", :itemprop => "item"}
+        %span{:itemprop => "name"}ログアウト
+      %meta{:content => "3", :itemprop => "position"}/
+
+
+-# %ol.breadcrumb{:itemscope => "", :itemtype => "https://schema.org/BreadcrumbList"}
+-#   %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+-#     %a{:href => "/", :itemprop => "item"}
+-#       %span{:itemprop => "name"} ホーム
+-#     %meta{:content => "1", :itemprop => "position"}/
+-#   %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+-#     %a{:href => "mypage", :itemprop => "item"}
+-#       %span{:itemprop => "name"} mypage
+-#     %meta{:content => "2", :itemprop => "position"}/
+-#   %li{:itemprop => "itemListElement", :itemscope => "", :itemtype => "https://schema.org/ListItem"}
+-#     %a{:href => "#", :itemprop => "item"}
+-#       %span{:itemprop => "name"}ログアウト
+-#     %meta{:content => "3", :itemprop => "position"}/

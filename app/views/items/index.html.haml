@@ -1,6 +1,5 @@
 .header
-  =render "shared/header"       
-​
+  =render "shared/header" 
 .main
   %section.main__visual
     .main__visual__content
@@ -94,7 +93,7 @@
           .pickup__box__products__product
             .pickup__box__products__product__img
               - image = item.images.first
-              = image_tag image.image.url
+              -# = image_tag image.image.url
             .pickup__box__products__product__body
               %h3.pickup__box__products__product__body__name
                 = link_to item_path(item.id),class:"pickup__box__products__product__body__name__show" do

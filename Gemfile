@@ -96,3 +96,4 @@ gem "font-awesome-sass"
 gem 'active_hash'
 gem 'payjp'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem "gretel"

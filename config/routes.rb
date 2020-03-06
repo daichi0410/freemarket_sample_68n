@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
 root to: "items#index"
+# root to:"mypage#index"
   resources :mypage, only: [:index, :destroy]
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
     collection do
