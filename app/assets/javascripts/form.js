@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="item[images_attributes][${index}][image]"
                     id="item_images_attributes_${index}_image"><br>
-                    <div class="js-remove">削除</div>
+                    <div class="js-file_group__js-remove">削除</div>
                   </div>`;
     return html;
   }
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', ()=> {
     // 末尾の数に1足した数を追加する
     fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
   });
-
+  
   $('.image-box').on('click', '.js-remove', function() {
     $(this).parent().remove();
     // 画像入力欄が0個にならないようにしておく

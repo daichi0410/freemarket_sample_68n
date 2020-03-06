@@ -346,6 +346,33 @@ a{
       }
     }
   }
+
+
+  &__like{
+    height: 93%;
+    width: 668px;
+    padding: 16px;
+    margin-top: 1.5px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 56px;
+    background-color: #ffffff;
+    &--box{
+      font-size: 16px;
+      text-align: left;
+      border-top: 1px solid lightgrey;
+    }
+    a {
+      font-size: 20px;
+    }
+    p {
+      margin-top: -20px;
+      font-size: 16px;
+      border-bottom: 1px solid lightgrey;
+    }
+  }
+
+
   &__credit-card{
     height: 230px;
     width: 668px;

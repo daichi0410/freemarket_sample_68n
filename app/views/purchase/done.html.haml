@@ -13,7 +13,8 @@
     %section.deal-content.deal-item
       .deal-content__inner
         %h3.deal-item-image
-          = image_tag("シャネル.jpg")
+          - @images1.each do |image1|
+            = image_tag image1.image.url
       .single-container__main__header__inner4__right
         = link_to root_path, class: "buy-content__inner__user-info-text--change" do
           .single-container__main__header__inner4__right__change

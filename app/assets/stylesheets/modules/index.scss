@@ -149,19 +149,88 @@ body {
     width: 200px;
     &__category{
       width: 50%;
-      &__inner{
-        display: block;
-        &__box{
-          display: none;
-        }
-        &__box.appear{
-          width: 160px;
-          text-align: left;
-          background-color: white;
-          padding-left: 5px;
-          color: grey;
+      .category_container {
+        display: none;
+        .category_list {
+          display: flex;
+          
+          width: 10px;
+          font-size: 15px;
+          // padding-right: 100px;
+          // padding-top: 10px;
+          // padding-bottom: 10px;
+          .parents_list {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            z-index: 9999999999999999999;
+            .parent_category {
+              width: 180px;
+              height: 60px;
+              padding-left: 10px;
+              font-weight: normal;
+              background-color: white;
+            }
+          }
+          .children_list {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            z-index: 9999999999999999999;
+            .child_category {
+              width: 180px;
+              height: 60px;
+              padding-left: 10px;
+              font-weight: normal;
+              background-color: white;
+            }
+          }
+          .grand_children_list {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            z-index: 9999999999999999999;
+            .grand_child_category {
+              width: 180px;
+              height: 60px;
+              padding-left: 10px;
+              font-weight: normal;
+              background-color: white;
+            }
+          }
         }
       }
+      &__inner{
+        width: 200px;
+        visibility: hidden;
+        background-color: #ffffff;
+        &__ladies{
+          position: relative;
+          &__tops{
+            position: absolute;
+            position: relative;
+            top: 0;
+            left: 160px;
+            width: 200px;
+            background-color: white;
+          &__box{
+            visibility: hidden;
+            position: absolute;
+            left: 160px;
+            top: 0;
+          }
+          }
+          &__tops:hover > .nav__left__category__inner__ladies__tops__box{
+            visibility: visible;
+          }
+        }
+        &__ladies:hover > .nav__left__category__inner__ladies__tops{
+          visibility: visible;
+        }
+      }
+    }
+    &__category:hover > .nav__left__category__inner{
+        visibility: visible;
     }
     &__brand{
       width: 50%;
@@ -175,7 +244,7 @@ body {
     display: flex;
     font-size: 12px;
   }
-  
+
 }
 .nav a {
   padding-right: 30px;

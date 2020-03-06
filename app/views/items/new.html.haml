@@ -27,15 +27,17 @@
             =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
             .main-item__container-display__icon__text
               FURIMA
-          .main-item__container-display__head 商品の情報を入力
+          .main-item__container-display__head 
+            商品の情報を入力
           .main-item__container-display__form
             = form_with model: @item, local: true, class: 'form' do |form| 
               .sell-upload-box
-                %h3.sell-upload-box__head
+                .sell-upload-box__head
                   出品画像
                   %span.form-require
                     必須
-                %p 最大10枚までアップロードできます。
+                  .sell-upload-box__head__text
+                    最大10枚までアップロードできます。
                 .sell-dropbox-container
                   .sell-upload-items-container
                     .sell-upload-items.have-item-0
@@ -43,14 +45,15 @@
                   .sell-upload-dropbox.have-item-0.image-box
                     = form.fields_for :images do |i|
                       = i.label :image do
-                        = i.file_field :image, class: "js-file"     
-                        .sell-upload-drop-file
-                        %pre.visible-pc
-                          ドラッグアンドドロップ
-                          %br
-                            またはクリックしてファイルをアップロード
-                          %i.fas.fa-camera
-                          %i.fas.fa-camera.fa-lg
+                        .sell-upload-dropbox__box
+                          = i.file_field :image, class: "js-file"     
+                          .sell-upload-drop-file
+                          %pre.visible-pc
+                            -# ドラッグアンドドロップ
+                            -# %br
+                            クリックしてファイルをアップロード
+                            %i.fas.fa-camera
+                            %i.fas.fa-camera.fa-lg
                     
               .sell-content
                 .form-group
@@ -95,7 +98,7 @@
                           -#   %option{value: "10"} チケット
                           -#   %option{value: "11"} 自動車・オートバイ
                           -#   %option{value: "12"} その他
-                          = form.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
+                          = form.collection_select :id, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select" }
                           .product_select-children
                   .form-group
                     = form.label "ブランド" do
@@ -125,7 +128,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :date, {}, {}, {class: "select-default"} do
+                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} 送料込み(出品者負担)
                         %option{value: "2"} 着払い(購入者負担)
@@ -135,7 +138,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :category_id, {}, {}, {class: "select-default"} do
+                      = form.select :delivery_id, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} らくらくメルカリ便
                         %option{value: "2"} ゆうメール
@@ -155,7 +158,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
+                      = form.select :date, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} 1~2日で発送
                         %option{value: "2"} 3~4日で発送
@@ -176,11 +179,14 @@
                     %li.clearfix
                       .l-left
                         販売手数料(10%)
-                      .l-right.sell-fee -
+                      .l-right.sell-fee 
+                        %span#cmmission
+                        円
                     %li.clearfix.bold
                       .l-left 販売利益
-                    .l-right.sell-profit.bold -
-
+                    .l-right.sell-profit.bold 
+                      %span#total
+                      円
               .sell-content.sell-btn-box
                 %div
                   %p

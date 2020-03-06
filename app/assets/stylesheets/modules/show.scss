@@ -6,9 +6,13 @@
     padding: 24px 40px 40px;
     background-color: white;
     font-family: 'FontAwesome';
-    .container--header {
+    &__icon{
+      margin-bottom: 50px;
+    }
+    &__header {
       font-size: 24px;
       text-align: center;
+      font-weight: bold;
     }
     .container {
       margin-top: 16px;
@@ -20,9 +24,23 @@
         float: left;
         background: #f6f6f4;
         &__image-large{
+          margin-bottom: 10px;
           &__image{
-            width: 140px;
-            height: 140px;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+          }
+        }
+        &__image-small{
+          margin: 0 auto;
+          display: flex;
+          flex-wrap: wrap;
+          width: 210px;
+          height: 210px;
+          justify-content: center;
+          &__image{
+            width: 70px;
+            height: 70px;
           }
         }
       }
@@ -38,6 +56,8 @@
             border: 1px solid rgb( 245, 245, 245);
             padding: 8px;
             font-size: 15px;
+            width:100px
+            
             }
             td {
               border: 1px solid rgb( 245, 245, 245);
@@ -91,7 +111,6 @@
       background: #3ccace;
       line-height: 50px;
       .container__purchace-button {
-        // display: block;
         cursor: pointer;
         text-align: center;
         line-height: 50px;
@@ -114,10 +133,10 @@
     .container__buttons {
       margin-top: 16px;
       height: 32px;
-      line-height: 32px;
+      line-height: 32px;    
       &--left {
-        float: left;
-        .button-like {
+        display: flex;
+        .like {
           width: 120px;
           height: 32px;
           padding: 8px, 16px;
@@ -126,12 +145,19 @@
           border-radius: 40px;
           font-family: "FontAwesome";
           .like-icon::before {
-            content: "\f004";
             color: rgb( 204, 204, 204);
             font-size: 16px;
             margin-right: 8px;
           }
-        }
+          .fa-heart {
+            color: red;  
+          }
+          a {
+            color: black;
+            font-size: 14px;
+            font-weight: lighter;
+          }
+        }  
         .report {
           width: 180px;
           height: 32px;
@@ -147,6 +173,11 @@
             font-size: 16px;
             margin-right: 8px;
           }
+        }
+        .contaqiner__buttons__right {
+          width: 300px;
+          height: 32px;
+          color: #87cefa;
         }
       }
     }
@@ -217,7 +248,6 @@
     width: 620px;
     height: 150px;
     margin: 8px auto;
-    padding: 40px;
     background-color: white;
     .edit_form {
       margin-top: 8px;
@@ -251,7 +281,6 @@
 
   .comment {
     width: 620px;
-    height: 260px;
     margin: 8px auto;
     padding: 40px;
     background-color: white;
@@ -276,7 +305,22 @@
         background-color: rgb(170, 170, 170);
       }
     }
+    &__not {
+      line-height: 260px;
+    }
+    .comments {
+      margin: 8px auto;
+      padding: 40px;
+      background-color: white;
+      text-align: left;
+      h4 {
+        text-align: center;
+      }
+    }
+  
   }
+
+
   .prev-next-page {
     width: 700px;
     display: flex;
@@ -316,11 +360,5 @@
 
 .js-file{
   background-color:#fff;
-  text-align: center;
-}
-.js-remove{
-  width: 50px;
-  height: 100px;
-  background-color: lightgreen;
   text-align: center;
 }

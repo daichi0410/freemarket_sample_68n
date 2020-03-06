@@ -13,15 +13,26 @@ Rails.application.routes.draw do
   end
 
 root to: "items#index"
-# root to:"mypage#index"
-  resources :mypage, only: [:index, :destroy]
+
+
   resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
     collection do
       get 'category_children' 
       get 'category_grandchildren'
       get 'search'
+      get 'items/fav/:id' => 'items#fav', as: "fav_items"
+      get "users/:id/likes" => "users#likes"
     end
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
+    resources :comments, only: [:create]
   end
+  resources :categories, only: [:index, :show, :new]
+
 
   resources :images, only: [:new, :create]
   resources :test, only: [:index, :create]
@@ -34,10 +45,4 @@ root to: "items#index"
     end
   end
 
-  resources :purchase, only: [:index] do
-    collection do
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
-    end
-  end
 end

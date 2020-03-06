@@ -1,18 +1,21 @@
 .detail
   .detail__container
-    %h1.container--header
+    .detail__container__icon
+      = link_to root_path do
+        = image_tag("logo-1.png", alt: "logo", width:"250", height:"70")
+    .detail__container__header
       = @item.name
     .container
       .container__left--contents
 
-        .container__left--contents-image-large
+        .container__left--contents__image-large
+          -# 一時コメントアウト
           - @images1.each do |image1|
-            = image_tag image1.image.url
-  
-
+            .container__left--contents__image-large__image
+              = image_tag (image1.image.url) ,class:"container__left--contents__image-large__image"
         .container__left--contents__image-small
           - @images2.each do |image2|
-            = image_tag image2.image.url
+            = image_tag image2.image.url,class:"container__left--contents__image-small__image"
       %table.container__right--contents
         %tbody.container__right--contents-table
           %tr
@@ -50,6 +53,7 @@
           %tr
             %th 配送元地域
             %td
+              -# 一時コメントアウト
               = @address.prefecture.name
               -# 出品機能でactivehashを使用しているがまだmargeしていないので配送元の地域表示は未実装
           %tr
@@ -59,6 +63,7 @@
     .container__price
       %span.item-tax 
         = total_price = @item.price + @delivery_charge
+        -# 一時コメントアウト
         円
         (税込)
       %span.shipping-fee
@@ -79,29 +84,57 @@
 
     - elsif user_signed_in?
       .container__purchace
-        = link_to '購入画面へ進む',"/purchase", class: 'container__purchace-button'
+        = link_to '購入画面へ進む',item_purchase_index_path(@item), class: 'container__purchace-button'
       .container__description
         = @item.item_text
       .container__buttons
         .container__buttons--left
-          = button_tag type: 'button', class: 'button-like' do
-            %span.like-icon いいね!
-            %span 0
+          .like
+            - if @item.favorited_by?(current_user)
+              %td
+                = link_to fav_items_items_path(@item), class: "fav", remote: true do
+                  %i.fa.fa-heart{:id => "#{@item.id}"}
+                  %span.like-icon
+                    いいね!
+                  -# %span.count
+                  -#   = @item.favorites.count.to_s
+            - else
+              %td
+                = link_to fav_items_items_path(@item), class: "fav", remote: true do
+                  %i.fa.fa-heart-o{:id => "#{@item.id}"}
+                  %span.like-icon
+                    いいね!
+                  -# %span.count
+                  -#   = @item.favorites.count.to_s
+
           = button_tag type: 'button', class: 'report' do
             %span 不適切な商品の報告
-        = link_to '#', class: 'contaqiner__buttons__right' do
-          %span.fas.fa-lock
-          %span あんしん・あんぜんへの取り組み
+          = link_to '#', class: 'contaqiner__buttons__right' do
+            %span.fas.fa-lock
+            %span あんしん・あんぜんへの取り組み
     - else 
-      
-
 
   .comment
-    %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    = form_tag '/', method: :get, class: 'comment__form' do
-      = text_area_tag "comment__form__body"
-      = submit_tag "コメントする", class: 'comment__form__submit'
-    
+    - if current_user
+      %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .comment__form
+        = form_with(model: [@item, @comment], local: true) do |form|
+          = form.text_area :text, placeholder: "コメントする", rows: "2", class: 'comment__form__body'
+          = form.submit "コメントする", class: 'comment__form__submit'
+    - else
+      %strong
+        %p.comment__not ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+    .comments
+      %h4 ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              ：
+            = comment.text
+
   .prev-next-page
     .prev-page
       = link_to '#' do

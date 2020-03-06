@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_item, only: [:show, :destroy, :edit, :update, :fav]
   before_action :back_index, only: [:new, :edit, :destroy, :create, :update]
-  # before_action :move_to_index, except: [:index, :new,:show, :search]
+  before_action :set_parents, only: [:index, :edit, :new, :create]
 
   def index
-    @sales = Item.where(sold_out: 0).limit(3)
+    @item = Item.all
+    @sales = Item.where(sold_out: 0).order("updated_at DESC").limit(3)
     @sold_outs= Item.where(sold_out: 1).limit(3)
-    @parents = Category.all.order("id ASC").limit(13)
   end
   # @sales発売中のitemを配列に代入
   # @sold_outs売り切れのitemを配列に代入
@@ -15,6 +15,8 @@ class ItemsController < ApplicationController
     @address = Item.find_by(prefecture_id: [@item.prefecture_id])
 
     @item = Item.find(params[:id])
+
+    @category = Category.find_by(id: 1)
 
     # 全ての画像を取得
     @imagesall = Image.where(item_id: [@item.id]).order("id ASC")
@@ -47,6 +49,9 @@ class ItemsController < ApplicationController
     else
       @delivery_charge = "不明"
     end
+
+      @comment = Comment.new
+      @comments = @item.comments.includes(:user)
   end
 
 
@@ -64,7 +69,6 @@ class ItemsController < ApplicationController
       flash[:success] = "変更しました。"
     else
       flash[:danger] = "更新に失敗しました。"
-      binding.pry
       render :edit
     end
   end
@@ -72,12 +76,14 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
-    @category = Category.all.order("id ASC").limit(13) # categoryの親を取得
+    # 親カテゴリーの取得はapplication_controllerに移動
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    @item.user_id = current_user.id
+    # binding.pry
+    if @item.save
       redirect_to root_path
     else
       render :new
@@ -102,8 +108,26 @@ class ItemsController < ApplicationController
   end
   # Ajax通信で送られてきたデータをparamsで受け取り､childrenで孫を取得｡（実際には子カテゴリーの子になる｡childrenは子を取得するメソッド)
 
+
+
+
+
+
+  
   def search
     @Items = Item.search(params[:keyword])
+  end
+
+  def fav
+    if @item.favorited_by?(current_user)
+      fav = current_user.favorites.find_by(item_id: @item.id)
+      fav.destroy
+      render json: @item.id
+    else
+      fav = current_user.favorites.new(item_id: @item.id)
+      fav.save
+      render json: @item.id
+    end
   end
 
 
@@ -117,7 +141,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :size, :category_id,images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
+    params.require(:item).permit(:name,:price, :item_text, :prefecture_id, :date, :brand, :status, :delivery_charge, :category_id, :size, images_attributes:[:image,:id]).merge(user_id: current_user.id, sold_out: 0)
   end
   
 end

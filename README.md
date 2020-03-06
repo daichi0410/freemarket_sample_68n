@@ -115,3 +115,14 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+
+## favoritesテーブル
+| Column   | Type    | Options     |
+| -------- | ------  | ----------- |
+| user_id  | integer | null: false |
+| item_id  | integer |             |
+
+### Association
+- belongs_to :user
+- belongs_to :item

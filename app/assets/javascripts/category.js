@@ -46,7 +46,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){  // 送られてきたデータをchildrenに代入
-        console.log(children)
         var insertHTML = '';
         children.forEach(function(child){  
   // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
@@ -61,7 +60,6 @@ $(function(){
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
- 
       })
     }
   });
@@ -92,4 +90,101 @@ $(function(){
         })
     }
   });
+
+// -------------------------------------------------------------------------------------------------------
+// ここからedit用のJS
+
+  function appendOption(category){ // optionの作成
+    var html = `<option value="${category.id}">${category.name}</option>`;
+    return html;
+  }
+  function appendChidrenBox(insertHTML){ // 子セレクトボックスのhtml作成
+    var childSelectHtml = '';
+      childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper2'>
+                        <div class='product_category-select'>
+                        <select class="select-default parent-category" id="child_category2" name="item[category_id]">
+                        <option value="---">---</option>
+                        ${insertHTML}
+                        </select>
+                        <div class= 'product_select-grandchildren'>
+                        </div>
+                        </div>`;
+    $('.product_select-children').append(childSelectHtml);
+  }
+  function appendgrandChidrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
+    var grandchildrenSelectHtml = '';
+    grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper2'>
+                              <div class='product_category-select'>
+                              <select class="select-default parent-category" id="grandchild_category2" name="item[category_id]">
+                              <option value="---">---</option>
+                              ${insertHTML} 
+                              </select>
+                              <i class='fa fa-chevron-down'></i>
+                              </div>
+                              <div class= 'product_select-grandchildren'>
+                              </div>
+                              </div>`;
+    $('.product_select-grandchildren').append(grandchildrenSelectHtml);
+  }
+ 
+ 
+ 
+  $(document).on('change', '#category_select2', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
+    var productcategory = document.getElementById('category_select2').value; 
+  // ↑ productcategoryに選択した親のvalueを代入
+    if (productcategory != ''){
+ // ↑ productcategoryが空ではない場合のみAjax通信を行う｡選択肢を初期選択肢'---'に変えると､通信失敗となってしまうため｡
+      $.ajax({
+        url: '/items/category_children',
+        type: 'GET',
+        data: { productcategory: productcategory },
+        dataType: 'json'
+      })
+      .done(function(children){  // 送られてきたデータをchildrenに代入
+        console.log(children)
+        var insertHTML = '';
+        children.forEach(function(child){  
+  // forEachでchildに一つずつデータを代入｡子のoptionが一つずつ作成される｡
+          insertHTML += appendOption(child); 
+        });
+        appendChidrenBox(insertHTML); 
+        $(document).on('change', '#category_select2', function(){
+  // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
+          $('#children_wrapper2').remove(); 
+          $('#grandchildren_wrapper2').remove();
+        })
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      })
+    }
+  });
+ 
+ 
+  // document､もしくは親を指定しないと発火しない
+  $(document).on('change', '#child_category2', function(){
+    var productcategory = document.getElementById('child_category2').value;
+    if (productcategory != ''){
+    $.ajax ({
+      url: '/items/category_children',
+      type: 'GET',
+      data: { productcategory: productcategory },
+      dataType: 'json'
+    })
+    .done(function(grandchildren){
+      var insertHTML = '';
+      grandchildren.forEach(function(grandchild){
+        insertHTML += appendOption(grandchild);
+        });
+        appendgrandChidrenBox(insertHTML);  
+        $(document).on('change', '#child_category2',function(){
+          $('#grandchildren_wrapper2').remove();
+          })
+        })  
+        .fail(function(){
+          alert('カテゴリー取得に失敗しました');
+        })
+    }
+  });
+  
 });
