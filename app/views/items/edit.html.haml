@@ -94,7 +94,7 @@
                       %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = form.select :status, [["新品、未使用品", 0], ["未使用に近い", 1]], { prompt: "---" }, { class: "select-default" }
+                        = form.select :status, [["新品、未使用品", "0"], ["未使用に近い", "1"]], { prompt: "---" }, { class: "select-default" }
               .sell-content.clearfix
                 %h3.sell-sub-head 配送について
                 = link_to "?", "/jp/help_center/article/68/", class: "form-question"
@@ -109,7 +109,7 @@
                       -#   %option{value: ""} ---
                       -#   %option{value: "1"} 送料込み(出品者負担)
                       -#   %option{value: "2"} 着払い(購入者負担)
-                      = form.select :delivery_charge, [["送料込み(出品者負担)", 0], ["着払い(購入者負担)", 1]], { prompt: "---" }, { class: "select-default" }
+                      = form.select :delivery_charge, [["送料込み(出品者負担)", "0"], ["着払い(購入者負担)", "1"]], { prompt: "---" }, { class: "select-default" }
                   .form-group
                     = form.label "配送の方法" do
                       配送の方法

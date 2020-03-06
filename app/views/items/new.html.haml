@@ -128,7 +128,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :date, {}, {}, {class: "select-default"} do
+                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} 送料込み(出品者負担)
                         %option{value: "2"} 着払い(購入者負担)
@@ -158,7 +158,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
+                      = form.select :date, {}, {}, {class: "select-default"} do
                         %option{value: ""} ---
                         %option{value: "1"} 1~2日で発送
                         %option{value: "2"} 3~4日で発送
