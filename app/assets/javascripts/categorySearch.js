@@ -3,6 +3,10 @@ $(function() {
     $(".show").on("mouseover", function() {
       $('.category_container').css('display','block');
     });
+    $(".main").on("mouseover", function() {
+      $('.category_container').css('display','none');
+    });
+    
   // 子カテゴリーを追加するための処理です。
     function buildChildHTML(child){
       var html =`<a class="child_category" id="${child.id}" 

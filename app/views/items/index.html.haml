@@ -115,7 +115,8 @@
               .pickup__box__products__product__body__details
                 %ul
                   %li 
-                  =item.price
+                  = (item.price + (item.price * 0.1).ceil)
+                  円
                   %p (税込)
                   %i.fa.fa-star.likeIcon
                   0

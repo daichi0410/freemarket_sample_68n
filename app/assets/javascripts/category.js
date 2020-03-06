@@ -100,7 +100,7 @@ $(function(){
   }
   function appendChidrenBox(insertHTML){ // 子セレクトボックスのhtml作成
     var childSelectHtml = '';
-      childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper'>
+      childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper2'>
                         <div class='product_category-select'>
                         <select class="select-default parent-category" id="child_category2" name="item[category_id]">
                         <option value="---">---</option>
@@ -113,7 +113,7 @@ $(function(){
   }
   function appendgrandChidrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
     var grandchildrenSelectHtml = '';
-    grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper'>
+    grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper2'>
                               <div class='product_category-select'>
                               <select class="select-default parent-category" id="grandchild_category2" name="item[category_id]">
                               <option value="---">---</option>
@@ -148,10 +148,10 @@ $(function(){
           insertHTML += appendOption(child); 
         });
         appendChidrenBox(insertHTML); 
-        $(document).on('change', '#category_select', function(){
+        $(document).on('change', '#category_select2', function(){
   // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
-          $('#children_wrapper').remove(); 
-          $('#grandchildren_wrapper').remove();
+          $('#children_wrapper2').remove(); 
+          $('#grandchildren_wrapper2').remove();
         })
       })
       .fail(function(){
@@ -177,8 +177,8 @@ $(function(){
         insertHTML += appendOption(grandchild);
         });
         appendgrandChidrenBox(insertHTML);  
-        $(document).on('change', '#child_category',function(){
-          $('#grandchildren_wrapper').remove();
+        $(document).on('change', '#child_category2',function(){
+          $('#grandchildren_wrapper2').remove();
           })
         })  
         .fail(function(){

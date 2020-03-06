@@ -3,46 +3,57 @@
     %section.main-item
       .main-item__container
         .main-item__container-display
-          .main-item__container-display__inner2
-            .main-item__container-display__inner2__icon2 
-              =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
-            .main-item__container-display__inner2__head2 商品の情報を入力
-          .main-item__container-display--form
+          .main-item__container-display__icon 
+            =link_to image_tag("icon_brand.png",width:"40",height:"40",class:"brand"),root_path
+            .main-item__container-display__icon__text
+              FURIMA
+          .main-item__container-display__head 
+            商品の情報を入力
+          .main-item__container-display__form
             = form_with model: @item, local: true, class: 'form' do |form| 
               .sell-upload-box
-                %h3.sell-upload-box__head
+                .sell-upload-box__head
                   出品画像
                   %span.form-require
                     必須
-                %p 最大10枚までアップロードできます。
+                  .sell-upload-box__head__text
+                    最大10枚までアップロードできます。
                 .sell-dropbox-container
                   .sell-upload-items-container
                     .sell-upload-items.have-item-0
                       %ul
                   .sell-upload-dropbox.have-item-0.image-box
-                    = form.fields_for :images do |c|
-                      = c.label :image do
-                        = c.file_field :image, class: "js-file", style: "display: none;"
-                        .sell-upload-drop-file
-                        %pre.visible-pc
-                          ドラッグアンドドロップ
-                          %br
-                            またはクリックしてファイルをアップロード
-                          %i.fas.fa-camera
-                          %i.fas.fa-camera.fa-lg
+                    = form.fields_for :images do |i|
+                      = i.label :image do
+                        .sell-upload-dropbox__box
+                          = i.file_field :image, class: "js-file"     
+                          .sell-upload-drop-file
+                          %pre.visible-pc
+                            -# ドラッグアンドドロップ
+                            -# %br
+                            クリックしてファイルをアップロード
+                            %i.fas.fa-camera
+                            %i.fas.fa-camera.fa-lg
+                    
               .sell-content
                 .form-group
                   %label
                     商品名
                     %span.form-require 必須
                   %div
-                    = form.text_field :name, class: "input-default", value: "#{@item.name}", placeholder: "商品名（必須 40文字まで)"
+                    = form.text_field :name, class: "input-default", value: "", placeholder: "商品名（必須 40文字まで)"
                 .form-group
                   %label
                     商品の説明
                     %span.form-require 必須
                   %div
                     = form.text_area :item_text, class: "textarea-default", rows: 5, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+                .form-group
+                  %label
+                    サイズ
+                    %span.form-require 必須
+                  %div
+                    = form.text_field :size, placeholder: "サイズ", class: 'input-default'
               .sell-content.clearfix
                 %h3.sell-sub-head 商品の詳細
                 .sell-form-box
@@ -67,22 +78,26 @@
                           -#   %option{value: "10"} チケット
                           -#   %option{value: "11"} 自動車・オートバイ
                           -#   %option{value: "12"} その他
-                          = form.collection_select :category, @category, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select2" }
+                          = form.collection_select :id, @parents, :id, :name, { prompt: "---" }, { class: "select-default parent-category", id: "category_select2" }
                           .product_select-children
                   .form-group
                     = form.label "ブランド" do
                       ブランド
                       %span.form-require 任意
                       .select-wrap
-                        = form.text_field :brand, class: "input-default", value: "#{@item.brand}", placeholder: "例) シャネル"
-
+                        -# %i.fa.fa-angle-down
+                        -# = form.select :brand, {}, {}, {class: "select-default parent-category"}
+                        = form.text_field :brand, class: "input-default", value: "", placeholder: "例) シャネル"
                   .form-group
                     = form.label "商品の状態" do
                       商品の状態
                       %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = form.select :status, [["新品、未使用品", 0], ["未使用に近い", 1]], { prompt: "---" }, { class: "select-default" }
+                        = form.select :status, {}, {}, {class: "select-default parent-category"} do
+                          %option{value: ""} ---
+                          %option{value: "1"} 新品、未使用品
+                          %option{value: "2"} 未使用に近い
               .sell-content.clearfix
                 %h3.sell-sub-head 配送について
                 = link_to "?", "/jp/help_center/article/68/", class: "form-question"
@@ -93,14 +108,21 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :delivery_charge, [["送料込み(出品者負担)", 0], ["着払い(購入者負担)", 1]], { prompt: "---" }, { class: "select-default" }
+                      = form.select :date, {}, {}, {class: "select-default"} do
+                        %option{value: ""} ---
+                        %option{value: "1"} 送料込み(出品者負担)
+                        %option{value: "2"} 着払い(購入者負担)
                   .form-group
                     = form.label "配送の方法" do
                       配送の方法
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :size, [["らくらくメルカリ便", 0], ["ゆうメール", 1]], { prompt: "---" }, { class: "select-default" }
+                      = form.select :delivery_id, {}, {}, {class: "select-default"} do
+                        %option{value: ""} ---
+                        %option{value: "1"} らくらくメルカリ便
+                        %option{value: "2"} ゆうメール
+
 
                   .form-group
                     = form.label "発送元の地域" do
@@ -108,7 +130,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.collection_select(:address, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-default"})
+                      = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-default"})
 
                   .form-group
                     = form.label '発送までの日数' do
@@ -116,8 +138,10 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :date, [["1~2日で発送", 0], ["2~3日で発送", 1], ["4~7日で発送", 2]], { prompt: "---" }, { class: "select-default" }
-                      
+                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
+                        %option{value: ""} ---
+                        %option{value: "1"} 1~2日で発送
+                        %option{value: "2"} 3~4日で発送
               .sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
                 = link_to '?', '/jp/help_center/article/64/', class:'form-question'
@@ -131,15 +155,18 @@
                         .l-right.sell-price-input
                           ¥
                           %div
-                            = form.text_field :price, class: "input-default", id: "input-price", value: "#{@item.price}", placeholder: "例)  300 "
+                            = form.text_field :price, class: "input-default", id: "input-price", value: "", placeholder: "例)  300 "
                     %li.clearfix
                       .l-left
                         販売手数料(10%)
-                      .l-right.sell-fee -
+                      .l-right.sell-fee 
+                        %span#cmmission
+                        円
                     %li.clearfix.bold
                       .l-left 販売利益
-                    .l-right.sell-profit.bold -
-
+                    .l-right.sell-profit.bold 
+                      %span#total
+                      円
               .sell-content.sell-btn-box
                 %div
                   %p
@@ -156,4 +183,4 @@
                     に同意したことになります。
                 = form.submit '変更する', class: 'btn-default btn-red'
                 = link_to "もどる", root_path, class: 'btn-back'
-              .overlay
+
