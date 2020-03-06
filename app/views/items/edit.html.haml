@@ -41,7 +41,7 @@
                     商品名
                     %span.form-require 必須
                   %div
-                    = form.text_field :name, class: "input-default", value: "", placeholder: "商品名（必須 40文字まで)"
+                    = form.text_field :name, class: "input-default", value:  "#{@item.name}", placeholder: "商品名（必須 40文字まで)"
                 .form-group
                   %label
                     商品の説明
@@ -87,17 +87,14 @@
                       .select-wrap
                         -# %i.fa.fa-angle-down
                         -# = form.select :brand, {}, {}, {class: "select-default parent-category"}
-                        = form.text_field :brand, class: "input-default", value: "", placeholder: "例) シャネル"
+                        = form.text_field :brand, class: "input-default", value:"#{@item.brand}", placeholder: "例) シャネル"
                   .form-group
                     = form.label "商品の状態" do
                       商品の状態
                       %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = form.select :status, {}, {}, {class: "select-default parent-category"} do
-                          %option{value: ""} ---
-                          %option{value: "1"} 新品、未使用品
-                          %option{value: "2"} 未使用に近い
+                        = form.select :status, [["新品、未使用品", 0], ["未使用に近い", 1]], { prompt: "---" }, { class: "select-default" }
               .sell-content.clearfix
                 %h3.sell-sub-head 配送について
                 = link_to "?", "/jp/help_center/article/68/", class: "form-question"
@@ -108,20 +105,18 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :date, {}, {}, {class: "select-default"} do
-                        %option{value: ""} ---
-                        %option{value: "1"} 送料込み(出品者負担)
-                        %option{value: "2"} 着払い(購入者負担)
+                      -# = form.select :date, {}, {}, {class: "select-default"} do
+                      -#   %option{value: ""} ---
+                      -#   %option{value: "1"} 送料込み(出品者負担)
+                      -#   %option{value: "2"} 着払い(購入者負担)
+                      = form.select :delivery_charge, [["送料込み(出品者負担)", 0], ["着払い(購入者負担)", 1]], { prompt: "---" }, { class: "select-default" }
                   .form-group
                     = form.label "配送の方法" do
                       配送の方法
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :delivery_id, {}, {}, {class: "select-default"} do
-                        %option{value: ""} ---
-                        %option{value: "1"} らくらくメルカリ便
-                        %option{value: "2"} ゆうメール
+                      = form.select :size, [["らくらくメルカリ便", 0], ["ゆうメール", 1]], { prompt: "---" }, { class: "select-default" }
 
 
                   .form-group
@@ -138,10 +133,7 @@
                       %span.form-require 必須
                     .select-wrap
                       %i.fa.fa-angle-down
-                      = form.select :delivery_charge, {}, {}, {class: "select-default"} do
-                        %option{value: ""} ---
-                        %option{value: "1"} 1~2日で発送
-                        %option{value: "2"} 3~4日で発送
+                      = form.select :date, [["1~2日で発送", 0], ["2~3日で発送", 1], ["4~7日で発送", 2]], { prompt: "---" }, { class: "select-default" }
               .sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
                 = link_to '?', '/jp/help_center/article/64/', class:'form-question'
@@ -155,7 +147,7 @@
                         .l-right.sell-price-input
                           ¥
                           %div
-                            = form.text_field :price, class: "input-default", id: "input-price", value: "", placeholder: "例)  300 "
+                            = form.text_field :price, class: "input-default", id: "input-price", value: "#{@item.price}", placeholder: "例)  300 "
                     %li.clearfix
                       .l-left
                         販売手数料(10%)
